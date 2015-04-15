@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AirHockey.GameElement">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgBAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameElement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AirHockey.Disc">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <InheritanceLine Type="AirHockey.GameElement" FixedFromPoint="true">
+      <Path>
+        <Point X="6.25" Y="1.525" />
+        <Point X="5.875" Y="1.525" />
+        <Point X="5.875" Y="3.342" />
+        <Point X="5.5" Y="3.342" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Disc.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AirHockey.Table">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEBAAAAAAAEAAAAAAAAAgAA=</HashCode>
+      <FileName>Table.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AirHockey.Stick">
+    <Position X="8.75" Y="2.5" Width="1.5" />
+    <InheritanceLine Type="AirHockey.GameElement" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.75" Y="1.473" />
+        <Point X="9.625" Y="1.473" />
+        <Point X="9.625" Y="2.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Stick.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AirHockey.Player_Stick">
+    <Position X="6.75" Y="4" Width="1.5" />
+    <InheritanceLine Type="AirHockey.Stick" FixedFromPoint="true">
+      <Path>
+        <Point X="8.75" Y="3.188" />
+        <Point X="7.5" Y="3.188" />
+        <Point X="7.5" Y="4" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Player_Stick.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AirHockey.CPU_Stick">
+    <Position X="10.5" Y="4" Width="1.5" />
+    <InheritanceLine Type="AirHockey.Stick" FixedFromPoint="true">
+      <Path>
+        <Point X="10.25" Y="3.188" />
+        <Point X="11.25" Y="3.188" />
+        <Point X="11.25" Y="4" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CPU_Stick.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AirHockey.Score">
+    <Position X="1.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Score.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AirHockey.Scoreboard">
+    <Position X="1.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAQAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Scoreboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AirHockey.Player">
+    <Position X="1.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AirHockey.CPU">
+    <Position X="1.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAQ=</HashCode>
+      <FileName>CPU.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
