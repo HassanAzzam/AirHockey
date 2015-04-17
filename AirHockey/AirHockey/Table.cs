@@ -11,11 +11,27 @@ using Microsoft.Xna.Framework.Media;
 
 namespace AirHockey
 {
-    public class Table
+    public class Table : DrawableGameComponent
     {
         private Texture2D TEXTURE;
-        public int Length;
-        public int Width;
+        public const int LENGTH=617;
+        public const int WIDTH=296;
+        public Vector2 TableTopLeft;
         public int Friction;
+        NewGame game;
+        public Table(NewGame game) : base(game)
+        {
+            this.game = game;
+            game.Content.RootDirectory = "Content";
+            TableTopLeft = new Vector2(0, 0);
+        }
+        protected override void LoadContent()
+        {
+            TEXTURE = game.Content.Load<Texture2D>("Table");
+            base.LoadContent();
+        }
+        public void Draw(){
+            game.spriteBatch.Draw(this.TEXTURE, TableTopLeft, Color.White);
+        }
     }
 }

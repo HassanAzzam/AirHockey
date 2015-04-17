@@ -14,10 +14,15 @@ namespace AirHockey
     /// <summary>
     /// This is the main type for your game
     /// </summary>
+    /// 
     public class NewGame : Microsoft.Xna.Framework.Game
     {
+        public Table GameTable;
+        Player NewPlayer;
+        CPU NewCPU;
+        Disc NewDisc;
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        public SpriteBatch spriteBatch;
 
         public NewGame()
         {
@@ -26,7 +31,15 @@ namespace AirHockey
             graphics.IsFullScreen = false;
             graphics.PreferredBackBufferHeight = 650;
             graphics.PreferredBackBufferWidth = 700;
-            
+
+            #region Declaration
+            GameTable = new Table(this);
+            NewCPU = new CPU(this);
+            NewPlayer = new Player(this);
+            NewDisc = new Disc(this);
+            #endregion
+
+
         }
 
         /// <summary>
@@ -38,6 +51,10 @@ namespace AirHockey
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            Components.Add(GameTable);
+            Components.Add(NewDisc);
+            Components.Add(NewPlayer);
+            Components.Add(NewCPU);
 
             base.Initialize();
         }
@@ -50,7 +67,6 @@ namespace AirHockey
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
             // TODO: use this.Content to load your game content here
         }
 
@@ -83,13 +99,21 @@ namespace AirHockey
         /// This is called when the game should draw itself.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        /// 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            // TODO: Add your drawing code here
-
+            GraphicsDevice.Clear(Color.White);
+            spriteBatch.Begin();
+            DrawElements();
+            spriteBatch.End();
             base.Draw(gameTime);
+        }
+
+        private void DrawElements(){
+            GameTable.Draw();
+            NewDisc.Draw();
+            NewPlayer.PLAYER_STICK.Draw();
+            NewCPU.CPU_STICK.Draw();
         }
     }
 }

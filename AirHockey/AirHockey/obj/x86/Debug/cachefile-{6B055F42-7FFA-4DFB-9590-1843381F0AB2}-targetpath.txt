@@ -1,0 +1,4 @@
+Content\GameThumbnail.xnb
+Content\Table.xnb
+Content\Disc.xnb
+Content\Stick.xnb

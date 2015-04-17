@@ -13,17 +13,27 @@ namespace AirHockey
 {
     public class Disc : GameElement
     {
-        private int TEXTURE;
-    
-        public Point VECTOR
+        public Disc(NewGame game):base(game)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            game.Content.RootDirectory = "Content";
+            Position = new Vector2(Table.WIDTH / 2 - (float)12.5, Table.LENGTH / 2 - (float)12.5);
+        }
+
+        protected override void LoadContent()
+        {
+            TEXTURE = game.Content.Load<Texture2D>("Disc");
+            base.LoadContent();
+        }
+
+        public Vector2 VECTOR
+        {
+            get { throw new System.NotImplementedException(); }
+            set { }
+        }
+
+        public void Draw()
+        {
+            game.spriteBatch.Draw(this.TEXTURE, game.GameTable.TableTopLeft+Position, Color.White);
         }
     }
 }

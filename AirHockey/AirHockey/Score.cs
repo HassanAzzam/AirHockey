@@ -7,16 +7,22 @@ namespace AirHockey
 {
     public class Score
     {
-        private int Count;
+        private int Value;
+
+        public Score()
+        {
+            this.Value = 0;
+        }
 
         public int Points
         {
             get
             {
-                throw new System.NotImplementedException();
+                return this.Value;
             }
             set
             {
+                this.Value = value;
             }
         }
     }

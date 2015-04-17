@@ -11,9 +11,16 @@ using Microsoft.Xna.Framework.Media;
 
 namespace AirHockey
 {
-    public abstract class GameElement
+    public abstract class GameElement : DrawableGameComponent
     {
-    
+        Vector2 pos;
+        protected Texture2D TEXTURE;
+        protected NewGame game;
+        public GameElement(NewGame game) : base(game)
+    {
+        this.game = game;
+        pos = new Vector2(0, 0);
+    }
         public double Speed
         {
             get
@@ -25,18 +32,19 @@ namespace AirHockey
             }
         }
 
-        public Point Position
+        public Vector2 Position
         {
             get
             {
-                throw new System.NotImplementedException();
+               return pos;
             }
             set
             {
+               pos = value;
             }
         }
-    
-        public void Movement()
+
+        public virtual void Movement()
         {
             throw new System.NotImplementedException();
         }

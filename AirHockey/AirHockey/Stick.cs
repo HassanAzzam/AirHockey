@@ -13,6 +13,21 @@ namespace AirHockey
 {
     public abstract class Stick : GameElement
     {
-        private Texture2D TEXTURE;
+        public Stick(NewGame game)  : base(game)
+        {
+            Position = new Vector2(0, 0);
+            game.Content.RootDirectory = "Content";
+        }
+
+        protected override void LoadContent()
+        {
+            TEXTURE = game.Content.Load<Texture2D>("Stick");
+            base.LoadContent();
+        }
+
+        public void Draw()
+        {
+            game.spriteBatch.Draw(this.TEXTURE, game.GameTable.TableTopLeft + this.Position, Color.White);
+        }
     }
 }
