@@ -4,7 +4,14 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.GamerServices;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
+
 
 namespace AirHockey
 {
@@ -12,7 +19,9 @@ namespace AirHockey
     {
         public Player_Stick(NewGame game) : base(game)
         {
-            Position = new Vector2(Table.WIDTH / 2 - (float)19.5, Table.LENGTH - 70 - 39);
+            Position = new Vector2(Table.WIDTH / 2, Table.LENGTH - 70 - 39);
+            Speed = new Vector2(0, 0);
+           
         }
 
         public void LoadContent()
@@ -22,7 +31,12 @@ namespace AirHockey
 
         override public void Movement()
         {
-           
+            MouseState MOUSE = Mouse.GetState();
+            Vector2 NextPos = new Vector2(MOUSE.X,MOUSE.Y);
+            Speed = NextPos - Position;
+            base.Movement();
+            Position.Y = Math.Max(Position.Y,Table.LENGTH/2 + RADIUS);
+            base.Hit();
         }
 
     }

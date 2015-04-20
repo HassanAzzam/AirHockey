@@ -21,7 +21,8 @@ namespace AirHockey
 
         public override void Movement()
         {
-            throw new System.NotImplementedException();
+            base.Movement();
+            Position.Y = Math.Max(Position.Y, Table.LENGTH / 2 + RADIUS);
         }
     }
 }

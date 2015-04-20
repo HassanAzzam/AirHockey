@@ -8,7 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\GameThumbnail.xnb</Output>
-      <Time>2015-04-15T09:29:48.087105-07:00</Time>
+      <Time>2015-04-15T18:29:48.087105+02:00</Time>
     </Item>
     <Item>
       <Source>Table.png</Source>
@@ -17,7 +17,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Table.xnb</Output>
-      <Time>2015-04-15T11:47:23.6729384-07:00</Time>
+      <Time>2015-04-20T01:45:24.7964613+02:00</Time>
     </Item>
     <Item>
       <Source>Disc.png</Source>
@@ -26,7 +26,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Disc.xnb</Output>
-      <Time>2015-04-15T12:00:55.5289773-07:00</Time>
+      <Time>2015-04-20T01:52:33.2524682+02:00</Time>
     </Item>
     <Item>
       <Source>Stick.png</Source>
@@ -35,7 +35,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Stick.xnb</Output>
-      <Time>2015-04-15T11:59:14.4529724-07:00</Time>
+      <Time>2015-04-20T01:52:38.2004683+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -52,31 +52,31 @@
     <Assemblies>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2011-09-01T16:22:30-07:00</Value>
+        <Value>2011-09-02T01:22:30+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
-        <Value>2011-09-01T16:22:30-07:00</Value>
+        <Value>2011-09-02T01:22:30+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2011-09-01T16:22:30-07:00</Value>
+        <Value>2011-09-02T01:22:30+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2011-09-01T16:22:30-07:00</Value>
+        <Value>2011-09-02T01:22:30+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2011-09-01T16:22:30-07:00</Value>
+        <Value>2011-09-02T01:22:30+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2011-09-01T16:22:30-07:00</Value>
+        <Value>2011-09-02T01:22:30+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2015-03-25T08:53:31.3176127-07:00</Value>
+        <Value>2015-03-25T17:53:31.3176127+02:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

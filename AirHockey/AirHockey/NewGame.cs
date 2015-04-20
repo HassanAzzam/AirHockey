@@ -18,9 +18,9 @@ namespace AirHockey
     public class NewGame : Microsoft.Xna.Framework.Game
     {
         public Table GameTable;
-        Player NewPlayer;
-        CPU NewCPU;
-        Disc NewDisc;
+        public Player NewPlayer;
+        public CPU NewCPU;
+        public Disc NewDisc;
         GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
 
@@ -89,8 +89,8 @@ namespace AirHockey
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
-
-            // TODO: Add your update logic here
+            NewPlayer.Movement();
+            NewDisc.Movement();
 
             base.Update(gameTime);
         }

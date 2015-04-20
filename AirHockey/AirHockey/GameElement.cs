@@ -13,40 +13,25 @@ namespace AirHockey
 {
     public abstract class GameElement : DrawableGameComponent
     {
-        Vector2 pos;
         protected Texture2D TEXTURE;
         protected NewGame game;
         public GameElement(NewGame game) : base(game)
-    {
-        this.game = game;
-        pos = new Vector2(0, 0);
-    }
-        public double Speed
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            this.game = game;
+            Position = new Vector2(0, 0);
         }
 
-        public Vector2 Position
-        {
-            get
-            {
-               return pos;
-            }
-            set
-            {
-               pos = value;
-            }
-        }
+        public Vector2 Speed;
 
+        public Vector2 Position;
+
+        public float RADIUS;
+       
         public virtual void Movement()
         {
-            throw new System.NotImplementedException();
+            Position.X = Math.Max(Math.Min(Position.X + Speed.X, game.GameTable.TableTopLeft.X + Table.WIDTH - 15 - RADIUS), game.GameTable.TableTopLeft.X + 15 + RADIUS);
+            Position.Y = Math.Max(Math.Min(Position.Y + Speed.Y, game.GameTable.TableTopLeft.Y + Table.LENGTH - 40 - RADIUS), game.GameTable.TableTopLeft.Y + 40 + RADIUS);
+            
         }
     }
 }

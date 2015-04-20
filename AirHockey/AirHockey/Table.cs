@@ -14,10 +14,10 @@ namespace AirHockey
     public class Table : DrawableGameComponent
     {
         private Texture2D TEXTURE;
-        public const int LENGTH=617;
-        public const int WIDTH=296;
+        public const int LENGTH=579;
+        public const int WIDTH=278;
         public Vector2 TableTopLeft;
-        public int Friction;
+        public const float FRICTION=0.1F;
         NewGame game;
         public Table(NewGame game) : base(game)
         {
