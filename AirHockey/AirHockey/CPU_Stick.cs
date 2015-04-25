@@ -16,7 +16,7 @@ namespace AirHockey
 
         public void LoadContent()
         {
-            Position = new Vector2(70, Table.HEIGHT / 2);
+            Position = new Vector2(game.GameTable.TableTopLeft.X + Table.WIDTH - 70 - RADIUS, game.GameTable.TableTopLeft.Y + Table.HEIGHT / 2);
             base.LoadContent();
         }
 
