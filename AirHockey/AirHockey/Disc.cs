@@ -13,13 +13,16 @@ namespace AirHockey
 {
     public class Disc : GameElement
     {
-        Vector2 Goal = new Vector2(96, 184);
+        
+
+        private float Friction;
         public Disc(NewGame game):base(game)
         {
             RADIUS=12;
             game.Content.RootDirectory = "Content";
             Position = new Vector2(Table.WIDTH / 2, Table.LENGTH / 2);
-            Speed = new Vector2(0, 3);
+            Velocity = new Vector2(0, 0);
+            Friction = 0;
         }
 
         protected override void LoadContent()
@@ -32,21 +35,13 @@ namespace AirHockey
         {
             game.spriteBatch.Draw(this.TEXTURE, game.GameTable.TableTopLeft - new Vector2(RADIUS, RADIUS) + Position, Color.White);
         }
-
+        public void CalculateFriction()
+        {
+        }
         public override void Movement()
         {
-            if (Position.X >= Goal.X + RADIUS && Position.X <= Goal.Y - RADIUS && (Position.Y-RADIUS < 15 || Position.Y+RADIUS > Table.LENGTH - 40)) 
-                game.Exit();
-            base.Movement();
-            if (Position.X == game.GameTable.TableTopLeft.X + Table.WIDTH -15 - RADIUS || Position.X == game.GameTable.TableTopLeft.X +15 + RADIUS) 
-                Speed.X *= -0.5f;
-            if (Position.Y == game.GameTable.TableTopLeft.Y + Table.LENGTH -40 - RADIUS || Position.Y == game.GameTable.TableTopLeft.Y + RADIUS +40) 
-                Speed.Y *= -0.5f;
+            //Alaa's Part :D
 
-            double Angle = Math.Atan2((Speed.Y), (Speed.X));
-            Vector2 F = new Vector2(0,0);
-            F = new Vector2((float)(Table.FRICTION * Math.Cos(Angle)), (float)(Table.FRICTION * Math.Sin(Angle)));
-            Speed -= F;
         }
 
     }

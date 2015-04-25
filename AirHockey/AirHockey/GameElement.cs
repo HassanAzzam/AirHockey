@@ -21,16 +21,16 @@ namespace AirHockey
             Position = new Vector2(0, 0);
         }
 
-        public Vector2 Speed;
+        public Vector2 Velocity; //Speed has been changed to Velocity by Alaa
 
         public Vector2 Position;
 
-        public float RADIUS;
+        public float RADIUS,Mass; //Mass to calculate Forces
        
         public virtual void Movement()
         {
-            Position.X = Math.Max(Math.Min(Position.X + Speed.X, game.GameTable.TableTopLeft.X + Table.WIDTH - 15 - RADIUS), game.GameTable.TableTopLeft.X + 15 + RADIUS);
-            Position.Y = Math.Max(Math.Min(Position.Y + Speed.Y, game.GameTable.TableTopLeft.Y + Table.LENGTH - 40 - RADIUS), game.GameTable.TableTopLeft.Y + 40 + RADIUS);
+            Position.X = Math.Max(Math.Min(Position.X + Velocity.X, game.GameTable.TableTopLeft.X + Table.WIDTH - 15 - RADIUS), game.GameTable.TableTopLeft.X + 15 + RADIUS);
+            Position.Y = Math.Max(Math.Min(Position.Y + Velocity.Y, game.GameTable.TableTopLeft.Y + Table.LENGTH - 40 - RADIUS), game.GameTable.TableTopLeft.Y + 40 + RADIUS);
             
         }
     }

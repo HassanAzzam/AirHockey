@@ -20,7 +20,7 @@ namespace AirHockey
         public Player_Stick(NewGame game) : base(game)
         {
             Position = new Vector2(Table.WIDTH / 2, Table.LENGTH - 70 - 39);
-            Speed = new Vector2(0, 0);
+            Velocity = new Vector2(0, 0);
            
         }
 
@@ -33,7 +33,7 @@ namespace AirHockey
         {
             MouseState MOUSE = Mouse.GetState();
             Vector2 NextPos = new Vector2(MOUSE.X,MOUSE.Y);
-            Speed = NextPos - Position;
+            Velocity = NextPos - Position;
             base.Movement();
             Position.Y = Math.Max(Position.Y,Table.LENGTH/2 + RADIUS);
             base.Hit();

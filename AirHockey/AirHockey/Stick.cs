@@ -36,10 +36,10 @@ namespace AirHockey
             double Distance = (game.NewDisc.RADIUS + RADIUS) - (game.NewDisc.Position - Position).Length();
             if (Distance > 0)
             {
-                double Angle = Math.Atan2((-1 * Speed.Y), (-1 * Speed.X));
+                double Angle = Math.Atan2((-1 * Velocity.Y), (-1 * Velocity.X));
                 Position = new Vector2((float)(Position.X + Distance * Math.Cos(Angle)), (float)(Position.Y + Distance * Math.Sin(Angle)));
-                if (Speed != new Vector2(0, 0)) game.NewDisc.Speed = Speed;
-                else { game.NewDisc.Speed.X *= -1; game.NewDisc.Speed.Y *= -1; }
+                if (Velocity != new Vector2(0, 0)) game.NewDisc.Velocity = Velocity;
+                else { game.NewDisc.Velocity.X *= -1; game.NewDisc.Velocity.Y *= -1; }
             }
         }
     }
