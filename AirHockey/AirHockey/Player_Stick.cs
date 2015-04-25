@@ -20,23 +20,18 @@ namespace AirHockey
         public Player_Stick(NewGame game) : base(game)
         {
             Velocity = new Vector2(0, 0);
-           
         }
 
         public void LoadContent()
         {
-            Position = new Vector2(game.GameTable.TableTopLeft.X + Table.WIDTH - 70 - RADIUS,game.GameTable.TableTopLeft.Y + Table.HEIGHT / 2 );
+            Position = new Vector2(70, Table.HEIGHT / 2);
             base.LoadContent();
         }
 
         override public void Movement()
         {
-            MouseState MOUSE = Mouse.GetState();
-            Vector2 NextPos = new Vector2(MOUSE.X,MOUSE.Y);
-            Velocity = NextPos - Position;
+            Position.X = Math.Min(Position.X, (Table.WIDTH / 2) - RADIUS);
             base.Movement();
-            Position.X = Math.Max(Position.X, game.GameTable.TableTopLeft.X + Table.WIDTH / 2 + RADIUS);
-            base.Hit();
         }
 
     }
