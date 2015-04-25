@@ -28,9 +28,10 @@ namespace AirHockey
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            graphics.IsFullScreen = false;
-            graphics.PreferredBackBufferHeight = 650;
-            graphics.PreferredBackBufferWidth = 700;
+            graphics.PreferredBackBufferHeight = 768;
+            graphics.PreferredBackBufferWidth = 1366;
+            graphics.IsFullScreen = true;
+
 
             #region Declaration
             GameTable = new Table(this);
@@ -67,6 +68,7 @@ namespace AirHockey
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            
             // TODO: use this.Content to load your game content here
         }
 

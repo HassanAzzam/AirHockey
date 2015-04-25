@@ -30,7 +30,7 @@ namespace AirHockey
         public virtual void Movement()
         {
             Position.X = Math.Max(Math.Min(Position.X + Velocity.X, game.GameTable.TableTopLeft.X + Table.WIDTH - 15 - RADIUS), game.GameTable.TableTopLeft.X + 15 + RADIUS);
-            Position.Y = Math.Max(Math.Min(Position.Y + Velocity.Y, game.GameTable.TableTopLeft.Y + Table.LENGTH - 40 - RADIUS), game.GameTable.TableTopLeft.Y + 40 + RADIUS);
+            Position.Y = Math.Max(Math.Min(Position.Y + Velocity.Y, game.GameTable.TableTopLeft.Y + Table.HEIGHT - 40 - RADIUS), game.GameTable.TableTopLeft.Y + 40 + RADIUS);
             
         }
     }

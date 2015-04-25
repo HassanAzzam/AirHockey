@@ -11,18 +11,19 @@ namespace AirHockey
     {
         public CPU_Stick(NewGame game)  : base(game)
         {
-            Position = new Vector2(Table.WIDTH / 2 , 70);
+
         }
 
         public void LoadContent()
         {
+            Position = new Vector2(70, Table.HEIGHT / 2);
             base.LoadContent();
         }
 
         public override void Movement()
         {
             base.Movement();
-            Position.Y = Math.Min(Position.Y, Table.LENGTH / 2 - RADIUS);
+            //Position.Y = Math.Min(Position.Y, Table.HEIGHT / 2 - RADIUS);
         }
     }
 }

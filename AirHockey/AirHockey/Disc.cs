@@ -18,9 +18,8 @@ namespace AirHockey
         private float Friction;
         public Disc(NewGame game):base(game)
         {
-            RADIUS=12;
+           
             game.Content.RootDirectory = "Content";
-            Position = new Vector2(Table.WIDTH / 2, Table.LENGTH / 2);
             Velocity = new Vector2(0, 0);
             Friction = 0;
         }
@@ -28,6 +27,8 @@ namespace AirHockey
         protected override void LoadContent()
         {
             TEXTURE = game.Content.Load<Texture2D>("Disc");
+            RADIUS = TEXTURE.Width / 2;
+            Position = new Vector2(Table.WIDTH / 2, Table.HEIGHT / 2);
             base.LoadContent();
         }
 

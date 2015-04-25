@@ -14,8 +14,8 @@ namespace AirHockey
     public class Table : DrawableGameComponent
     {
         private Texture2D TEXTURE;
-        public const int LENGTH=579;
-        public const int WIDTH=278;
+        public static int HEIGHT;
+        public static int WIDTH;
         public Vector2 TableTopLeft;
         public const float FRICTION=0.1F;
         NewGame game;
@@ -28,6 +28,8 @@ namespace AirHockey
         protected override void LoadContent()
         {
             TEXTURE = game.Content.Load<Texture2D>("Table");
+            HEIGHT=TEXTURE.Height;
+            WIDTH=TEXTURE.Width;
             base.LoadContent();
         }
         public void Draw(){

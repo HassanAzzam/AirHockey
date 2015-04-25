@@ -15,7 +15,6 @@ namespace AirHockey
     {
         public Stick(NewGame game)  : base(game)
         {
-            RADIUS = 19.5F;
             Position = new Vector2(0, 0);
             game.Content.RootDirectory = "Content";
         }
@@ -23,6 +22,7 @@ namespace AirHockey
         protected override void LoadContent()
         {
             TEXTURE = game.Content.Load<Texture2D>("Stick");
+            RADIUS = TEXTURE.Width / 2;
             base.LoadContent();
         }
 

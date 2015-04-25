@@ -17,7 +17,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Table.xnb</Output>
-      <Time>2015-04-20T01:45:24.7964613+02:00</Time>
+      <Time>2015-04-25T15:40:58.8960728+02:00</Time>
     </Item>
     <Item>
       <Source>Disc.png</Source>
@@ -26,7 +26,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Disc.xnb</Output>
-      <Time>2015-04-20T01:52:33.2524682+02:00</Time>
+      <Time>2015-04-25T16:17:53.6560284+02:00</Time>
     </Item>
     <Item>
       <Source>Stick.png</Source>
@@ -35,7 +35,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Stick.xnb</Output>
-      <Time>2015-04-20T01:52:38.2004683+02:00</Time>
+      <Time>2015-04-25T16:17:42.6518141+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
