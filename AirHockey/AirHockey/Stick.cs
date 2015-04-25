@@ -34,12 +34,32 @@ namespace AirHockey
         public void Hit()
         {
             double Distance = (game.NewDisc.RADIUS + RADIUS) - (game.NewDisc.Position - Position).Length();
-            if (Distance > 0)
+            if (Distance > 0) //On Collision
             {
-                double Angle = Math.Atan2((-1 * Velocity.Y), (-1 * Velocity.X));
+                //Get angle of Velocity vector
+                double Angle = Math.Atan2((-1 * Velocity.Y), (-1 * Velocity.X)); 
+
+                //Return Disc to the last possible position before collision -Intersection between Disc and Stick is one point only-
                 Position = new Vector2((float)(Position.X + Distance * Math.Cos(Angle)), (float)(Position.Y + Distance * Math.Sin(Angle)));
-                if (Velocity != new Vector2(0, 0)) game.NewDisc.Velocity = Velocity;
-                else { game.NewDisc.Velocity.X *= -1; game.NewDisc.Velocity.Y *= -1; }
+
+                //Get angle of Disc Velocity reflection vector caused by the hit
+                Angle = Math.Atan2(( - Position.Y + game.NewDisc.Position.Y), (- Position.X + game.NewDisc.Position.X));
+
+                //Get Velocity magnitude of Stick Velocity
+                double VelocityMagnitude = Velocity.X * Velocity.X + Velocity.Y * Velocity.Y;
+                VelocityMagnitude = Math.Sqrt(VelocityMagnitude);
+
+
+                if (Velocity != new Vector2(0, 0)) //If Stick is Moving
+                {
+                    //Velocity resolution
+                    game.NewDisc.Velocity = new Vector2((float)(VelocityMagnitude * Math.Cos(Angle)), (float)(VelocityMagnitude * Math.Sin(Angle)));
+                }
+                else 
+                { 
+                    //reverse Velocity
+                    game.NewDisc.Velocity = new Vector2((float)(-1 * Math.Cos(Angle)), (float)(-1 * Math.Sin(Angle))); 
+                }
             }
         }
     }
