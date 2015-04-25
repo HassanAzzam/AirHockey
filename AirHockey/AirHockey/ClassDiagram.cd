@@ -3,7 +3,7 @@
   <Class Name="AirHockey.GameElement">
     <Position X="6.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAgBAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>ACAAAAAAAAAAAAAgBAAAAAAAAAAAAAAIAAAAAACEgAA=</HashCode>
       <FileName>GameElement.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -13,19 +13,19 @@
       <Path>
         <Point X="6.25" Y="1.525" />
         <Point X="5.875" Y="1.525" />
-        <Point X="5.875" Y="3.342" />
-        <Point X="5.5" Y="3.342" />
+        <Point X="5.875" Y="3.727" />
+        <Point X="5.5" Y="3.727" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAgIABAAAAAAAAAAAAAEAAAAAAAAAAAQ=</HashCode>
       <FileName>Disc.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AirHockey.Table">
     <Position X="11.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAEBAAAAAAAEAAAAAAAAAgAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAgQAAAABAAAEAAQAAAAIAAAAAAAAgAQ=</HashCode>
       <FileName>Table.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -39,7 +39,7 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
       <FileName>Stick.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -53,7 +53,7 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
       <FileName>Player_Stick.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -67,14 +67,14 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
       <FileName>CPU_Stick.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AirHockey.Score">
     <Position X="1.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>Score.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -88,12 +88,12 @@
   <Class Name="AirHockey.Player">
     <Position X="1.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <HashCode>CAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAEAAAAQ=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AirHockey.CPU">
-    <Position X="1.5" Y="6.5" Width="1.5" />
+    <Position X="3.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAQ=</HashCode>
       <FileName>CPU.cs</FileName>
