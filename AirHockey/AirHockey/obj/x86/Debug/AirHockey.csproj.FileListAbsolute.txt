@@ -8,3 +8,4 @@
 \\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 \\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\obj\x86\Debug\AirHockey.exe
 \\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\obj\x86\Debug\AirHockey.pdb
+\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\micross.xnb
