@@ -11,33 +11,40 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using System.Diagnostics;
 
 
 namespace AirHockey
 {
     public class Player_Stick : Stick
     {
-        public Player_Stick(NewGame game) : base(game)
+        MouseState MOUSE;
+        public Player_Stick(NewGame game)
+            : base(game)
         {
             Velocity = new Vector2(0, 0);
-           
         }
 
         public void LoadContent()
         {
-            Position = new Vector2(game.GameTable.TableTopLeft.X + Table.WIDTH - 70 - RADIUS,game.GameTable.TableTopLeft.Y + Table.HEIGHT / 2 );
+            Mouse.SetPosition((int)(game.GameTable.TableTopLeft.X + 70), (int)(game.GameTable.TableTopLeft.Y + Table.HEIGHT / 2));
+            Position = new Vector2((int)(game.GameTable.TableTopLeft.X + 70), (int)(game.GameTable.TableTopLeft.Y + Table.HEIGHT / 2));
             base.LoadContent();
         }
 
         override public void Movement()
         {
-            MouseState MOUSE = Mouse.GetState();
-            Vector2 NextPos = new Vector2(MOUSE.X,MOUSE.Y);
-            Velocity = NextPos - Position;
+            MOUSE = Mouse.GetState();//get Mouse Position
+            Vector2 CurrentMousePostion = new Vector2(MOUSE.X, MOUSE.Y);
+            Velocity = CurrentMousePostion - Position;
             base.Movement();
-            Position.X = Math.Max(Position.X, game.GameTable.TableTopLeft.X + Table.WIDTH / 2 + RADIUS);
-            base.Hit();
-        }
+            Position.X = Math.Min(Position.X, (Table.WIDTH / 2) - RADIUS);//Limit Stick Postion
+            Mouse.SetPosition((int)Position.X, (int)Position.Y);// Put Cursor on the stick
 
+            if (this.Intersects(ref game.NewDisc))
+            {
+                this.Hit(ref game.NewDisc);
+            }
+        }
     }
 }
