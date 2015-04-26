@@ -35,16 +35,6 @@ namespace AirHockey
         override public void Movement()
         {
             MOUSE = Mouse.GetState();//get Mouse Position
-            #region SetCursorInTheMiddle
-            if (MOUSE.X >= 1280 || MOUSE.X <= -83)
-            {
-                Mouse.SetPosition(683, MOUSE.Y);
-            }
-            if (MOUSE.Y >= 670 || MOUSE.Y <= -96)
-            {
-                Mouse.SetPosition(MOUSE.X, 384);
-            }
-            #endregion 
             Vector2 CurrentMousePosition = new Vector2(MOUSE.X, MOUSE.Y);
             Velocity = (CurrentMousePosition - PreviousMousePostion);
             PreviousMousePostion = CurrentMousePosition;
