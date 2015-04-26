@@ -37,15 +37,6 @@
       <Output>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Stick.xnb</Output>
       <Time>2015-04-25T16:17:42.6518141+02:00</Time>
     </Item>
-    <Item>
-      <Source>micross.spritefont</Source>
-      <Name>micross</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\micross.xnb</Output>
-      <Time>2015-04-26T01:22:41.7116496+02:00</Time>
-    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{6B055F42-7FFA-4DFB-9590-1843381F0AB2}</ContentProjectGUID>

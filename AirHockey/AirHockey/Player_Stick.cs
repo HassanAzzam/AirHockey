@@ -11,40 +11,47 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
-using System.Diagnostics;
 
 
 namespace AirHockey
 {
     public class Player_Stick : Stick
     {
+        Vector2 PreviousMousePostion;
         MouseState MOUSE;
-        public Player_Stick(NewGame game)
-            : base(game)
+        public Player_Stick(NewGame game) : base(game)
         {
             Velocity = new Vector2(0, 0);
+            PreviousMousePostion = new Vector2(MOUSE.X, MOUSE.Y);
         }
 
         public void LoadContent()
         {
-            Mouse.SetPosition((int)(game.GameTable.TableTopLeft.X + 70), (int)(game.GameTable.TableTopLeft.Y + Table.HEIGHT / 2));
-            Position = new Vector2((int)(game.GameTable.TableTopLeft.X + 70), (int)(game.GameTable.TableTopLeft.Y + Table.HEIGHT / 2));
+            Mouse.SetPosition(70, Table.HEIGHT / 2);
+            Position = new Vector2(70, Table.HEIGHT / 2);
             base.LoadContent();
         }
 
         override public void Movement()
         {
             MOUSE = Mouse.GetState();//get Mouse Position
-            Vector2 CurrentMousePostion = new Vector2(MOUSE.X, MOUSE.Y);
-            Velocity = CurrentMousePostion - Position;
+            #region SetCursorInTheMiddle
+            if (MOUSE.X >= 1280 || MOUSE.X <= -83)
+            {
+                Mouse.SetPosition(683, MOUSE.Y);
+            }
+            if (MOUSE.Y >= 670 || MOUSE.Y <= -96)
+            {
+                Mouse.SetPosition(MOUSE.X, 384);
+            }
+            #endregion 
+            Vector2 CurrentMousePosition = new Vector2(MOUSE.X, MOUSE.Y);
+            Velocity = (CurrentMousePosition - PreviousMousePostion);
+            PreviousMousePostion = CurrentMousePosition;
             base.Movement();
             Position.X = Math.Min(Position.X, (Table.WIDTH / 2) - RADIUS);//Limit Stick Postion
-            Mouse.SetPosition((int)Position.X, (int)Position.Y);// Put Cursor on the stick
-
-            if (this.Intersects(ref game.NewDisc))
-            {
-                this.Hit(ref game.NewDisc);
-            }
+            base.Hit();
         }
+
     }
 }
