@@ -31,8 +31,8 @@ namespace AirHockey
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            graphics.PreferredBackBufferHeight = 768;
-            graphics.PreferredBackBufferWidth = 1366;
+            graphics.PreferredBackBufferHeight = 650;
+            graphics.PreferredBackBufferWidth = 1200;
             graphics.IsFullScreen = true;
 
 
