@@ -42,8 +42,6 @@ namespace AirHockey
         public override void Movement()
         {
             //Alaa's Part :D
-            // l Code da bs ll tgroba 3dl feh ya Alaa :D
-            Position += Velocity;
             base.Movement();
             if (Position.X == Table.WIDTH - RADIUS - 20)
             {

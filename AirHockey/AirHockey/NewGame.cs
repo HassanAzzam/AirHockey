@@ -31,10 +31,10 @@ namespace AirHockey
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            graphics.PreferredBackBufferHeight = 700;
-            graphics.PreferredBackBufferWidth = 1200;
-            graphics.IsFullScreen = false;
-            IsMouseVisible = true;
+            graphics.PreferredBackBufferHeight = 768;
+            graphics.PreferredBackBufferWidth = 1366;
+            graphics.IsFullScreen = true;
+
 
             #region Declaration
             Paused = false;
@@ -99,10 +99,6 @@ namespace AirHockey
                 this.Exit();
             if (Keyboard.GetState().IsKeyDown(Keys.Escape)&&STOP.Elapsed.TotalSeconds>=1) { 
                 Paused = !Paused;
-                if (!Paused)
-                {
-                    Mouse.SetPosition((int)NewPlayer.PLAYER_STICK.Position.X, (int)NewPlayer.PLAYER_STICK.Position.Y);
-                }
                 STOP.Restart();
             }
             if (!Paused)
