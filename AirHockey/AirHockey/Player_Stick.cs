@@ -18,29 +18,33 @@ namespace AirHockey
 {
     public class Player_Stick : Stick
     {
-        Vector2 PreviousMousePostion;
+        MouseState MOUSE;
         public Player_Stick(NewGame game)
             : base(game)
         {
             Velocity = new Vector2(0, 0);
-            PreviousMousePostion = new Vector2(0, 0);
         }
 
         public void LoadContent()
         {
-            Position = new Vector2(game.GameTable.TableTopLeft.X + Table.WIDTH - 70 - RADIUS, game.GameTable.TableTopLeft.Y + Table.HEIGHT / 2);
+            Mouse.SetPosition((int)(game.GameTable.TableTopLeft.X + 70), (int)(game.GameTable.TableTopLeft.Y + Table.HEIGHT / 2));
+            Position = new Vector2((int)(game.GameTable.TableTopLeft.X + 70), (int)(game.GameTable.TableTopLeft.Y + Table.HEIGHT / 2));
             base.LoadContent();
         }
 
         override public void Movement()
         {
-            MouseState MOUSE = Mouse.GetState();
-            Vector2 CurrentMousePosition = new Vector2(MOUSE.X, MOUSE.Y);
-            Velocity = (CurrentMousePosition - PreviousMousePostion);
+            MOUSE = Mouse.GetState();//get Mouse Position
+            Vector2 CurruntPostion = new Vector2(MOUSE.X, MOUSE.Y);
+            Velocity = CurruntPostion - Position;
             base.Movement();
-            PreviousMousePostion = CurrentMousePosition;
-            Position.X = Math.Min(Position.X, (Table.WIDTH / 2) - RADIUS);
-            base.Hit();
+            Position.X = Math.Min(Position.X, (Table.WIDTH / 2) - RADIUS);//Limit Stick Postion
+            Mouse.SetPosition((int)Position.X, (int)Position.Y);// Put Cursor on the stick
+
+            if (this.Intersects(ref game.NewDisc))
+            {
+                this.Hit(ref game.NewDisc);
+            }
         }
     }
 }
