@@ -35,8 +35,8 @@ namespace AirHockey
         override public void Movement()
         {
             MOUSE = Mouse.GetState();//get Mouse Position
-            Vector2 CurruntPostion = new Vector2(MOUSE.X, MOUSE.Y);
-            Velocity = CurruntPostion - Position;
+            Vector2 CurrentMousePostion = new Vector2(MOUSE.X, MOUSE.Y);
+            Velocity = CurrentMousePostion - Position;
             base.Movement();
             Position.X = Math.Min(Position.X, (Table.WIDTH / 2) - RADIUS);//Limit Stick Postion
             Mouse.SetPosition((int)Position.X, (int)Position.Y);// Put Cursor on the stick
