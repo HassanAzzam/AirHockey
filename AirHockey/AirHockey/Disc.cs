@@ -43,6 +43,11 @@ namespace AirHockey
         {
             //Alaa's Part :D
             base.Movement();
+            if (game.GameTable.Goal(Position.X, Position.Y))
+            {
+                return;
+            }            
+            
             if (Position.X == Table.WIDTH - RADIUS - 20)
             {
                 Velocity.X *= -1;
