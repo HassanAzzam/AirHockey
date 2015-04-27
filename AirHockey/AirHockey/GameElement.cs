@@ -27,11 +27,15 @@ namespace AirHockey
 
         public float RADIUS,Mass; //Mass to calculate Forces
        
-        public virtual void Movement()
+        public virtual void Move()
         {
-            Position.X = Math.Max(Math.Min(Position.X + Velocity.X, game.GameTable.TableTopLeft.X + Table.WIDTH - 20 - RADIUS), game.GameTable.TableTopLeft.X + 20 + RADIUS);
-            Position.Y = Math.Max(Math.Min(Position.Y + Velocity.Y, game.GameTable.TableTopLeft.Y + Table.HEIGHT - 20 - RADIUS), game.GameTable.TableTopLeft.Y + 20 + RADIUS);
-            
+          
+        }
+
+        protected void BoundPositionInTable(GameElement Element, Vector2 _Velocity)
+        {
+            Element.Position.X = Math.Max(Math.Min(Element.Position.X + _Velocity.X, game.GameTable.TableTopLeft.X + Table.WIDTH - 20 - Element.RADIUS), game.GameTable.TableTopLeft.X + 20 + Element.RADIUS);
+            Element.Position.Y = Math.Max(Math.Min(Element.Position.Y + _Velocity.Y, game.GameTable.TableTopLeft.Y + Table.HEIGHT - 20 - Element.RADIUS), game.GameTable.TableTopLeft.Y + 20 + Element.RADIUS);
         }
     }
 }

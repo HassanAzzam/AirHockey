@@ -32,18 +32,18 @@ namespace AirHockey
             base.LoadContent();
         }
 
-        override public void Movement()
+        override public void Move()
         {
             MOUSE = Mouse.GetState();//get Mouse Position
-            Vector2 CurrentMousePostion = new Vector2(MOUSE.X, MOUSE.Y);
-            Velocity = CurrentMousePostion - Position;
-            base.Movement();
+            Vector2 CurrentMousePosition = new Vector2(MOUSE.X, MOUSE.Y);
+            Velocity = CurrentMousePosition - Position;
+            BoundPositionInTable(this, Velocity);
             Position.X = Math.Min(Position.X, (Table.WIDTH / 2) - RADIUS);//Limit Stick Postion
-            Mouse.SetPosition((int)Position.X, (int)Position.Y);// Put Cursor on the stick
             if (this.Intersects(ref game.NewDisc))
             {
                 this.Hit(ref game.NewDisc);
             }
+            Mouse.SetPosition((int)Position.X, (int)Position.Y);// Put Cursor on the stick
         }
     }
 }

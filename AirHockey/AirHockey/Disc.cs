@@ -39,15 +39,11 @@ namespace AirHockey
         public void CalculateFriction()
         {
         }
-        public override void Movement()
+        public override void Move()
         {
             //Alaa's Part :D
-            base.Movement();
-            if (game.GameTable.Goal(Position.X, Position.Y))
-            {
-                return;
-            }            
-            
+            // Velocity *= 0.9f;// Velocity.Y -= 0.1f;
+            BoundPositionInTable(this, Velocity);
             if (Position.X == Table.WIDTH - RADIUS - 20)
             {
                 Velocity.X *= -1;
