@@ -28,7 +28,7 @@ namespace AirHockey
         {
             TEXTURE = game.Content.Load<Texture2D>("Disc");
             RADIUS = TEXTURE.Width / 2;
-            Position = new Vector2(Table.WIDTH / 4, Table.HEIGHT / 2);
+            Position = new Vector2(Table.WIDTH / 4,20);
             base.LoadContent();
         }
 
@@ -43,6 +43,7 @@ namespace AirHockey
         {
             //Alaa's Part :D
             // Velocity *= 0.9f;// Velocity.Y -= 0.1f;
+            //Velocity = new Vector2(Velocity.X / Math.Abs(Velocity.X), Velocity.Y / Math.Abs(Velocity.Y));
             BoundPositionInTable(this, Velocity);
             if (Position.X == Table.WIDTH - RADIUS - 20)
             {
