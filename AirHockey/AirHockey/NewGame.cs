@@ -33,9 +33,8 @@ namespace AirHockey
             Content.RootDirectory = "Content";
             graphics.PreferredBackBufferHeight = 650;
             graphics.PreferredBackBufferWidth = 1200;
-            graphics.IsFullScreen = false;
+            graphics.IsFullScreen = true;
             IsMouseVisible = true;
-
 
             #region Declaration
             Paused = false;
@@ -46,7 +45,6 @@ namespace AirHockey
             NewPlayer = new Player(this);
             NewDisc = new Disc(this);
             #endregion
-
 
         }
 
@@ -98,7 +96,8 @@ namespace AirHockey
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
-            if (Keyboard.GetState().IsKeyDown(Keys.Escape)&&STOP.Elapsed.TotalSeconds>=1) { 
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape)&&STOP.Elapsed.TotalSeconds>=1) 
+            { 
                 Paused = !Paused;
                 if(!Paused)
                 {

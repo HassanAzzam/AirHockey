@@ -40,7 +40,6 @@ namespace AirHockey
             base.Movement();
             Position.X = Math.Min(Position.X, (Table.WIDTH / 2) - RADIUS);//Limit Stick Postion
             Mouse.SetPosition((int)Position.X, (int)Position.Y);// Put Cursor on the stick
-
             if (this.Intersects(ref game.NewDisc))
             {
                 this.Hit(ref game.NewDisc);
