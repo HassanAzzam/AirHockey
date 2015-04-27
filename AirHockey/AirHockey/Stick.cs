@@ -42,29 +42,53 @@ namespace AirHockey
         {
             double Distance = (DISC.RADIUS + RADIUS) - (DISC.Position - Position).Length();
 
-            MintainCollision(ref DISC, ref Distance);
+            MintainCollision(ref DISC);
 
             ChangeDiscVelocity(ref DISC);
         }
 
-        private void MintainCollision(ref Disc DISC, ref double Distance)
+        private void MintainCollision(ref Disc DISC)
         {
-
             Vector2 DISC_POSITION = DISC.Position;
+            Vector2 IntersectingPoint;
+            double Distance;
 
-            //Get angle of Disc Velocity vector
-            double Angle = Math.Atan2(-1 * DISC.Velocity.Y, -1 * DISC.Velocity.X);
+            //Vector from Disc Position to Stick Center
+            Vector2 STICK_CENTER = Position - DISC.Position; 
+            double StickCenterMagnitude = STICK_CENTER.X * STICK_CENTER.X + STICK_CENTER.Y * STICK_CENTER.Y;
+            StickCenterMagnitude = Math.Sqrt(StickCenterMagnitude);
 
-            //Return Disc to the last possible position before collision -Intersection between Disc and Stick is one point only-
-            DISC.Position = new Vector2((float)(DISC.Position.X + Distance * Math.Cos(Angle)), (float)(DISC.Position.Y + Distance * Math.Sin(Angle)));
+            double RadiusSum = RADIUS + DISC.RADIUS;
+            double Length_AngleRatio;
+
+            //Get angle of Disc reversed Velocity vector
+            double Angle_DiscVelocity = Math.Atan2(-1 * DISC.Velocity.Y, -1 * DISC.Velocity.X) * (180 / Math.PI);
+
+            //Get angle of StickCenter Vector
+            double Angle_StickCenter = Math.Atan2(STICK_CENTER.Y, STICK_CENTER.X) * (180 / Math.PI);
+
+            //Get relation between Triangle Lengths and Sin of Angles
+            Length_AngleRatio = RadiusSum / Math.Sin((Angle_StickCenter - Angle_DiscVelocity) * (Math.PI/180));
+
+            //Get Desired Point Angle
+            double Angle_IntersectingPoint = (StickCenterMagnitude / Length_AngleRatio);
+            Angle_IntersectingPoint = Math.Asin(Angle_IntersectingPoint) * (180 / Math.PI);
+
+            //Get Distance between Disc Position and desired point
+            Distance = Length_AngleRatio * Math.Sin(( 180 - (Angle_StickCenter - Angle_DiscVelocity) - Angle_IntersectingPoint)* Math.PI/180);
+
+            //Get Desired Point
+            IntersectingPoint = new Vector2((float)(DISC.Position.X + Distance * Math.Cos(Angle_DiscVelocity * (Math.PI / 180))), (float)(DISC.Position.Y + Distance * Math.Sin(Angle_DiscVelocity * (Math.PI / 180))));
+            
+            //Return Disc to the Intersecting Point before collision -Intersection between Disc and Stick is one point only-
+            DISC.Position = IntersectingPoint;
             BoundPositionInTable(DISC, new Vector2(0, 0));
 
-            if (DISC_POSITION == DISC.Position) //if Collision stills, Move Stick instead
+            if (DISC_POSITION == DISC.Position) //if Collision stills and Disc stills in his Position, Move Stick instead
             {
-                Angle = Math.Atan2(-1 * Velocity.Y, -1 * Velocity.X);
-                Position = new Vector2((float)(Position.X + Distance * Math.Cos(Angle)), (float)(Position.Y + Distance * Math.Sin(Angle)));
+                double Angle = Math.Atan2(-1 * Velocity.Y, -1 * Velocity.X);
+                Position = new Vector2((float)(Position.X + Distance * Math.Cos(Angle * (Math.PI / 180))), (float)(Position.Y + Distance * Math.Sin(Angle * (Math.PI / 180))));
             }
-
         }
 
         private void ChangeDiscVelocity(ref Disc DISC)

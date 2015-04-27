@@ -28,7 +28,7 @@ namespace AirHockey
         {
             TEXTURE = game.Content.Load<Texture2D>("Disc");
             RADIUS = TEXTURE.Width / 2;
-            Position = new Vector2(Table.WIDTH / 2, Table.HEIGHT / 2);
+            Position = new Vector2(Table.WIDTH / 4, Table.HEIGHT / 2);
             base.LoadContent();
         }
 
