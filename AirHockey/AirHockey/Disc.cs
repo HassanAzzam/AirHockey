@@ -13,12 +13,13 @@ namespace AirHockey
 {
     public class Disc : GameElement
     {
-        
+
 
         private float Friction;
-        public Disc(NewGame game):base(game)
+        public Disc(NewGame game)
+            : base(game)
         {
-           
+
             game.Content.RootDirectory = "Content";
             Velocity = new Vector2(0, 0);
             Friction = 0;
@@ -28,7 +29,7 @@ namespace AirHockey
         {
             TEXTURE = game.Content.Load<Texture2D>("Disc");
             RADIUS = TEXTURE.Width / 2;
-            Position = new Vector2(Table.WIDTH / 4,20);
+            Position = new Vector2(Table.WIDTH / 4, 20);
             base.LoadContent();
         }
 
@@ -39,12 +40,17 @@ namespace AirHockey
         public void CalculateFriction()
         {
         }
-        public override void Move()
+        public override void Move(GameTime Time)
         {
             //Alaa's Part :D
             // Velocity *= 0.9f;// Velocity.Y -= 0.1f;
             //Velocity = new Vector2(Velocity.X / Math.Abs(Velocity.X), Velocity.Y / Math.Abs(Velocity.Y));
-            BoundPositionInTable(this, Velocity);
+
+
+            Vector2 V = Velocity;
+            V *= (float)(Time.ElapsedGameTime.Milliseconds / 16.666667);
+
+            BoundPositionInTable(this, V);
             if (Position.X == Table.WIDTH - RADIUS - 20)
             {
                 Velocity.X *= -1;

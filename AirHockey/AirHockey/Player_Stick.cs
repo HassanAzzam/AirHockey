@@ -32,7 +32,7 @@ namespace AirHockey
             base.LoadContent();
         }
 
-        override public void Move()
+        override public void Move(GameTime Time)
         {
             MOUSE = Mouse.GetState();//get Mouse Position
             Vector2 CurrentMousePosition = new Vector2(MOUSE.X, MOUSE.Y);

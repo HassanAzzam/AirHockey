@@ -66,13 +66,13 @@ namespace AirHockey
 
             //Get angle of Stick Velocity vector
             double Angle_StickVelocity = Math.Atan2(Velocity.Y, Velocity.X) * (180 / Math.PI);
-            if (Angle_StickVelocity < 0) Angle_StickVelocity += 360;
+            while (Angle_StickVelocity < 0) Angle_StickVelocity += 360;
 
             //Get angle of Disc Velocity vector
             double Angle_DiscVelocity = Math.Atan2(DISC.Velocity.Y, DISC.Velocity.X) * (180 / Math.PI);
-            if (Angle_DiscVelocity < 0) Angle_DiscVelocity += 360;
+            while (Angle_DiscVelocity < 0) Angle_DiscVelocity += 360;
 
-            //Determine which direction the disc will mov in
+            //Determine which direction the disc will move in
             if (Math.Abs(Angle_DiscVelocity-Angle_StickVelocity)>=90||StickVelocityMagnitude<=DiscVelocityMagnitude)
             {
                 Angle_DiscVelocity = Math.Atan2(-1 * DISC.Velocity.Y, -1 * DISC.Velocity.X) * (180 / Math.PI);  
@@ -102,10 +102,12 @@ namespace AirHockey
             DISC.Position = IntersectingPoint;
             BoundPositionInTable(DISC, new Vector2(0, 0));
 
-            if (RadiusSum- (Position-DISC.Position).Length()>0) //if Collision stills, Move Stick instead
+            Distance = (DISC.RADIUS + RADIUS) - (DISC.Position - Position).Length();
+            if (Distance>0) //if Collision stills, Move Stick instead
             {
-                double Angle = Math.Atan2(-1 * Velocity.Y, -1 * Velocity.X) * (180 / Math.PI);
-                Position = new Vector2((float)(Position.X + Distance * Math.Cos(Angle * (Math.PI / 180))), (float)(Position.Y + Distance * Math.Sin(Angle * (Math.PI / 180))));
+                double Angle = Math.Atan2(-1 * Velocity.Y, -1 * Velocity.X);
+                
+                Position = new Vector2((float)(Position.X + Distance * Math.Cos(Angle)), (float)(Position.Y + Distance * Math.Sin(Angle)));
             }
         }
 

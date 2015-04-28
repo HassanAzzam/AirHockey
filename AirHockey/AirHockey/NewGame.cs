@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using System.Diagnostics;
+using System.Threading;
 
 namespace AirHockey
 {
@@ -26,7 +27,7 @@ namespace AirHockey
         public SpriteBatch spriteBatch;
         SpriteFont PauseFont;
         bool Paused;
-        Stopwatch STOP;
+        Stopwatch STOP,Time;
 
         public NewGame()
         {
@@ -35,7 +36,9 @@ namespace AirHockey
             graphics.PreferredBackBufferHeight = 600;
             graphics.PreferredBackBufferWidth = 1266;
             graphics.IsFullScreen = false;
-            IsMouseVisible = true;
+            IsMouseVisible = false;
+            IsFixedTimeStep = false;
+            //TargetElapsedTime = TimeSpan.FromMilliseconds(3);
 
             #region Initialization
             Paused = false;
@@ -49,6 +52,7 @@ namespace AirHockey
 
 
         }
+
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
@@ -109,10 +113,12 @@ namespace AirHockey
             }
             if (!Paused)
             {
-                NewPlayer.Move();
-                NewDisc.Move();
+                NewPlayer.Move(gameTime);
+                NewCPU.Move(gameTime);
+                NewDisc.Move(gameTime);
             }
             base.Update(gameTime);
+            //base.Draw(gameTime);
         }
 
         /// <summary>

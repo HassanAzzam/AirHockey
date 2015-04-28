@@ -26,8 +26,8 @@ namespace AirHockey
         public Vector2 Position;
 
         public float RADIUS,Mass; //Mass to calculate Forces
-       
-        public virtual void Move()
+
+        public virtual void Move(GameTime Time)
         {
           
         }

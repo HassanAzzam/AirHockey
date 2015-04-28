@@ -26,9 +26,9 @@ namespace AirHockey
             PLAYER_STICK.LoadContent();
         }
 
-        public void Move()
+        public void Move(GameTime Time)
         {
-            PLAYER_STICK.Move();
+            PLAYER_STICK.Move(Time);
         }
     }
 }
