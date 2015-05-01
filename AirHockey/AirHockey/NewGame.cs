@@ -27,7 +27,7 @@ namespace AirHockey
         public SpriteBatch spriteBatch;
         SpriteFont PauseFont;
         bool Paused;
-        Stopwatch STOP,Time;
+        Stopwatch STOP;
 
         public NewGame()
         {
@@ -36,8 +36,8 @@ namespace AirHockey
             graphics.PreferredBackBufferHeight = 600;
             graphics.PreferredBackBufferWidth = 1266;
             graphics.IsFullScreen = false;
-            IsMouseVisible = false;
-            IsFixedTimeStep = false;
+            IsMouseVisible = true;
+            IsFixedTimeStep = true;
             //TargetElapsedTime = TimeSpan.FromMilliseconds(3);
 
             #region Initialization

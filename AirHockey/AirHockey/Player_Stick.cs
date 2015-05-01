@@ -35,14 +35,11 @@ namespace AirHockey
         override public void Move(GameTime Time)
         {
             MOUSE = Mouse.GetState();//get Mouse Position
-            Vector2 CurrentMousePosition = new Vector2(MOUSE.X, MOUSE.Y);
-            Velocity = CurrentMousePosition - Position;
-            BoundPositionInTable(this, Velocity);
+            Vector2 PreviousPosition = Position;
+            Position = new Vector2(MOUSE.X, MOUSE.Y);
+            BoundPositionInTable(this, Vector2.Zero);
+            Velocity = Position - PreviousPosition;
             Position.X = Math.Min(Position.X, (Table.WIDTH / 2) - RADIUS);//Limit Stick Postion
-            if (this.Intersects(ref game.NewDisc))
-            {
-                this.Hit(ref game.NewDisc);
-            }
             Mouse.SetPosition((int)Position.X, (int)Position.Y);// Put Cursor on the stick
         }
     }

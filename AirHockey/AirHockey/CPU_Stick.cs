@@ -24,10 +24,7 @@ namespace AirHockey
         public override void Move(GameTime Time)
         {
             BoundPositionInTable(this, Velocity);
-            if (this.Intersects(ref game.NewDisc))
-            {
-                Hit(ref game.NewDisc);
-            }
+            
             //Position.Y = Math.Min(Position.Y, Table.HEIGHT / 2 - RADIUS);
         }
     }
