@@ -19,8 +19,7 @@ namespace AirHockey
     public class Player_Stick : Stick
     {
         MouseState MOUSE;
-        public Player_Stick(NewGame game)
-            : base(game)
+        public Player_Stick(NewGame game) : base(game)
         {
             Velocity = new Vector2(0, 0);
         }

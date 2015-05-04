@@ -9,15 +9,14 @@ namespace AirHockey
 {
     public class CPU_Stick : Stick
     {
-        public CPU_Stick(NewGame game)
-            : base(game)
+        public CPU_Stick(NewGame game) : base(game)
         {
             Velocity = new Vector2(0, 0);
         }
 
         public void LoadContent()
         {
-            Position = new Vector2(game.GameTable.TableTopLeft.X + Table.WIDTH - 70 - RADIUS, 0); //game.GameTable.TableTopLeft.Y + Table.HEIGHT / 2);
+            Position = new Vector2(game.GameTable.TableTopLeft.X + Table.WIDTH - 70 - RADIUS, game.GameTable.TableTopLeft.Y + Table.HEIGHT / 2);
             base.LoadContent();
         }
 

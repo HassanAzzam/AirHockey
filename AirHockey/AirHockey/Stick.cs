@@ -33,5 +33,7 @@ namespace AirHockey
             game.spriteBatch.Draw(this.TEXTURE, game.GameTable.TableTopLeft + this.Position - new Vector2(RADIUS, RADIUS), Color.White);
         }
 
+      
+
     }
 }
