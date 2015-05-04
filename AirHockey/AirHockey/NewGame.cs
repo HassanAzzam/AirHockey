@@ -29,7 +29,7 @@ namespace AirHockey
         bool Paused;
         Stopwatch STOP;
         Scoreboard NewScoreboard;
-        Texture2D GoalTex;
+        public Texture2D GoalTex;
         public bool Goal=false;
 
         public NewGame()
@@ -87,7 +87,6 @@ namespace AirHockey
             Font = Content.Load<SpriteFont>("micross");
             GoalTex = Content.Load<Texture2D>("Goal");
             initialize();
-
             // TODO: use this.Content to load your game content here
         }
 
@@ -119,8 +118,7 @@ namespace AirHockey
                 }
                 STOP.Restart();
             }
-            if (STOP.Elapsed.TotalSeconds >= 1) Goal = false;
-            if (!Paused&&!Goal)
+            if (!Paused)
             {
                 NewPlayer.Move(gameTime);
                 NewCPU.Move(gameTime);
@@ -136,17 +134,16 @@ namespace AirHockey
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         /// 
         protected override void Draw(GameTime gameTime)
-        {     
+        {
+            GraphicsDevice.Clear(Color.White);
             spriteBatch.Begin();
             DrawElements();
             spriteBatch.End();
-            //base.Draw(gameTime);
+            base.Draw(gameTime);
         }
 
         private void DrawElements()
         {
-            
-            GraphicsDevice.Clear(Color.White);
             GameTable.Draw();
             NewDisc.Draw();
             NewPlayer.Draw();
@@ -156,12 +153,12 @@ namespace AirHockey
             {
                 DrawPause();
             }
-            if (Goal)
+            if (Goal == true)
             {
                 spriteBatch.Draw(GoalTex, new Vector2(Table.WIDTH / 2 - GoalTex.Width / 2, Table.HEIGHT / 2 - GoalTex.Height / 2), Color.White);
             }
         }
-        
+
         private void DrawPause()
         {
             //Drawing Rectangle
@@ -183,13 +180,6 @@ namespace AirHockey
             NewDisc.Initialize();
             NewPlayer.Initialize();
             NewCPU.Initialize();
-        }
-
-        public void GoalScored()
-        {
-            initialize();
-            Goal = true;
-            STOP.Restart();
         }
     }
 }

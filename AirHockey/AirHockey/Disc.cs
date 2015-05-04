@@ -52,12 +52,21 @@ namespace AirHockey
             if (game.GameTable.CheckGoal(game.NewCPU, Position))
             {
                 game.NewCPU.Points++;
-                game.GoalScored();
+                game.initialize();
+                game.Goal = true;
+                game.spriteBatch.Begin();
+                game.spriteBatch.Draw(game.GoalTex, new Vector2(Table.WIDTH / 2 - game.GoalTex.Width / 2, Table.HEIGHT / 2 - game.GoalTex.Height / 2), Color.White);
+                game.spriteBatch.End();
+                Thread.Sleep(1000); //Pause Game 3 Seconds
+                game.Goal = false;
             }
             else if (game.GameTable.CheckGoal(game.NewPlayer, Position))
             {
                 game.NewPlayer.Points++;
-                game.GoalScored();
+                game.initialize();
+                game.Goal = true;
+                Thread.Sleep(1000); //Pause Game 3 Seconds
+                game.Goal = false;
             }
 
             if (this.Intersects(game.NewPlayer))
