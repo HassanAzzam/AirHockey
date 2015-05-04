@@ -29,7 +29,7 @@ namespace AirHockey
         bool Paused;
         Stopwatch STOP;
         Scoreboard NewScoreboard;
-        Texture2D GoalTex;
+        public Texture2D GoalTex;
         public bool Goal=false;
 
         public NewGame()
@@ -39,9 +39,9 @@ namespace AirHockey
             graphics.PreferredBackBufferHeight = 768;
             graphics.PreferredBackBufferWidth = 1366;
             graphics.IsFullScreen = false;
-            IsMouseVisible = true;
+            IsMouseVisible = false;
             IsFixedTimeStep = true;
-            TargetElapsedTime = TimeSpan.FromMilliseconds(3);
+            //TargetElapsedTime = TimeSpan.FromMilliseconds(3);
 
             #region Initialization
             Paused = false;
@@ -86,6 +86,7 @@ namespace AirHockey
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Font = Content.Load<SpriteFont>("micross");
             GoalTex = Content.Load<Texture2D>("Goal");
+            initialize();
             // TODO: use this.Content to load your game content here
         }
 
@@ -113,7 +114,7 @@ namespace AirHockey
                 Paused = !Paused;
                 if (!Paused)
                 {
-                    Mouse.SetPosition((int)NewPlayer.PLAYER_STICK.Position.X, (int)NewPlayer.PLAYER_STICK.Position.Y);
+                    Mouse.SetPosition((int)NewPlayer.Position.X, (int)NewPlayer.Position.Y);
                 }
                 STOP.Restart();
             }
@@ -174,6 +175,11 @@ namespace AirHockey
             spriteBatch.DrawString(Font, "Press ESC to Resume", PausePos, Color.Black, 0, FontOrigin, 0.2f, SpriteEffects.None, 0.5f);
         }
 
-        
+        public void initialize()
+        {
+            NewDisc.Initialize();
+            NewPlayer.Initialize();
+            NewCPU.Initialize();
+        }
     }
 }

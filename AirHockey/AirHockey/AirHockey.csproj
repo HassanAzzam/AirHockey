@@ -85,6 +85,7 @@
     <Compile Include="Scoreboard.cs" />
     <Compile Include="Stick.cs" />
     <Compile Include="Table.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
