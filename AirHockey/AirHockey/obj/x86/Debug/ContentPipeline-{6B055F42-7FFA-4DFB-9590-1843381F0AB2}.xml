@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ayman\Desktop\AirHockey-master\AirHockey\AirHockey\bin\x86\Debug\Content\GameThumbnail.xnb</Output>
-      <Time>2015-04-26T14:56:58+02:00</Time>
+      <Output>D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\GameThumbnail.xnb</Output>
+      <Time>2015-05-02T21:32:27.7059163+02:00</Time>
     </Item>
     <Item>
       <Source>Table.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ayman\Desktop\AirHockey-master\AirHockey\AirHockey\bin\x86\Debug\Content\Table.xnb</Output>
-      <Time>2015-04-26T14:56:58+02:00</Time>
+      <Output>D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Table.xnb</Output>
+      <Time>2015-05-02T21:32:27.7079177+02:00</Time>
     </Item>
     <Item>
       <Source>Disc.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ayman\Desktop\AirHockey-master\AirHockey\AirHockey\bin\x86\Debug\Content\Disc.xnb</Output>
-      <Time>2015-04-26T14:56:58+02:00</Time>
+      <Output>D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Disc.xnb</Output>
+      <Time>2015-05-02T21:32:27.7049164+02:00</Time>
     </Item>
     <Item>
       <Source>Stick.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ayman\Desktop\AirHockey-master\AirHockey\AirHockey\bin\x86\Debug\Content\Stick.xnb</Output>
-      <Time>2015-04-26T14:56:58+02:00</Time>
+      <Output>D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Stick.xnb</Output>
+      <Time>2015-05-02T21:32:27.7059163+02:00</Time>
     </Item>
     <Item>
       <Source>micross.spritefont</Source>
@@ -43,8 +43,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ayman\Desktop\AirHockey-master\AirHockey\AirHockey\bin\x86\Debug\Content\micross.xnb</Output>
-      <Time>2015-04-26T14:56:58+02:00</Time>
+      <Output>D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\micross.xnb</Output>
+      <Time>2015-05-02T21:32:27.7089191+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -53,10 +53,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Ayman\Desktop\AirHockey-master\AirHockey\AirHockeyContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Ayman\Desktop\AirHockey-master\AirHockey\AirHockey\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Ayman\Desktop\AirHockey-master\AirHockey\AirHockey\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Ayman\Desktop\AirHockey-master\AirHockey\AirHockey\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>D:\FCIS\GitHub\AirHockey\AirHockey\AirHockeyContent\</RootDirectory>
+      <LoggerRootDirectory>D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\</LoggerRootDirectory>
+      <IntermediateDirectory>D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

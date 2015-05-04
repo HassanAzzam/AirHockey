@@ -19,8 +19,7 @@ namespace AirHockey
     public class Player_Stick : Stick
     {
         MouseState MOUSE;
-        public Player_Stick(NewGame game)
-            : base(game)
+        public Player_Stick(NewGame game) : base(game)
         {
             Velocity = new Vector2(0, 0);
         }
@@ -32,18 +31,15 @@ namespace AirHockey
             base.LoadContent();
         }
 
-        override public void Movement()
+        override public void Move(GameTime Time)
         {
             MOUSE = Mouse.GetState();//get Mouse Position
-            Vector2 CurrentMousePostion = new Vector2(MOUSE.X, MOUSE.Y);
-            Velocity = CurrentMousePostion - Position;
-            base.Movement();
+            Vector2 PreviousPosition = Position;
+            Position = new Vector2(MOUSE.X, MOUSE.Y);
+            BoundPositionInTable(this, Vector2.Zero);
+            Velocity = Position - PreviousPosition;
             Position.X = Math.Min(Position.X, (Table.WIDTH / 2) - RADIUS);//Limit Stick Postion
             Mouse.SetPosition((int)Position.X, (int)Position.Y);// Put Cursor on the stick
-            if (this.Intersects(ref game.NewDisc))
-            {
-                this.Hit(ref game.NewDisc);
-            }
         }
     }
 }

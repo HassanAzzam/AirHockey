@@ -38,15 +38,12 @@ namespace AirHockey
 
         public bool Goal(float X, float Y)
         {
-            if (X <= game.NewDisc.RADIUS + 20 + game.NewDisc.RADIUS
-                && Y >= game.NewDisc.RADIUS + game.GameTable.TableTopLeft.Y + 175 + game.NewDisc.RADIUS
-                && Y <= game.NewDisc.RADIUS + game.GameTable.TableTopLeft.Y + 330 - game.NewDisc.RADIUS)
+            float DiscRadius = game.NewDisc.RADIUS;
+            if (X - DiscRadius <= 20 && Y >= 194 + DiscRadius && Y <= 346 - DiscRadius)
             {
                 return true;
             }
-            if (X <= Table.WIDTH - game.NewDisc.RADIUS - 20
-               && Y >= game.NewDisc.RADIUS + game.GameTable.TableTopLeft.Y + 175 + game.NewDisc.RADIUS
-                && Y <= game.NewDisc.RADIUS + game.GameTable.TableTopLeft.Y + 330 - game.NewDisc.RADIUS)
+            if (X - DiscRadius >= WIDTH - 20 && Y >= 194 + DiscRadius && Y <= 346 - DiscRadius)
             {
                 return true;
             }
