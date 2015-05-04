@@ -8,12 +8,13 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using System.Threading;
 
 namespace AirHockey
 {
     public class Disc : GameElement
     {
-        private float FrictionCoefficient = 0.7f;
+        private float FrictionCoefficient = 0.9f;
         private Vector2 Acceleration; //Alaa: Puck mass is around 50 grams
         public Disc(NewGame game)
             : base(game)
@@ -30,7 +31,8 @@ namespace AirHockey
         {
             TEXTURE = game.Content.Load<Texture2D>("Disc");
             RADIUS = TEXTURE.Width / 2;
-            Position = new Vector2(Table.WIDTH / 4, 20);
+            //Position = new Vector2(Table.WIDTH / 4, 20);
+            Position = new Vector2(Table.WIDTH / 2, Table.HEIGHT / 2);
             base.LoadContent();
         }
 
@@ -99,6 +101,18 @@ namespace AirHockey
             {
                 Velocity.Y *= -1;
             }
+
+            //if (Velocity.X > 0) Velocity.X = Math.Max(Velocity.X-this.FrictionCoefficient,0);
+            //else Velocity.X = Math.Min(Velocity.X + this.FrictionCoefficient, 0);
+            //if (Velocity.Y > 0) Velocity.Y = Math.Max(Velocity.Y - this.FrictionCoefficient, 0);
+            //else Velocity.Y = Math.Min(Velocity.Y + this.FrictionCoefficient, 0);
+
+            if (game.GameTable.CheckGoal(Position.X, Position.Y))
+             {
+                game.Goal = true;
+                Thread.Sleep(2000); //Pause Game 3 Seconds
+                game.Goal = false;
+             }
         }
 
         private bool Intersects(Stick STICK)
@@ -142,7 +156,7 @@ namespace AirHockey
             while (Angle_DiscVelocity < 0) Angle_DiscVelocity += 360;
 
             //Determine which direction the disc will move in
-            if (Math.Abs(Angle_DiscVelocity - Angle_StickVelocity) >= 90 || StickVelocityMagnitude <= DiscVelocityMagnitude)
+            if (Math.Abs(Angle_DiscVelocity - Angle_StickVelocity) >= 90 || StickVelocityMagnitude >= DiscVelocityMagnitude)
             {
                 Angle_DiscVelocity = Math.Atan2(-1 * this.Velocity.Y, -1 * this.Velocity.X) * (180 / Math.PI);
             }

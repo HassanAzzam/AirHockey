@@ -17,7 +17,7 @@ namespace AirHockey
         public CPU(NewGame game) : base(game)
         {
             CPU_STICK = new CPU_Stick(game);
-            CPU_SCORE = new Score();
+            CPU_SCORE = new Score(game);
         }
 
         protected override void LoadContent()
@@ -30,5 +30,12 @@ namespace AirHockey
         {
             CPU_STICK.Move(Time);
         }
+
+        public void Draw()
+        {
+            CPU_STICK.Draw();
+        }
+
+        public int Points { get { return CPU_SCORE.Points; } }
     }
 }

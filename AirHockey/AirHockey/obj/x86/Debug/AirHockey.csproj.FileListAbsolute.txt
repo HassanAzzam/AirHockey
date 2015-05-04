@@ -31,3 +31,5 @@ C:\Users\Ayman\Desktop\AirHockey-master\AirHockey\AirHockey\obj\x86\Debug\AirHoc
 C:\Users\Ayman\Desktop\AirHockey-master\AirHockey\AirHockey\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Ayman\Desktop\AirHockey-master\AirHockey\AirHockey\obj\x86\Debug\AirHockey.exe
 C:\Users\Ayman\Desktop\AirHockey-master\AirHockey\AirHockey\obj\x86\Debug\AirHockey.pdb
+\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Scoreboard.xnb
+\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\GOAL.xnb

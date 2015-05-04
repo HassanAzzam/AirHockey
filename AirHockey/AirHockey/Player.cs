@@ -19,7 +19,7 @@ namespace AirHockey
         public Player(NewGame game) : base(game)
         {
             PLAYER_STICK = new Player_Stick(game);
-            PLAYER_SCORE = new Score();
+            PLAYER_SCORE = new Score(game);
         }
         protected override void LoadContent()
         {
@@ -30,5 +30,12 @@ namespace AirHockey
         {
             PLAYER_STICK.Move(Time);
         }
+
+        public void Draw()
+        {
+            PLAYER_STICK.Draw();
+        }
+
+        public int Points { get { return PLAYER_SCORE.Points; } }
     }
 }

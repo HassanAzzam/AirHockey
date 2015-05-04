@@ -46,6 +46,24 @@
       <Output>\\Vboxsvr\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\micross.xnb</Output>
       <Time>2015-04-26T01:22:41.711649+02:00</Time>
     </Item>
+    <Item>
+      <Source>Scoreboard.png</Source>
+      <Name>Scoreboard</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Scoreboard.xnb</Output>
+      <Time>2015-05-03T23:24:31.6322221+02:00</Time>
+    </Item>
+    <Item>
+      <Source>GOAL.png</Source>
+      <Name>GOAL</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\GOAL.xnb</Output>
+      <Time>2015-05-04T17:53:35.6873292+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{6B055F42-7FFA-4DFB-9590-1843381F0AB2}</ContentProjectGUID>
