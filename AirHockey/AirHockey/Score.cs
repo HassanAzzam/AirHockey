@@ -7,23 +7,13 @@ namespace AirHockey
 {
     public class Score
     {
-        private int Value;
+       public int Points;
+       NewGame game;
 
-        public Score()
-        {
-            this.Value = 0;
-        }
+       public Score(NewGame game)
+       {
+           this.game = game;
+       }
 
-        public int Points
-        {
-            get
-            {
-                return this.Value;
-            }
-            set
-            {
-                this.Value = value;
-            }
-        }
     }
 }

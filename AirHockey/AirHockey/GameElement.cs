@@ -15,10 +15,16 @@ namespace AirHockey
     {
         protected Texture2D TEXTURE;
         protected NewGame game;
+
         public GameElement(NewGame game) : base(game)
         {
             this.game = game;
             Position = new Vector2(0, 0);
+        }
+
+        public virtual void Initialize()
+        {
+
         }
 
         public Vector2 Velocity; //Speed has been changed to Velocity by Alaa
