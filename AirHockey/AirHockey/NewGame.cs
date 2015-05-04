@@ -57,7 +57,6 @@ namespace AirHockey
             this.MenuTime = true;
             #endregion
 
-
         }
 
 
@@ -89,7 +88,6 @@ namespace AirHockey
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Font = Content.Load<SpriteFont>("micross");
             GoalTex = Content.Load<Texture2D>("Goal");
-            NewMenu.MenuBackGorund = Content.Load<Texture2D>("MenuBackGround");
             initialize();
             // TODO: use this.Content to load your game content here
         }
@@ -143,7 +141,7 @@ namespace AirHockey
             {
                 Goal = false;
             }
-            
+
             if (!Paused && !Goal)
             {
                 NewPlayer.Move(gameTime);
