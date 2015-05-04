@@ -36,14 +36,26 @@ namespace AirHockey
             game.spriteBatch.Draw(this.TEXTURE, TableTopLeft, Color.White);
         }
 
-        public bool CheckGoal(float X, float Y)
+        public bool CheckGoal(object PLAYERorCPU, Vector2 Position)
         {
-             float DiscRadius = game.NewDisc.RADIUS;
-             if (X - DiscRadius <= 20 && Y >= 194 + DiscRadius && Y <= 346 - DiscRadius)
-                 return true;
-             if (X + DiscRadius >= WIDTH - 20 && Y >= 194 + DiscRadius && Y <= 346 - DiscRadius)
-                 return true;
-             return false;
+            float DiscRadius = game.NewDisc.RADIUS;
+            try
+            {
+                CPU Cpu = (CPU)PLAYERorCPU;
+                if (Position.X - DiscRadius <= 20 && Position.Y >= 194 + DiscRadius && Position.Y <= 346 - DiscRadius)
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                if (Position.X + DiscRadius >= WIDTH - 20 && Position.Y >= 194 + DiscRadius && Position.Y <= 346 - DiscRadius)
+                {
+                    return true;
+                }
+            }
+            
+            return false;
         }
     }
 }
