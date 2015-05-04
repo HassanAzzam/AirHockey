@@ -30,7 +30,7 @@ namespace AirHockey
         {
             LoadContent();
             PLAYER_STICK.Velocity = Vector2.Zero;
-            PLAYER_STICK.Position = new Vector2(Table.WIDTH - 70, Table.HEIGHT / 2);
+            PLAYER_STICK.Position = new Vector2(70, Table.HEIGHT / 2);
         }
 
         public override void Move(GameTime Time)
