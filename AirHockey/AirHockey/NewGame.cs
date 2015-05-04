@@ -23,22 +23,23 @@ namespace AirHockey
         public Player NewPlayer;
         public CPU NewCPU;
         public Disc NewDisc;
-        GraphicsDeviceManager graphics;
+        private Menu NewMenu;
+        public GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
         public SpriteFont Font;
         bool Paused;
-        Stopwatch STOP;
-        Scoreboard NewScoreboard;
+        private Stopwatch STOP;
+        private Scoreboard NewScoreboard;
         public Texture2D GoalTex;
-        public bool Goal=false;
-
+        public bool Goal = false;
+        private bool MenuTime;
         public NewGame()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            graphics.PreferredBackBufferHeight = 768;
-            graphics.PreferredBackBufferWidth = 1366;
-            graphics.IsFullScreen = false;
+            //graphics.PreferredBackBufferHeight = 768;
+            //graphics.PreferredBackBufferWidth = 1366;
+            graphics.IsFullScreen = true;
             IsMouseVisible = false;
             IsFixedTimeStep = true;
             //TargetElapsedTime = TimeSpan.FromMilliseconds(3);
@@ -52,6 +53,8 @@ namespace AirHockey
             NewCPU = new CPU(this);
             NewPlayer = new Player(this);
             NewDisc = new Disc(this);
+            this.NewMenu = new Menu();
+            this.MenuTime = true;
             #endregion
 
 
@@ -86,6 +89,7 @@ namespace AirHockey
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Font = Content.Load<SpriteFont>("micross");
             GoalTex = Content.Load<Texture2D>("Goal");
+            NewMenu.MenuBackGorund = Content.Load<Texture2D>("MenuBackGround");
             initialize();
             // TODO: use this.Content to load your game content here
         }
@@ -109,6 +113,23 @@ namespace AirHockey
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
+            if (this.MenuTime)
+            {
+                IsMouseVisible = true;
+                short UserChoise = this.NewMenu.GetState();
+                if (UserChoise == -1)
+                {
+                    this.Exit();
+                }
+                else if (UserChoise == 1)
+                {
+                    IsMouseVisible = false;
+                    //this.Background(Color.White);
+                    this.MenuTime = false;
+                    Mouse.SetPosition((int)(GameTable.TableTopLeft.X + 70), (int)(GameTable.TableTopLeft.Y + Table.HEIGHT / 2));
+                }
+                return;
+            }
             if (Keyboard.GetState().IsKeyDown(Keys.Escape) && STOP.Elapsed.TotalSeconds >= 1)
             {
                 Paused = !Paused;
@@ -118,7 +139,12 @@ namespace AirHockey
                 }
                 STOP.Restart();
             }
-            if (!Paused)
+            if (STOP.Elapsed.TotalSeconds >= 1)
+            {
+                Goal = false;
+            }
+            
+            if (!Paused && !Goal)
             {
                 NewPlayer.Move(gameTime);
                 NewCPU.Move(gameTime);
@@ -144,6 +170,12 @@ namespace AirHockey
 
         private void DrawElements()
         {
+            if (this.MenuTime)
+            {
+                NewGame Game = this;
+                this.NewMenu.Draw(ref Game);
+                return;
+            }
             GameTable.Draw();
             NewDisc.Draw();
             NewPlayer.Draw();
@@ -180,6 +212,13 @@ namespace AirHockey
             NewDisc.Initialize();
             NewPlayer.Initialize();
             NewCPU.Initialize();
+        }
+
+        public void GoalScored()
+        {
+            initialize();
+            Goal = true;
+            STOP.Restart();
         }
     }
 }
