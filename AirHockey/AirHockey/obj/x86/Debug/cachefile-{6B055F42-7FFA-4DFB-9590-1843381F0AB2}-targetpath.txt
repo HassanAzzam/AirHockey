@@ -2,4 +2,7 @@ Content\GameThumbnail.xnb
 Content\Table.xnb
 Content\Disc.xnb
 Content\Stick.xnb
+Content\Scoreboard.xnb
+Content\GOAL.xnb
 Content\micross.xnb
+Content\MenuBackGround.xnb

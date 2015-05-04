@@ -76,6 +76,7 @@
     <Compile Include="CPU_Stick.cs" />
     <Compile Include="Disc.cs" />
     <Compile Include="GameElement.cs" />
+    <Compile Include="Menu.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Player_Stick.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="Scoreboard.cs" />
     <Compile Include="Stick.cs" />
     <Compile Include="Table.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
