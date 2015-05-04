@@ -9,7 +9,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using System.Diagnostics;
-using System.Threading;
 
 namespace AirHockey
 {
@@ -28,19 +27,16 @@ namespace AirHockey
         SpriteFont PauseFont;
         bool Paused;
         Stopwatch STOP;
-
         public NewGame()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            graphics.PreferredBackBufferHeight = 600;
-            graphics.PreferredBackBufferWidth = 1266;
-            graphics.IsFullScreen = false;
+            graphics.PreferredBackBufferHeight = 650;
+            graphics.PreferredBackBufferWidth = 1200;
+            graphics.IsFullScreen = true;
             IsMouseVisible = true;
-            IsFixedTimeStep = true;
-            //TargetElapsedTime = TimeSpan.FromMilliseconds(3);
 
-            #region Initialization
+            #region Declaration
             Paused = false;
             STOP = new Stopwatch();
             STOP.Start();
@@ -50,9 +46,7 @@ namespace AirHockey
             NewDisc = new Disc(this);
             #endregion
 
-
         }
-
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
@@ -102,10 +96,10 @@ namespace AirHockey
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
-            if (Keyboard.GetState().IsKeyDown(Keys.Escape) && STOP.Elapsed.TotalSeconds >= 1)
-            {
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape)&&STOP.Elapsed.TotalSeconds>=1) 
+            { 
                 Paused = !Paused;
-                if (!Paused)
+                if(!Paused)
                 {
                     Mouse.SetPosition((int)NewPlayer.PLAYER_STICK.Position.X, (int)NewPlayer.PLAYER_STICK.Position.Y);
                 }
@@ -113,12 +107,10 @@ namespace AirHockey
             }
             if (!Paused)
             {
-                NewPlayer.Move(gameTime);
-                NewCPU.Move(gameTime);
-                NewDisc.Move(gameTime);
+                NewPlayer.Movement();
+                NewDisc.Movement();
             }
             base.Update(gameTime);
-            //base.Draw(gameTime);
         }
 
         /// <summary>
@@ -135,8 +127,7 @@ namespace AirHockey
             base.Draw(gameTime);
         }
 
-        private void DrawElements()
-        {
+        private void DrawElements(){
             GameTable.Draw();
             NewDisc.Draw();
             NewPlayer.PLAYER_STICK.Draw();
@@ -144,15 +135,15 @@ namespace AirHockey
             if (Paused)
             {
                 //Drawing Rectangle
-                Texture2D rec = new Texture2D(graphics.GraphicsDevice, 1, 1, true, SurfaceFormat.Color);
-                rec.SetData<Color>(new[] { Color.Black * 0.5f });
+                Texture2D rec = new Texture2D(graphics.GraphicsDevice, 1, 1,true,SurfaceFormat.Color);
+                rec.SetData<Color>(new[] { Color.Black*0.5f });
                 spriteBatch.Draw(rec, new Rectangle(0, 0, graphics.GraphicsDevice.Viewport.Width, graphics.GraphicsDevice.Viewport.Height), Color.White);
 
                 //Drawing Text
                 Vector2 PausePos = new Vector2(graphics.GraphicsDevice.Viewport.Width / 2, graphics.GraphicsDevice.Viewport.Height / 2);
                 Vector2 FontOrigin = PauseFont.MeasureString("PAUSED") / 2;
-                spriteBatch.DrawString(PauseFont, "PAUSED", PausePos, Color.White, 0, FontOrigin, 1.0f, SpriteEffects.None, 0.5f);
-                PausePos.Y = graphics.GraphicsDevice.Viewport.Height - 50;
+                spriteBatch.DrawString(PauseFont, "PAUSED", PausePos, Color.White,0, FontOrigin, 1.0f, SpriteEffects.None, 0.5f);
+                PausePos.Y = graphics.GraphicsDevice.Viewport.Height - 100;
                 FontOrigin = PauseFont.MeasureString("Press ESC to Resume") / 2;
                 spriteBatch.DrawString(PauseFont, "Press ESC to Resume", PausePos, Color.Black, 0, FontOrigin, 0.2f, SpriteEffects.None, 0.5f);
             }

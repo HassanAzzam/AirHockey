@@ -31,14 +31,3 @@ C:\Users\Ayman\Desktop\AirHockey-master\AirHockey\AirHockey\obj\x86\Debug\AirHoc
 C:\Users\Ayman\Desktop\AirHockey-master\AirHockey\AirHockey\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Ayman\Desktop\AirHockey-master\AirHockey\AirHockey\obj\x86\Debug\AirHockey.exe
 C:\Users\Ayman\Desktop\AirHockey-master\AirHockey\AirHockey\obj\x86\Debug\AirHockey.pdb
-C:\Users\Ayman\Desktop\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\GameThumbnail.xnb
-C:\Users\Ayman\Desktop\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Table.xnb
-C:\Users\Ayman\Desktop\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Disc.xnb
-C:\Users\Ayman\Desktop\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Stick.xnb
-C:\Users\Ayman\Desktop\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\micross.xnb
-C:\Users\Ayman\Desktop\AirHockey\AirHockey\AirHockey\bin\x86\Debug\AirHockey.exe
-C:\Users\Ayman\Desktop\AirHockey\AirHockey\AirHockey\bin\x86\Debug\AirHockey.pdb
-C:\Users\Ayman\Desktop\AirHockey\AirHockey\AirHockey\obj\x86\Debug\AirHockey.csprojResolveAssemblyReference.cache
-C:\Users\Ayman\Desktop\AirHockey\AirHockey\AirHockey\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\Ayman\Desktop\AirHockey\AirHockey\AirHockey\obj\x86\Debug\AirHockey.exe
-C:\Users\Ayman\Desktop\AirHockey\AirHockey\AirHockey\obj\x86\Debug\AirHockey.pdb

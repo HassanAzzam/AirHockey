@@ -9,10 +9,9 @@ namespace AirHockey
 {
     public class CPU_Stick : Stick
     {
-        public CPU_Stick(NewGame game)
-            : base(game)
+        public CPU_Stick(NewGame game)  : base(game)
         {
-            Velocity = new Vector2(0, 0);
+
         }
 
         public void LoadContent()
@@ -21,10 +20,9 @@ namespace AirHockey
             base.LoadContent();
         }
 
-        public override void Move(GameTime Time)
+        public override void Movement()
         {
-            BoundPositionInTable(this, Velocity);
-            
+            base.Movement();
             //Position.Y = Math.Min(Position.Y, Table.HEIGHT / 2 - RADIUS);
         }
     }
