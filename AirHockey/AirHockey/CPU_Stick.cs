@@ -9,22 +9,26 @@ namespace AirHockey
 {
     public class CPU_Stick : Stick
     {
+        Vector2 DefaultPosition;
         public CPU_Stick(NewGame game)
             : base(game)
         {
-            Velocity = new Vector2(0, 0);
+            Velocity = Vector2.Zero;
         }
 
         public void LoadContent()
         {
-            Position = new Vector2(game.GameTable.TableTopLeft.X + Table.WIDTH - Table.Thickness - 50 - RADIUS, game.GameTable.TableTopLeft.Y + Table.HEIGHT / 2);
+            DefaultPosition = Position = new Vector2(game.GameTable.TableTopLeft.X + Table.WIDTH - Table.Thickness - 50 - RADIUS, game.GameTable.TableTopLeft.Y + Table.HEIGHT / 2);
             base.LoadContent();
         }
 
         public override void Move(GameTime Time)
         {
-            BoundPositionInTable(this, Velocity);
-            
+            if (Position.X <= game.NewDisc.Position.X) { Velocity.X += RADIUS; }
+            else if (game.NewDisc.Position.X >= Table.WIDTH / 2 + game.NewDisc.RADIUS)
+            { Velocity = (game.NewDisc.Position - Position) * 0.085f; }
+            else { Velocity = (DefaultPosition - Position) * 0.085f; }
+            BoundPositionInTable(this, Velocity * Time.ElapsedGameTime.Milliseconds / 60f);
             Position.X = Math.Max(Position.X, Table.WIDTH / 2 + RADIUS);
         }
     }

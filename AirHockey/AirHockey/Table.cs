@@ -46,14 +46,14 @@ namespace AirHockey
             try
             {
                 CPU Cpu = (CPU)PLAYERorCPU;
-                if (Position.X - DiscRadius <= Thickness && Position.Y >= 194 + DiscRadius && Position.Y <= 346 - DiscRadius)
+                if (Position.X - DiscRadius <= Thickness && Position.Y >= 241 + DiscRadius && Position.Y <= 431 - DiscRadius)
                 {
                     return true;
                 }
             }
             catch
             {
-                if (Position.X + DiscRadius >= WIDTH - Thickness && Position.Y >= 194 + DiscRadius && Position.Y <= 346 - DiscRadius)
+                if (Position.X + DiscRadius >= WIDTH - Thickness && Position.Y >= 241 + DiscRadius && Position.Y <= 431 - DiscRadius)
                 {
                     return true;
                 }

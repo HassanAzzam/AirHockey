@@ -45,9 +45,9 @@ namespace AirHockey
             Velocity = Vector2.Zero;
             Acceleration = Vector2.Zero;
             Position = new Vector2(Table.WIDTH / 2, Table.HEIGHT / 2);
-           // Position = new Vector2(Table.WIDTH / 2, Table.HEIGHT - RADIUS - Table.Thickness);
+            //Position = new Vector2(Table.WIDTH / 6, Table.HEIGHT /2);
         }
-
+        
         public override void Move(GameTime Time)
         {
             #region Goal Checking
@@ -56,15 +56,17 @@ namespace AirHockey
             {
                 ++game.NewCPU.Points;
                 game.GoalScored();
+                return;
             }
             else if (game.GameTable.CheckGoal(game.NewPlayer, Position))
             {
                 ++game.NewPlayer.Points;
                 game.GoalScored();
+                return;
             }
 
             #endregion
-
+            
             #region Hitting
 
             if (this.Intersects(game.NewPlayer))
@@ -78,39 +80,38 @@ namespace AirHockey
 
             #endregion
 
+           // Velocity = Vector2.Zero;
             Acceleration = new Vector2(FrictionCoefficient * 9.8f, FrictionCoefficient * 9.8f);
             double time = Time.ElapsedGameTime.TotalSeconds;
             Acceleration *= (float)time;
-            double Angle = Math.Atan(Velocity.Y / Velocity.X);
+            double Angle = Math.Atan2(Velocity.Y , Velocity.X);
             Acceleration.X *= (float)Math.Cos(Math.Abs(Angle));
             Acceleration.Y *= (float)Math.Sin(Math.Abs(Angle));
             
             if (Velocity.X > 0)
             {
-                Velocity.X -= Acceleration.X;
+                Velocity.X = Math.Max(Velocity.X - Acceleration.X, 0);
             }
             else if (Velocity.X < 0)
             {
 
-                Velocity.X += Acceleration.X;
+                Velocity.X = Math.Min(Velocity.X + Acceleration.X, 0);
             }
             if (Velocity.Y > 0)
             {
 
-                Velocity.Y -= Acceleration.Y;
+                Velocity.Y = Math.Max(Velocity.Y -  Acceleration.Y, 0);
             }
             else if (Velocity.Y < 0)
             {
 
-                Velocity.Y += Acceleration.Y;
+                Velocity.Y = Math.Min(Velocity.Y + Acceleration.Y, 0);
             }
 
             //Moving The Puck
-            //Position += Velocity * 0.008f; //Multiplied to reduce the puck speed
-
-            Vector2 V = Velocity;
-            V *= (float)(Time.ElapsedGameTime.Milliseconds / 16.666667);
-            BoundPositionInTable(this, V);
+            Velocity *= 0.995f; //Multiplied to reduce the puck speed
+            
+            BoundPositionInTable(this, Velocity * Time.ElapsedGameTime.Milliseconds / 60f);
 
             if (Position.X == Table.WIDTH - RADIUS - Table.Thickness)
             {
@@ -141,7 +142,7 @@ namespace AirHockey
         {
             double Distance = (UserObj.RADIUS + RADIUS) - (UserObj.Position - Position).Length();
 
-            MintainCollision(UserObj);
+           // MintainCollision(UserObj);
 
             ChangeDiscVelocity(UserObj);
         }
@@ -152,13 +153,12 @@ namespace AirHockey
             Vector2 DISC_POSITION = this.Position;
             Vector2 IntersectingPoint;
             double Distance;
-            double StickVelocityMagnitude = UserObj.Velocity.X * UserObj.Velocity.X + UserObj.Velocity.Y * UserObj.Velocity.Y; StickVelocityMagnitude = Math.Sqrt(StickVelocityMagnitude);
-            double DiscVelocityMagnitude = this.Velocity.X * this.Velocity.X + this.Velocity.Y * this.Velocity.Y; DiscVelocityMagnitude = Math.Sqrt(DiscVelocityMagnitude);
+            double StickVelocityMagnitude = UserObj.Velocity.Length();
+            double DiscVelocityMagnitude = this.Velocity.Length();
 
             //Vector from Disc Position to Stick Center
             Vector2 STICK_CENTER = UserObj.Position - this.Position;
-            double StickCenterMagnitude = STICK_CENTER.X * STICK_CENTER.X + STICK_CENTER.Y * STICK_CENTER.Y;
-            StickCenterMagnitude = Math.Sqrt(StickCenterMagnitude);
+            double StickCenterMagnitude = STICK_CENTER.Length();
 
             double RadiusSum = UserObj.RADIUS + this.RADIUS;
             double Length_AngleRatio;
@@ -171,18 +171,22 @@ namespace AirHockey
             double Angle_DiscVelocity = Math.Atan2(this.Velocity.Y, this.Velocity.X) * (180 / Math.PI);
             while (Angle_DiscVelocity < 0) Angle_DiscVelocity += 360;
 
+            //Get angle of StickCenter Vector
+            double Angle_StickCenter = Math.Atan2(STICK_CENTER.Y, STICK_CENTER.X) * (180 / Math.PI);
+
             //Determine which direction the disc will move in
-            if (Math.Abs(Angle_DiscVelocity - Angle_StickVelocity) >= 90 || StickVelocityMagnitude <= DiscVelocityMagnitude)
+            if (Math.Abs(Angle_DiscVelocity - Angle_StickVelocity) >= 90)
             {
                 Angle_DiscVelocity = Math.Atan2(-1 * this.Velocity.Y, -1 * this.Velocity.X) * (180 / Math.PI);
+            }
+            else if (this.Velocity == Vector2.Zero)
+            {
+                Angle_DiscVelocity = Angle_StickCenter + 180;
             }
             else
             {
                 Angle_DiscVelocity -= 360;
             }
-
-            //Get angle of StickCenter Vector
-            double Angle_StickCenter = Math.Atan2(STICK_CENTER.Y, STICK_CENTER.X) * (180 / Math.PI);
 
             //Get relation between Triangle Lengths and Sin of Angles
             Length_AngleRatio = RadiusSum / Math.Sin((Angle_StickCenter - Angle_DiscVelocity) * (Math.PI / 180));
@@ -201,7 +205,7 @@ namespace AirHockey
             this.Position = IntersectingPoint;
             BoundPositionInTable(this, Vector2.Zero);
 
-            Distance = (this.RADIUS + UserObj.RADIUS) - (this.Position - UserObj.Position).Length();
+            Distance = RadiusSum - (this.Position - UserObj.Position).Length();
             if (Distance > 0) //if Collision stills, Move Stick instead
             {
                 double Angle = Math.Atan2(-1 * UserObj.Velocity.Y, -1 * UserObj.Velocity.X);
@@ -212,36 +216,26 @@ namespace AirHockey
 
         private void ChangeDiscVelocity(User UserObj)
         {
-            ////Get angle of Disc Velocity reflection vector caused by the hit
-            //double Angle = Math.Atan2((this.Position.Y - STICK.Position.Y), (this.Position.X - STICK.Position.X));
-
-            //double VelocityMagnitude;
-
-            //if (Velocity != new Vector2(0, 0)) //If Stick is Moving
-            //{
-            //    //Get Velocity magnitude of Stick Velocity
-            //    VelocityMagnitude = STICK.Velocity.X * STICK.Velocity.X + STICK.Velocity.Y * STICK.Velocity.Y;
-            //    VelocityMagnitude = Math.Sqrt(VelocityMagnitude);
-
-            //    //Velocity resolution
-            //    this.Velocity = new Vector2((float)(VelocityMagnitude * Math.Cos(Angle)), (float)(VelocityMagnitude * Math.Sin(Angle)));
-            //}
-            //else
-            //{
-            //    //Get Velocity magnitude of Disc Velocity
-            //    VelocityMagnitude = this.Velocity.X * this.Velocity.X + this.Velocity.Y * this.Velocity.Y;
-            //    VelocityMagnitude = Math.Sqrt(VelocityMagnitude);
-            //    this.Velocity = new Vector2((float)(VelocityMagnitude * Math.Cos(Angle)), (float)(VelocityMagnitude * Math.Sin(Angle)));
-            //}
-
-
-            ////////////////////////
+            //Get angle of Disc Velocity reflection vector caused by the hit
+            double Angle = Math.Atan2((this.Position.Y - UserObj.Position.Y), (this.Position.X - UserObj.Position.X));
 
             //According to Momentum Conservation Law
-            Velocity = (UserObj.Mass * UserObj.Velocity) / Mass + Velocity;
-            //If the Stick isn't moving the puck changes its direction
-            if (UserObj.Velocity == Vector2.Zero)
-                Velocity *= -1;
+            double VelocityMagnitude;
+
+            if (UserObj.Velocity != Vector2.Zero) //If Stick is Moving
+            {
+                //Get Velocity magnitude of Stick Velocity
+                VelocityMagnitude = (UserObj.Mass * UserObj.Velocity.Length()) / Mass + Velocity.Length();
+            }
+            else
+            {
+                //Get Velocity magnitude of Disc Velocity
+                VelocityMagnitude = Velocity.Length();
+            }
+
+            //Velocity resolution
+            this.Velocity = new Vector2((float)(VelocityMagnitude * Math.Cos(Angle)), (float)(VelocityMagnitude * Math.Sin(Angle)));
+
         }
     }
 }

@@ -36,13 +36,15 @@ namespace AirHockey
         public NewGame()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreferMultiSampling = true;
             Content.RootDirectory = "Content";
             graphics.PreferredBackBufferHeight = 768;
             graphics.PreferredBackBufferWidth = 1366;
-            graphics.IsFullScreen = true;
+            graphics.IsFullScreen = false;
             IsMouseVisible = true;
             IsFixedTimeStep = true;
-            //TargetElapsedTime = TimeSpan.FromMilliseconds(3);
+            graphics.ApplyChanges();
+            //TargetElapsedTime = TimeSpan.FromMilliseconds(5);
 
             #region Initialization
             Paused = false;
@@ -136,9 +138,10 @@ namespace AirHockey
                 }
                 STOP.Restart();
             }
-            if (STOP.Elapsed.TotalSeconds >= 1)
+            if (STOP.Elapsed.TotalSeconds >= 1 && Goal)
             {
                 Goal = false;
+                initialize();
             }
 
             if (!Paused && !Goal)
@@ -148,7 +151,6 @@ namespace AirHockey
                 NewDisc.Move(gameTime);
             }
             base.Update(gameTime);
-            //base.Draw(gameTime);
         }
 
         /// <summary>
@@ -214,8 +216,8 @@ namespace AirHockey
 
         public void GoalScored()
         {
-            initialize();
             Goal = true;
+            
             STOP.Restart();
         }
     }
