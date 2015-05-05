@@ -26,33 +26,23 @@ namespace AirHockey
         private const short ExitButtonEndX = 695;
         private const short ExitButtonEndY = 485;
         #endregion
+
         //  Member methods.
         /// <summary>
         /// Drawing the main menu buttons.
         /// </summary>
         /// <param name="Game"> The game where the main menu would be drawn. </param>
         ///
-        public Texture2D MenuBackGorund;
         public void Draw(ref NewGame Game)
         {
             MouseState State = Mouse.GetState();    //  Getting mouse position.
             Vector2 Position = new Vector2();
             Vector2 Origin = new Vector2();
             Color Color = Color.OrangeRed;
-            Game.spriteBatch.Draw(MenuBackGorund, new Vector2(0, 0), Color.White);
-            /*#region Setting background.
-            //  Setting background.           
 
-            Texture2D Rectangle = new Texture2D(Game.graphics.GraphicsDevice, 1, 1, true, SurfaceFormat.Color); //  Board.
-            Rectangle.SetData<Color>(new[] { Color.SteelBlue });    //  Color.
-            Game.spriteBatch.Draw(  //  Drawing.
-                Rectangle,
-                new Rectangle(0, 0,
-                Game.graphics.GraphicsDevice.Viewport.Width,
-                Game.graphics.GraphicsDevice.Viewport.Height),
-                Color.White);
-            #endregion
-            */
+            //  Setting background.           
+            Game.spriteBatch.Draw(Game.Content.Load<Texture2D>("MenuBackGround"), new Vector2(0, 0), Color.White);
+
             //  The position where the start button would be drawn.
             Position.X = Game.graphics.GraphicsDevice.Viewport.Width / 2;
             Position.Y = Game.graphics.GraphicsDevice.Viewport.Height / 2 - 100;
