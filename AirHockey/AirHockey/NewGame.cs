@@ -33,6 +33,13 @@ namespace AirHockey
         public Texture2D GoalTex;
         public bool Goal = false;
         private bool MenuTime;
+
+        #region SoundEffects
+        public SoundEffect HitGoal;
+        public SoundEffect SetPuck;
+        public SoundEffect HitBorders;
+        #endregion
+
         public NewGame()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -88,6 +95,9 @@ namespace AirHockey
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Font = Content.Load<SpriteFont>("micross");
             GoalTex = Content.Load<Texture2D>("Goal");
+            HitGoal = Content.Load<SoundEffect>("puck_hit_goal");
+            SetPuck = Content.Load<SoundEffect>("Set_Puck");
+            HitBorders = Content.Load<SoundEffect>("Puck_hit_border");
             initialize();
             // TODO: use this.Content to load your game content here
         }
@@ -217,6 +227,7 @@ namespace AirHockey
             initialize();
             Goal = true;
             STOP.Restart();
+            SetPuck.Play();
         }
     }
 }
