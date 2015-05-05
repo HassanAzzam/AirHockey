@@ -51,13 +51,11 @@ namespace AirHockey
         {            
             if (game.GameTable.CheckGoal(game.NewCPU, Position))
             {
-                game.HitGoal.Play();
                 ++game.NewCPU.Points;
                 game.GoalScored();
             }
             else if (game.GameTable.CheckGoal(game.NewPlayer, Position))
             {
-                game.HitGoal.Play();
                 ++game.NewPlayer.Points;
                 game.GoalScored();
             }
@@ -100,40 +98,24 @@ namespace AirHockey
             //Moving The Puck
             //Position += Velocity * 0.008f; //Multiplied to reduce the puck speed
 
-            //test ya alaa :D
-            #region Limit Puck Speed
-            if (Velocity.X > 30)
-                Velocity.X = 30;
-            if (Velocity.Y > 30)
-                Velocity.Y = 30;
-            if (Velocity.X < -30)
-                Velocity.X = -30;
-            if (Velocity.Y < -30)
-                Velocity.Y = -30;
-            #endregion
-
             Vector2 V = Velocity;
             V *= (float)(Time.ElapsedGameTime.Milliseconds / 16.666667);
             BoundPositionInTable(this, V);
 
             if (Position.X == Table.WIDTH - RADIUS - 20)
             {
-                game.HitBorders.Play();
                 Velocity.X *= -1;
             }
             if (Position.X == RADIUS + 20)
             {
-                game.HitBorders.Play();
                 Velocity.X *= -1;
             }
             if (Position.Y == Table.HEIGHT - RADIUS - 20)
             {
-                game.HitBorders.Play();
                 Velocity.Y *= -1;
             }
             if (Position.Y == RADIUS + 20)
             {
-                game.HitBorders.Play();
                 Velocity.Y *= -1;
             }
         }
@@ -147,7 +129,6 @@ namespace AirHockey
 
         public void Hit(User UserObj)
         {
-            game.HitBorders.Play();
             double Distance = (UserObj.RADIUS + RADIUS) - (UserObj.Position - Position).Length();
 
             MintainCollision(UserObj);
