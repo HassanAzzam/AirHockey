@@ -45,10 +45,13 @@ namespace AirHockey
             Velocity = Vector2.Zero;
             Acceleration = Vector2.Zero;
             Position = new Vector2(Table.WIDTH / 2, Table.HEIGHT / 2);
+           // Position = new Vector2(Table.WIDTH / 2, Table.HEIGHT - RADIUS - Table.Thickness);
         }
 
         public override void Move(GameTime Time)
-        {            
+        {
+            #region Goal Checking
+
             if (game.GameTable.CheckGoal(game.NewCPU, Position))
             {
                 ++game.NewCPU.Points;
@@ -60,6 +63,10 @@ namespace AirHockey
                 game.GoalScored();
             }
 
+            #endregion
+
+            #region Hitting
+
             if (this.Intersects(game.NewPlayer))
             {
                 Hit(game.NewPlayer);
@@ -68,6 +75,9 @@ namespace AirHockey
             {
                 Hit(game.NewCPU);
             }
+
+            #endregion
+
             Acceleration = new Vector2(FrictionCoefficient * 9.8f, FrictionCoefficient * 9.8f);
             double time = Time.ElapsedGameTime.TotalSeconds;
             Acceleration *= (float)time;
@@ -102,19 +112,19 @@ namespace AirHockey
             V *= (float)(Time.ElapsedGameTime.Milliseconds / 16.666667);
             BoundPositionInTable(this, V);
 
-            if (Position.X == Table.WIDTH - RADIUS - 20)
+            if (Position.X == Table.WIDTH - RADIUS - Table.Thickness)
             {
                 Velocity.X *= -1;
             }
-            if (Position.X == RADIUS + 20)
+            if (Position.X == RADIUS + Table.Thickness)
             {
                 Velocity.X *= -1;
             }
-            if (Position.Y == Table.HEIGHT - RADIUS - 20)
+            if (Position.Y == Table.HEIGHT - RADIUS - Table.Thickness)
             {
                 Velocity.Y *= -1;
             }
-            if (Position.Y == RADIUS + 20)
+            if (Position.Y == RADIUS + Table.Thickness)
             {
                 Velocity.Y *= -1;
             }

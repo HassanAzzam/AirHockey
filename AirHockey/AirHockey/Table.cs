@@ -18,13 +18,14 @@ namespace AirHockey
         public static int WIDTH;
         public Vector2 TableTopLeft;
         public const float FRICTION=0.1F;
+        public const float Thickness = 25f;
         NewGame game;
 
         public Table(NewGame game) : base(game)
         {
             this.game = game;
             game.Content.RootDirectory = "Content";
-            TableTopLeft = new Vector2(0, 0);
+            TableTopLeft = new Vector2(35.506f, 11.7f);
         }
 
         protected override void LoadContent()
@@ -45,14 +46,14 @@ namespace AirHockey
             try
             {
                 CPU Cpu = (CPU)PLAYERorCPU;
-                if (Position.X - DiscRadius <= 20 && Position.Y >= 194 + DiscRadius && Position.Y <= 346 - DiscRadius)
+                if (Position.X - DiscRadius <= Thickness && Position.Y >= 194 + DiscRadius && Position.Y <= 346 - DiscRadius)
                 {
                     return true;
                 }
             }
             catch
             {
-                if (Position.X + DiscRadius >= WIDTH - 20 && Position.Y >= 194 + DiscRadius && Position.Y <= 346 - DiscRadius)
+                if (Position.X + DiscRadius >= WIDTH - Thickness && Position.Y >= 194 + DiscRadius && Position.Y <= 346 - DiscRadius)
                 {
                     return true;
                 }

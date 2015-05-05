@@ -27,8 +27,8 @@ namespace AirHockey
 
         public void LoadContent()
         {
-            Mouse.SetPosition((int)(game.GameTable.TableTopLeft.X + 70), (int)(game.GameTable.TableTopLeft.Y + Table.HEIGHT / 2));
-            Position = new Vector2((int)(game.GameTable.TableTopLeft.X + 70), (int)(game.GameTable.TableTopLeft.Y + Table.HEIGHT / 2));
+            Mouse.SetPosition((int)(game.GameTable.TableTopLeft.X + Table.Thickness + 50), (int)(game.GameTable.TableTopLeft.Y + Table.HEIGHT / 2));
+            Position = new Vector2((int)(game.GameTable.TableTopLeft.X + Table.Thickness + 50), (int)(game.GameTable.TableTopLeft.Y + Table.HEIGHT / 2));
             base.LoadContent();
         }
 
@@ -38,8 +38,8 @@ namespace AirHockey
             Vector2 PreviousPosition = Position;
             Position = new Vector2(MOUSE.X, MOUSE.Y);
             BoundPositionInTable(this, Vector2.Zero);
-            Velocity = Position - PreviousPosition;
             Position.X = Math.Min(Position.X, (Table.WIDTH / 2) - RADIUS);//Limit Stick Postion
+            Velocity = Position - PreviousPosition;
             Mouse.SetPosition((int)Position.X, (int)Position.Y);// Put Cursor on the stick
         }
     }

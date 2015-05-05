@@ -17,7 +17,7 @@ namespace AirHockey
 
         public void LoadContent()
         {
-            Position = new Vector2(game.GameTable.TableTopLeft.X + Table.WIDTH - 70 - RADIUS, 0); //game.GameTable.TableTopLeft.Y + Table.HEIGHT / 2);
+            Position = new Vector2(game.GameTable.TableTopLeft.X + Table.WIDTH - Table.Thickness - 50 - RADIUS, game.GameTable.TableTopLeft.Y + Table.HEIGHT / 2);
             base.LoadContent();
         }
 
@@ -25,7 +25,7 @@ namespace AirHockey
         {
             BoundPositionInTable(this, Velocity);
             
-            //Position.Y = Math.Min(Position.Y, Table.HEIGHT / 2 - RADIUS);
+            Position.X = Math.Max(Position.X, Table.WIDTH / 2 + RADIUS);
         }
     }
 }

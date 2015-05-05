@@ -37,10 +37,10 @@ namespace AirHockey
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            //graphics.PreferredBackBufferHeight = 768;
-            //graphics.PreferredBackBufferWidth = 1366;
+            graphics.PreferredBackBufferHeight = 768;
+            graphics.PreferredBackBufferWidth = 1366;
             graphics.IsFullScreen = true;
-            IsMouseVisible = false;
+            IsMouseVisible = true;
             IsFixedTimeStep = true;
             //TargetElapsedTime = TimeSpan.FromMilliseconds(3);
 
@@ -115,7 +115,6 @@ namespace AirHockey
                 this.Exit();
             if (this.MenuTime)
             {
-                IsMouseVisible = true;
                 short UserChoise = this.NewMenu.GetState();
                 if (UserChoise == -1)
                 {
@@ -130,7 +129,7 @@ namespace AirHockey
                 }
                 return;
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.Escape) && STOP.Elapsed.TotalSeconds >= 1)
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape) && STOP.Elapsed.TotalSeconds >= 1 && !Goal)
             {
                 Paused = !Paused;
                 if (!Paused)
@@ -212,6 +211,7 @@ namespace AirHockey
             NewDisc.Initialize();
             NewPlayer.Initialize();
             NewCPU.Initialize();
+            Mouse.SetPosition((int)NewPlayer.Position.X, (int)NewPlayer.Position.Y);
         }
 
         public void GoalScored()

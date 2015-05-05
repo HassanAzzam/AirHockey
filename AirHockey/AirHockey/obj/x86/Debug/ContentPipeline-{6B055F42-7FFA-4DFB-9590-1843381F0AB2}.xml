@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\GameThumbnail.xnb</Output>
-      <Time>2015-05-05T00:33:19.8975899+02:00</Time>
+      <Output>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\GameThumbnail.xnb</Output>
+      <Time>2015-05-04T15:13:06+02:00</Time>
     </Item>
     <Item>
       <Source>Table.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Table.xnb</Output>
-      <Time>2015-05-05T00:33:19.9005927+02:00</Time>
+      <Output>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Table.xnb</Output>
+      <Time>2015-05-05T03:09:34.9362736+02:00</Time>
     </Item>
     <Item>
       <Source>Disc.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Disc.xnb</Output>
-      <Time>2015-05-05T00:33:19.89659+02:00</Time>
+      <Output>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Disc.xnb</Output>
+      <Time>2015-05-04T15:13:06+02:00</Time>
     </Item>
     <Item>
       <Source>Stick.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Stick.xnb</Output>
-      <Time>2015-05-05T00:33:19.8985902+02:00</Time>
+      <Output>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Stick.xnb</Output>
+      <Time>2015-05-04T15:13:06+02:00</Time>
     </Item>
     <Item>
       <Source>Scoreboard.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Scoreboard.xnb</Output>
-      <Time>2015-05-05T00:33:19.8985902+02:00</Time>
+      <Output>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Scoreboard.xnb</Output>
+      <Time>2015-05-04T15:13:06+02:00</Time>
     </Item>
     <Item>
       <Source>GOAL.png</Source>
@@ -52,17 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\GOAL.xnb</Output>
-      <Time>2015-05-05T00:33:19.8975899+02:00</Time>
-    </Item>
-    <Item>
-      <Source>micross.spritefont</Source>
-      <Name>micross</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\micross.xnb</Output>
-      <Time>2015-05-05T00:33:19.9015925+02:00</Time>
+      <Output>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\GOAL.xnb</Output>
+      <Time>2015-05-04T15:13:06+02:00</Time>
     </Item>
     <Item>
       <Source>MenuBackGround.jpg</Source>
@@ -70,8 +61,17 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\MenuBackGround.xnb</Output>
-      <Time>2015-05-04T22:58:13.8974096+02:00</Time>
+      <Output>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\MenuBackGround.xnb</Output>
+      <Time>2015-05-05T01:00:32.7620378+02:00</Time>
+    </Item>
+    <Item>
+      <Source>micross.spritefont</Source>
+      <Name>micross</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\micross.xnb</Output>
+      <Time>2015-05-05T00:27:46.5425914+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -80,39 +80,39 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>D:\FCIS\GitHub\AirHockey\AirHockey\AirHockeyContent\</RootDirectory>
-      <LoggerRootDirectory>D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\</LoggerRootDirectory>
-      <IntermediateDirectory>D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockeyContent\</RootDirectory>
+      <LoggerRootDirectory>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\</LoggerRootDirectory>
+      <IntermediateDirectory>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2011-09-01T16:22:30+02:00</Value>
+        <Value>2011-09-02T01:22:30+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
-        <Value>2011-09-01T16:22:30+02:00</Value>
+        <Value>2011-09-02T01:22:30+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2011-09-01T16:22:30+02:00</Value>
+        <Value>2011-09-02T01:22:30+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2011-09-01T16:22:30+02:00</Value>
+        <Value>2011-09-02T01:22:30+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2011-09-01T16:22:30+02:00</Value>
+        <Value>2011-09-02T01:22:30+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2011-09-01T16:22:30+02:00</Value>
+        <Value>2011-09-02T01:22:30+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2015-04-15T18:56:16.0777533+02:00</Value>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2015-03-25T17:53:31.3176127+02:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
