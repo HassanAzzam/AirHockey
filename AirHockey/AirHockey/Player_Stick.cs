@@ -27,8 +27,7 @@ namespace AirHockey
 
         public void LoadContent()
         {
-            Mouse.SetPosition((int)(game.GameTable.TableTopLeft.X + Table.Thickness + 50), (int)(game.GameTable.TableTopLeft.Y + Table.HEIGHT / 2));
-            Position = new Vector2((int)(game.GameTable.TableTopLeft.X + Table.Thickness + 50), (int)(game.GameTable.TableTopLeft.Y + Table.HEIGHT / 2));
+            Mouse.SetPosition((int)(Position.X + game.GameTable.TableTopLeft.X), (int)(Position.Y + game.GameTable.TableTopLeft.Y));
             base.LoadContent();
         }
 

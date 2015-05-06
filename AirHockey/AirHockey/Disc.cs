@@ -45,7 +45,6 @@ namespace AirHockey
             Velocity = Vector2.Zero;
             Acceleration = Vector2.Zero;
             Position = new Vector2(Table.WIDTH / 2, Table.HEIGHT / 2);
-            //Position = new Vector2(Table.WIDTH / 6, Table.HEIGHT /2);
         }
         
         public override void Move(GameTime Time)

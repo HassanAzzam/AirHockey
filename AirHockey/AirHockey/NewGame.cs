@@ -125,7 +125,7 @@ namespace AirHockey
                     IsMouseVisible = false;
                     //this.Background(Color.White);
                     this.MenuTime = false;
-                    Mouse.SetPosition((int)(GameTable.TableTopLeft.X + 70), (int)(GameTable.TableTopLeft.Y + Table.HEIGHT / 2));
+                    Mouse.SetPosition((int)NewPlayer.Position.X, (int)NewPlayer.Position.Y);
                 }
                 return;
             }
