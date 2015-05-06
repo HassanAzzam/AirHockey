@@ -26,7 +26,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Disc.xnb</Output>
-      <Time>2015-05-05T15:24:11.3366352+02:00</Time>
+      <Time>2015-05-05T15:24:11.336635+02:00</Time>
     </Item>
     <Item>
       <Source>Stick.png</Source>
@@ -35,7 +35,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Stick.xnb</Output>
-      <Time>2015-05-05T15:08:06.8996877+02:00</Time>
+      <Time>2015-05-05T15:08:06.899687+02:00</Time>
     </Item>
     <Item>
       <Source>Scoreboard.png</Source>
@@ -62,7 +62,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\MenuBackGround.xnb</Output>
-      <Time>2015-05-05T01:00:32.7620378+02:00</Time>
+      <Time>2015-05-05T01:00:32.762037+02:00</Time>
     </Item>
     <Item>
       <Source>micross.spritefont</Source>
@@ -71,7 +71,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\micross.xnb</Output>
-      <Time>2015-05-05T00:27:46.5425914+02:00</Time>
+      <Time>2015-05-05T00:27:46.542591+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
