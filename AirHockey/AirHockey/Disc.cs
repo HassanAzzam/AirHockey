@@ -15,15 +15,18 @@ namespace AirHockey
     public class Disc : GameElement
     {
         private float FrictionCoefficient = 0.5f;
-        private Vector2 Acceleration; //Alaa: Puck mass is around 50 grams
+        private Vector2 Acceleration;
+        private Vector2 PreviousPosition;
+        bool Collision=false;
+        Vector2 ObjVelocity;
+
         public Disc(NewGame game)
             : base(game)
         {
-            Mass = 0.05F;
+            Mass = 0.05F; //Alaa: Puck mass is around 50 grams
             game.Content.RootDirectory = "Content";
             Velocity = Vector2.Zero;
-
-            //Velocity = new Vector2(10,0);
+            PreviousPosition = Vector2.Zero;
             Acceleration = new Vector2(FrictionCoefficient * 9.8f, FrictionCoefficient * 9.8f);
         }
 
@@ -37,18 +40,19 @@ namespace AirHockey
 
         public void Draw()
         {
-            game.spriteBatch.Draw(this.TEXTURE, game.GameTable.TableTopLeft - new Vector2(RADIUS, RADIUS) + Position, Color.White);
+            game.spriteBatch.Draw(this.TEXTURE, Table.TopLeft - new Vector2(RADIUS, RADIUS) + Position, Color.White);
         }
 
         public override void Initialize()
         {
             Velocity = Vector2.Zero;
             Acceleration = Vector2.Zero;
-            Position = new Vector2(Table.WIDTH / 2, Table.HEIGHT / 2);
+            Position = new Vector2(Table.WIDTH/2, Table.HEIGHT / 2);
         }
         
         public override void Move(GameTime Time)
         {
+
             #region Goal Checking
 
             if (game.GameTable.CheckGoal(game.NewCPU, Position))
@@ -72,14 +76,21 @@ namespace AirHockey
             {
                 Hit(game.NewPlayer);
             }
-            if (this.Intersects(game.NewCPU))
+            else if (this.Intersects(game.NewCPU))
             {
                 Hit(game.NewCPU);
             }
-
+            else
+            {
+                if (Collision)
+                {
+                    Velocity = ObjVelocity * 7f;
+                    Collision = false;
+                }
+                PreviousPosition = Vector2.Zero;
+            }
             #endregion
 
-           // Velocity = Vector2.Zero;
             Acceleration = new Vector2(FrictionCoefficient * 9.8f, FrictionCoefficient * 9.8f);
             double time = Time.ElapsedGameTime.TotalSeconds;
             Acceleration *= (float)time;
@@ -89,22 +100,22 @@ namespace AirHockey
             
             if (Velocity.X > 0)
             {
-                Velocity.X = Math.Max(Velocity.X - Acceleration.X, 0);
+                Velocity.X -= Acceleration.X;
             }
             else if (Velocity.X < 0)
             {
 
-                Velocity.X = Math.Min(Velocity.X + Acceleration.X, 0);
+                Velocity.X += Acceleration.X;
             }
             if (Velocity.Y > 0)
             {
 
-                Velocity.Y = Math.Max(Velocity.Y -  Acceleration.Y, 0);
+                Velocity.Y -= Acceleration.Y;
             }
             else if (Velocity.Y < 0)
             {
 
-                Velocity.Y = Math.Min(Velocity.Y + Acceleration.Y, 0);
+                Velocity.Y += Acceleration.Y;
             }
 
             //Moving The Puck
@@ -134,87 +145,61 @@ namespace AirHockey
         {
             double Distance;
             Distance = (obj.RADIUS + RADIUS) - (obj.Position - Position).Length();
-            return Distance > 0;
+            return Distance >= 0;
         }
 
         public void Hit(User UserObj)
         {
-            double Distance = (UserObj.RADIUS + RADIUS) - (UserObj.Position - Position).Length();
+            double Distance = RADIUS + UserObj.RADIUS - (UserObj.Position - Position).Length();
 
-           // MintainCollision(UserObj);
+            if (this.InCorner()&&Distance>=0)
+            {
+                Collision = true;
+                MintainCollision(UserObj);
+                Velocity = Vector2.Zero;
+                ObjVelocity = UserObj.Velocity;
+                
+            }
+            else if(this.OnSide()&&Distance>=0)
+            {
+                MintainCollision(UserObj);
+                ChangeDiscVelocity(UserObj);
+            }
+            else
+            {
+                ChangeDiscVelocity(UserObj);
+               // PreviousPosition = Vector2.Zero;
+            }
+            PreviousPosition = Position;
+        }
 
-            ChangeDiscVelocity(UserObj);
+        bool OnSide()
+        {
+            return (Position.X==Table.Thickness+RADIUS)||((Position.X == Table.WIDTH - Table.Thickness - RADIUS)||(Position.Y == Table.Thickness + RADIUS)||(Position.Y == Table.HEIGHT - Table.Thickness - RADIUS));
+        }
+
+        bool InCorner()
+        {
+            return (Position.X == Table.Thickness + RADIUS && Position.Y == Table.Thickness + RADIUS) || (Position.X == Table.Thickness + RADIUS && Position.Y == Table.HEIGHT - Table.Thickness - RADIUS) || (Position.X == Table.WIDTH - Table.Thickness - RADIUS && Position.Y == Table.Thickness + RADIUS) || (Position.X == Table.WIDTH - Table.Thickness - RADIUS && Position.Y == Table.HEIGHT - Table.Thickness - RADIUS);
         }
 
         private void MintainCollision(User UserObj)
         {
-            
-            Vector2 DISC_POSITION = this.Position;
-            Vector2 IntersectingPoint;
-            double Distance;
-            double StickVelocityMagnitude = UserObj.Velocity.Length();
-            double DiscVelocityMagnitude = this.Velocity.Length();
+            //Velocity = Vector2.Zero;
+            double Distance = RADIUS + UserObj.RADIUS - (UserObj.Position - Position).Length();
 
-            //Vector from Disc Position to Stick Center
-            Vector2 STICK_CENTER = UserObj.Position - this.Position;
-            double StickCenterMagnitude = STICK_CENTER.Length();
-
-            double RadiusSum = UserObj.RADIUS + this.RADIUS;
-            double Length_AngleRatio;
-
-            //Get angle of Stick Velocity vector
-            double Angle_StickVelocity = Math.Atan2(UserObj.Velocity.Y, UserObj.Velocity.X) * (180 / Math.PI);
-            while (Angle_StickVelocity < 0) Angle_StickVelocity += 360;
-
-            //Get angle of Disc Velocity vector
-            double Angle_DiscVelocity = Math.Atan2(this.Velocity.Y, this.Velocity.X) * (180 / Math.PI);
-            while (Angle_DiscVelocity < 0) Angle_DiscVelocity += 360;
-
-            //Get angle of StickCenter Vector
-            double Angle_StickCenter = Math.Atan2(STICK_CENTER.Y, STICK_CENTER.X) * (180 / Math.PI);
-
-            //Determine which direction the disc will move in
-            if (Math.Abs(Angle_DiscVelocity - Angle_StickVelocity) >= 90)
-            {
-                Angle_DiscVelocity = Math.Atan2(-1 * this.Velocity.Y, -1 * this.Velocity.X) * (180 / Math.PI);
-            }
-            else if (this.Velocity == Vector2.Zero)
-            {
-                Angle_DiscVelocity = Angle_StickCenter + 180;
-            }
-            else
-            {
-                Angle_DiscVelocity -= 360;
-            }
-
-            //Get relation between Triangle Lengths and Sin of Angles
-            Length_AngleRatio = RadiusSum / Math.Sin((Angle_StickCenter - Angle_DiscVelocity) * (Math.PI / 180));
-
-            //Get Desired Point Angle
-            double Angle_IntersectingPoint = (StickCenterMagnitude / Length_AngleRatio);
-            Angle_IntersectingPoint = Math.Asin(Angle_IntersectingPoint) * (180 / Math.PI);
-
-            //Get Distance between Disc Position and desired point
-            Distance = Length_AngleRatio * Math.Sin((180 - (Angle_StickCenter - Angle_DiscVelocity) - Angle_IntersectingPoint) * Math.PI / 180);
-
-            //Get Desired Point
-            IntersectingPoint = new Vector2((float)(this.Position.X + Distance * Math.Cos(Angle_DiscVelocity * (Math.PI / 180))), (float)(this.Position.Y + Distance * Math.Sin(Angle_DiscVelocity * (Math.PI / 180))));
-
-            //Return Disc to the Intersecting Point before collision -Intersection between Disc and Stick is one point only-
-            this.Position = IntersectingPoint;
-            BoundPositionInTable(this, Vector2.Zero);
-
-            Distance = RadiusSum - (this.Position - UserObj.Position).Length();
-            if (Distance > 0) //if Collision stills, Move Stick instead
+            if (Distance >= 0)
             {
                 double Angle = Math.Atan2(-1 * UserObj.Velocity.Y, -1 * UserObj.Velocity.X);
 
-                Position = new Vector2((float)(UserObj.Position.X + Distance * Math.Cos(Angle)), (float)(UserObj.Position.Y + Distance * Math.Sin(Angle)));
+                UserObj.Position = new Vector2((float)(UserObj.Position.X + Distance * Math.Cos(Angle)), (float)(UserObj.Position.Y + Distance * Math.Sin(Angle)));
             }
+            Mouse.SetPosition((int)(game.NewPlayer.Position.X), (int)(game.NewPlayer.Position.Y));
         }
 
         private void ChangeDiscVelocity(User UserObj)
         {
+
             //Get angle of Disc Velocity reflection vector caused by the hit
             double Angle = Math.Atan2((this.Position.Y - UserObj.Position.Y), (this.Position.X - UserObj.Position.X));
 
