@@ -22,7 +22,7 @@ namespace AirHockey
         public Table GameTable;
         public Player NewPlayer;
         public CPU NewCPU;
-        public Disc NewDisc;
+        public Puck NewPuck;
         private Menu NewMenu;
         public GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
@@ -54,7 +54,7 @@ namespace AirHockey
             GameTable = new Table(this);
             NewCPU = new CPU(this);
             NewPlayer = new Player(this);
-            NewDisc = new Disc(this);
+            NewPuck = new Puck(this);
             this.NewMenu = new Menu();
             this.MenuTime = true;
             #endregion
@@ -72,7 +72,7 @@ namespace AirHockey
         {
             // TODO: Add your initialization logic here
             Components.Add(GameTable);
-            Components.Add(NewDisc);
+            Components.Add(NewPuck);
             Components.Add(NewPlayer);
             Components.Add(NewCPU);
             Components.Add(NewScoreboard);
@@ -148,7 +148,7 @@ namespace AirHockey
             {
                 NewPlayer.Move(gameTime);
                 NewCPU.Move(gameTime);
-                NewDisc.Move(gameTime);
+                NewPuck.Move(gameTime);
             }
             base.Update(gameTime);
         }
@@ -176,7 +176,7 @@ namespace AirHockey
                 return;
             }
             GameTable.Draw();
-            NewDisc.Draw();
+            NewPuck.Draw();
             NewPlayer.Draw();
             NewCPU.Draw();
             NewScoreboard.Draw();
@@ -208,7 +208,7 @@ namespace AirHockey
 
         public void initialize()
         {
-            NewDisc.Initialize();
+            NewPuck.Initialize();
             NewPlayer.Initialize();
             NewCPU.Initialize();
             Mouse.SetPosition((int)NewPlayer.Position.X, (int)NewPlayer.Position.Y);

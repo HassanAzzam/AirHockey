@@ -14,39 +14,39 @@ namespace AirHockey
     public class Player : User
     {
 
-        private Player_Stick PLAYER_STICK;
+        private Player_Paddle PLAYER_PADDLE;
         private Score PLAYER_SCORE;
         public Player(NewGame game) : base(game)
         {
-            PLAYER_STICK = new Player_Stick(game);
+            PLAYER_PADDLE = new Player_Paddle(game);
             PLAYER_SCORE = new Score(game);
         }
         protected override void LoadContent()
         {
-            PLAYER_STICK.LoadContent();
+            PLAYER_PADDLE.LoadContent();
         }
 
         public override void Initialize()
         {
             LoadContent();
-            PLAYER_STICK.Velocity = Vector2.Zero;
-            PLAYER_STICK.Position = new Vector2(70, Table.HEIGHT / 2);
+            PLAYER_PADDLE.Velocity = Vector2.Zero;
+            PLAYER_PADDLE.Position = new Vector2(70, Table.HEIGHT / 2);
         }
 
         public override void Move(GameTime Time)
         {
-            PLAYER_STICK.Move(Time);
+            PLAYER_PADDLE.Move(Time);
         }
 
         public override void Draw()
         {
-            PLAYER_STICK.Draw();
+            PLAYER_PADDLE.Draw();
         }
 
         public override int Points { get { return PLAYER_SCORE.Points; } set { PLAYER_SCORE.Points = value; } }
-        public override Vector2 Position { get { return PLAYER_STICK.Position; } set { PLAYER_STICK.Position = value; } }
-        public override Vector2 Velocity { get { return PLAYER_STICK.Velocity; } set { PLAYER_STICK.Velocity = value; } }
-        public override float RADIUS { get { return PLAYER_STICK.RADIUS; } }
-        public override float Mass { get { return PLAYER_STICK.Mass; } }
+        public override Vector2 Position { get { return PLAYER_PADDLE.Position; } set { PLAYER_PADDLE.Position = value; } }
+        public override Vector2 Velocity { get { return PLAYER_PADDLE.Velocity; } set { PLAYER_PADDLE.Velocity = value; } }
+        public override float RADIUS { get { return PLAYER_PADDLE.RADIUS; } }
+        public override float Mass { get { return PLAYER_PADDLE.Mass; } }
     }
 }

@@ -11,9 +11,9 @@ using Microsoft.Xna.Framework.Media;
 
 namespace AirHockey
 {
-    public abstract class Stick : GameElement
+    public abstract class Paddle : GameElement
     {
-        public Stick(NewGame game)
+        public Paddle(NewGame game)
             : base(game)
         {
             Mass = 0.135f;
@@ -23,14 +23,14 @@ namespace AirHockey
 
         protected override void LoadContent()
         {
-            TEXTURE = game.Content.Load<Texture2D>("Stick");
+            TEXTURE = game.Content.Load<Texture2D>("Paddle");
             RADIUS = TEXTURE.Width / 2;
             base.LoadContent();
         }
 
         public void Draw()
         {
-            game.spriteBatch.Draw(this.TEXTURE, game.GameTable.TableTopLeft + this.Position - new Vector2(RADIUS, RADIUS), Color.White);
+            game.spriteBatch.Draw(this.TEXTURE, Table.TopLeft + this.Position - new Vector2(RADIUS, RADIUS), Color.White);
         }
 
     }

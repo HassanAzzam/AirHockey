@@ -16,10 +16,10 @@ using System.Diagnostics;
 
 namespace AirHockey
 {
-    public class Player_Stick : Stick
+    public class Player_Paddle : Paddle
     {
         MouseState MOUSE;
-        public Player_Stick(NewGame game)
+        public Player_Paddle(NewGame game)
             : base(game)
         {
             Velocity = new Vector2(0, 0);
@@ -27,7 +27,7 @@ namespace AirHockey
 
         public void LoadContent()
         {
-            Mouse.SetPosition((int)(Position.X + game.GameTable.TableTopLeft.X), (int)(Position.Y + game.GameTable.TableTopLeft.Y));
+            Mouse.SetPosition((int)(Position.X + Table.TopLeft.X), (int)(Position.Y + Table.TopLeft.Y));
             base.LoadContent();
         }
 
@@ -37,9 +37,9 @@ namespace AirHockey
             Vector2 PreviousPosition = Position;
             Position = new Vector2(MOUSE.X, MOUSE.Y);
             BoundPositionInTable(this, Vector2.Zero);
-            Position.X = Math.Min(Position.X, (Table.WIDTH / 2) - RADIUS);//Limit Stick Postion
+            Position.X = Math.Min(Position.X, (Table.WIDTH / 2) - RADIUS);//Limit Paddle Postion
             Velocity = Position - PreviousPosition;
-            Mouse.SetPosition((int)Position.X, (int)Position.Y);// Put Cursor on the stick
+            Mouse.SetPosition((int)Position.X, (int)Position.Y);// Put Cursor on the paddle
         }
     }
 }

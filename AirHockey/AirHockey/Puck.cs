@@ -12,7 +12,7 @@ using System.Threading;
 
 namespace AirHockey
 {
-    public class Disc : GameElement
+    public class Puck : GameElement
     {
         private float FrictionCoefficient = 0.5f;
         private Vector2 Acceleration;
@@ -20,7 +20,7 @@ namespace AirHockey
         bool Collision=false;
         Vector2 ObjVelocity;
 
-        public Disc(NewGame game)
+        public Puck(NewGame game)
             : base(game)
         {
             Mass = 0.05F; //Alaa: Puck mass is around 50 grams
@@ -32,7 +32,7 @@ namespace AirHockey
 
         protected override void LoadContent()
         {
-            TEXTURE = game.Content.Load<Texture2D>("Disc");
+            TEXTURE = game.Content.Load<Texture2D>("Puck");
             RADIUS = TEXTURE.Width / 2;
             Initialize();
             base.LoadContent();
@@ -163,11 +163,11 @@ namespace AirHockey
             else if(this.OnSide()&&Distance>=0)
             {
                 MintainCollision(UserObj);
-                ChangeDiscVelocity(UserObj);
+                ChangePuckVelocity(UserObj);
             }
             else
             {
-                ChangeDiscVelocity(UserObj);
+                ChangePuckVelocity(UserObj);
                // PreviousPosition = Vector2.Zero;
             }
             PreviousPosition = Position;
@@ -197,23 +197,23 @@ namespace AirHockey
             Mouse.SetPosition((int)(game.NewPlayer.Position.X), (int)(game.NewPlayer.Position.Y));
         }
 
-        private void ChangeDiscVelocity(User UserObj)
+        private void ChangePuckVelocity(User UserObj)
         {
 
-            //Get angle of Disc Velocity reflection vector caused by the hit
+            //Get angle of Puck Velocity reflection vector caused by the hit
             double Angle = Math.Atan2((this.Position.Y - UserObj.Position.Y), (this.Position.X - UserObj.Position.X));
 
             //According to Momentum Conservation Law
             double VelocityMagnitude;
 
-            if (UserObj.Velocity != Vector2.Zero) //If Stick is Moving
+            if (UserObj.Velocity != Vector2.Zero) //If Paddle is Moving
             {
-                //Get Velocity magnitude of Stick Velocity
+                //Get Velocity magnitude of Paddle Velocity
                 VelocityMagnitude = (UserObj.Mass * UserObj.Velocity.Length()) / Mass + Velocity.Length();
             }
             else
             {
-                //Get Velocity magnitude of Disc Velocity
+                //Get Velocity magnitude of Puck Velocity
                 VelocityMagnitude = Velocity.Length();
             }
 
