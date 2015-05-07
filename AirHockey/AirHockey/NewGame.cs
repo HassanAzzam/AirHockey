@@ -31,9 +31,17 @@ namespace AirHockey
         private Stopwatch STOP;
         private Scoreboard NewScoreboard;
         public Texture2D GoalTex;
+        private Texture2D UnMuteTex;
+        private Texture2D MuteTex;
         public bool Goal = false;
+        public bool Mute = false;
         private bool MenuTime;
         private bool GameOver = false;
+
+        #region Sound Effect
+        public SoundEffect PuckHitGoal;
+        //public SoundEffect PaddleHitPuck;
+        #endregion
 
         public NewGame()
         {
@@ -42,7 +50,7 @@ namespace AirHockey
             Content.RootDirectory = "Content";
             graphics.PreferredBackBufferHeight = 768;
             graphics.PreferredBackBufferWidth = 1366;
-            graphics.IsFullScreen = false;
+            graphics.IsFullScreen = true;
             IsMouseVisible = true;
             IsFixedTimeStep = true;
             graphics.ApplyChanges();
@@ -92,6 +100,10 @@ namespace AirHockey
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Font = Content.Load<SpriteFont>("micross");
             GoalTex = Content.Load<Texture2D>("Goal");
+            UnMuteTex = Content.Load<Texture2D>("UnMute");
+            MuteTex = Content.Load<Texture2D>("Mute");
+            PuckHitGoal = Content.Load<SoundEffect>("puck_hit_goal");
+            //PaddleHitPuck = Content.Load<SoundEffect>("Paddle_hit_Puck");
             initialize();
             // TODO: use this.Content to load your game content here
         }
@@ -135,6 +147,18 @@ namespace AirHockey
                 }
                 return;
             }
+
+            #region Mute & Unmute
+            if (Keyboard.GetState().IsKeyDown(Keys.M))
+            {
+                Mute = true;
+            }
+            if (Keyboard.GetState().IsKeyDown(Keys.U))
+            {
+                Mute = false;
+            }
+            #endregion
+
             if (Keyboard.GetState().IsKeyDown(Keys.Escape) && STOP.Elapsed.TotalSeconds >= 1 && !Goal)
             {
                 Paused = !Paused;
@@ -205,6 +229,14 @@ namespace AirHockey
             if (GameOver)
             {
                 DrawEnd();
+            }
+            if (!Mute)
+            {
+                spriteBatch.Draw(UnMuteTex, new Vector2(Table.Thickness + 15, Table.HEIGHT + 15), Color.White);
+            }
+            if (Mute)
+            {
+                spriteBatch.Draw(MuteTex, new Vector2(Table.Thickness + 15, Table.HEIGHT + 15), Color.White);
             }
         }
 
