@@ -2,7 +2,8 @@ Content\GameThumbnail.xnb
 Content\Table.xnb
 Content\Scoreboard.xnb
 Content\GOAL.xnb
-Content\MenuBackGround.xnb
 Content\Paddle.xnb
 Content\Puck.xnb
 Content\micross.xnb
+Content\BackGround.xnb
+Content\puck_hit_goal.xnb

@@ -9,8 +9,6 @@
 \\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\micross.xnb
 D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\GameThumbnail.xnb
 D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Table.xnb
-D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Disc.xnb
-D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Stick.xnb
 D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\micross.xnb
 D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\AirHockey.exe
 D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\AirHockey.pdb
@@ -33,7 +31,6 @@ C:\Users\Ayman\Desktop\AirHockey-master\AirHockey\AirHockey\obj\x86\Debug\AirHoc
 \\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\GOAL.xnb
 D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Scoreboard.xnb
 D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\GOAL.xnb
-D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\MenuBackGround.xnb
 \\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\MenuBackGround.xnb
 \\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Paddle.xnb
 \\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Puck.xnb
@@ -79,3 +76,7 @@ C:\Users\Alaa Ashraf\Desktop\AirHockey-master_2\AirHockey-master\AirHockey\AirHo
 \\Vboxsvr\vm\Visual Studio\AirHockey-master_2\AirHockey-master\AirHockey\AirHockey\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 \\Vboxsvr\vm\Visual Studio\AirHockey-master_2\AirHockey-master\AirHockey\AirHockey\obj\x86\Debug\AirHockey.exe
 \\Vboxsvr\vm\Visual Studio\AirHockey-master_2\AirHockey-master\AirHockey\AirHockey\obj\x86\Debug\AirHockey.pdb
+D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Paddle.xnb
+D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Puck.xnb
+D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\BackGround.xnb
+D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\puck_hit_goal.xnb
