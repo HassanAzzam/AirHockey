@@ -74,6 +74,15 @@
       <Time>2015-05-07T23:17:34.4457881+02:00</Time>
     </Item>
     <Item>
+      <Source>MenuBackGround.png</Source>
+      <Name>MenuBackGround</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\MenuBackGround.xnb</Output>
+      <Time>2015-05-04T23:46:13.0074878+02:00</Time>
+    </Item>
+    <Item>
       <Source>micross.spritefont</Source>
       <Name>micross</Name>
       <Importer>FontDescriptionImporter</Importer>
@@ -92,13 +101,13 @@
       <Time>2015-05-05T02:25:23.5919225+02:00</Time>
     </Item>
     <Item>
-      <Source>MenuBackGround.png</Source>
-      <Name>MenuBackGround</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+      <Source>PuckSound.wav</Source>
+      <Name>PuckSound</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\MenuBackGround.xnb</Output>
-      <Time>2015-05-04T23:46:13.0074878+02:00</Time>
+      <Output>D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\PuckSound.xnb</Output>
+      <Time>2015-05-08T00:30:29.8486037+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

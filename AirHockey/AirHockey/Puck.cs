@@ -14,8 +14,8 @@ namespace AirHockey
 {
     public class Puck : GameElement
     {
-        private float FrictionCoefficient = 0.7f;//Alaa: Friction Coefficient is 0.12 :D
-        private int MAX_SPEED=200;//Alaa: Puck's MaxSpeed, Modified from here ONLY! 
+        private float FrictionCoefficient = 0.9f;//Alaa: Friction Coefficient is 0.12 :D
+        private int MAX_SPEED = 125;//Alaa: Puck's MaxSpeed, Modified from here ONLY! 
         private Vector2 Acceleration;
         private Vector2 PreviousPosition;
         bool CornerCollision=false;
@@ -131,18 +131,34 @@ namespace AirHockey
 
             if (Position.X == Table.WIDTH - RADIUS - Table.Thickness)
             {
+                if (!game.Mute)
+                {
+                    game.PuckSound.Play();
+                }
                 Velocity.X *= -1;
             }
             if (Position.X == RADIUS + Table.Thickness)
             {
+                if (!game.Mute)
+                {
+                    game.PuckSound.Play();
+                }
                 Velocity.X *= -1;
             }
             if (Position.Y == Table.HEIGHT - RADIUS - Table.Thickness)
             {
+                if (!game.Mute)
+                {
+                    game.PuckSound.Play();
+                }
                 Velocity.Y *= -1;
             }
             if (Position.Y == RADIUS + Table.Thickness)
             {
+                if (!game.Mute)
+                {
+                    game.PuckSound.Play();
+                }
                 Velocity.Y *= -1;
             }
             //Alaa: Restricts the Velocity in this range, Permanent solution /O/ ~O~ ~O~ \O\
@@ -161,6 +177,10 @@ namespace AirHockey
 
         public void Hit(User UserObj)
         {
+            if (!game.Mute)
+            {
+                game.PuckSound.Play();
+            }
             double Distance = RADIUS + UserObj.RADIUS - (UserObj.Position - Position).Length();
 
             if (this.InCorner()&&Distance>=0)
