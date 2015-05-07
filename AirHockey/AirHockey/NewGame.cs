@@ -40,7 +40,7 @@ namespace AirHockey
             Content.RootDirectory = "Content";
             graphics.PreferredBackBufferHeight = 768;
             graphics.PreferredBackBufferWidth = 1366;
-            graphics.IsFullScreen = false;
+            graphics.IsFullScreen = true;
             IsMouseVisible = true;
             IsFixedTimeStep = true;
             graphics.ApplyChanges();

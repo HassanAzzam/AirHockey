@@ -14,10 +14,11 @@ namespace AirHockey
 {
     public class Puck : GameElement
     {
-        private float FrictionCoefficient = 0.5f;
+        private float FrictionCoefficient = 0.3f;//Alaa: Friction Coefficient is 0.12 :D
+        private int MAX_SPEED=200;//Alaa: Puck's MaxSpeed, Modified from here ONLY! 
         private Vector2 Acceleration;
         private Vector2 PreviousPosition;
-        bool Collision=false;
+        bool CornerCollision=false;
         Vector2 ObjVelocity;
 
         public Puck(NewGame game)
@@ -53,22 +54,22 @@ namespace AirHockey
         public override void Move(GameTime Time)
         {
 
-            #region Goal Checking
+            //#region Goal Checking
 
-            if (game.GameTable.CheckGoal(game.NewCPU, Position))
-            {
-                ++game.NewCPU.Points;
-                game.GoalScored();
-                return;
-            }
-            else if (game.GameTable.CheckGoal(game.NewPlayer, Position))
-            {
-                ++game.NewPlayer.Points;
-                game.GoalScored();
-                return;
-            }
+            //if (game.GameTable.CheckGoal(game.NewCPU, Position))
+            //{
+            //    ++game.NewCPU.Points;
+            //    game.GoalScored();
+            //    return;
+            //}
+            //else if (game.GameTable.CheckGoal(game.NewPlayer, Position))
+            //{
+            //    ++game.NewPlayer.Points;
+            //    game.GoalScored();
+            //    return;
+            //}
 
-            #endregion
+            //#endregion
             
             #region Hitting
 
@@ -82,10 +83,10 @@ namespace AirHockey
             }
             else
             {
-                if (Collision)
+                if (CornerCollision)
                 {
                     Velocity = ObjVelocity * 7f;
-                    Collision = false;
+                    CornerCollision = false;
                 }
                 PreviousPosition = Vector2.Zero;
             }
@@ -117,9 +118,6 @@ namespace AirHockey
 
                 Velocity.Y += Acceleration.Y;
             }
-
-            //Moving The Puck
-            Velocity *= 0.995f; //Multiplied to reduce the puck speed
             
             BoundPositionInTable(this, Velocity * Time.ElapsedGameTime.Milliseconds / 60f);
 
@@ -139,6 +137,11 @@ namespace AirHockey
             {
                 Velocity.Y *= -1;
             }
+            //Alaa: Restricts the Velocity in this range, Permanent solution /O/ ~O~ ~O~ \O\
+            if (Velocity.Length() > MAX_SPEED)
+            {
+                Velocity = new Vector2((Velocity.X / Velocity.Length()) * MAX_SPEED, (Velocity.Y / Velocity.Length()) * MAX_SPEED);
+            }
         }
 
         private bool Intersects(User obj)
@@ -154,7 +157,7 @@ namespace AirHockey
 
             if (this.InCorner()&&Distance>=0)
             {
-                Collision = true;
+                CornerCollision = true;
                 MintainCollision(UserObj);
                 Velocity = Vector2.Zero;
                 ObjVelocity = UserObj.Velocity;
@@ -168,7 +171,6 @@ namespace AirHockey
             else
             {
                 ChangePuckVelocity(UserObj);
-               // PreviousPosition = Vector2.Zero;
             }
             PreviousPosition = Position;
         }
@@ -194,6 +196,7 @@ namespace AirHockey
 
                 UserObj.Position = new Vector2((float)(UserObj.Position.X + Distance * Math.Cos(Angle)), (float)(UserObj.Position.Y + Distance * Math.Sin(Angle)));
             }
+
             Mouse.SetPosition((int)(game.NewPlayer.Position.X), (int)(game.NewPlayer.Position.Y));
         }
 
@@ -203,19 +206,10 @@ namespace AirHockey
             //Get angle of Puck Velocity reflection vector caused by the hit
             double Angle = Math.Atan2((this.Position.Y - UserObj.Position.Y), (this.Position.X - UserObj.Position.X));
 
-            //According to Momentum Conservation Law
             double VelocityMagnitude;
 
-            if (UserObj.Velocity != Vector2.Zero) //If Paddle is Moving
-            {
-                //Get Velocity magnitude of Paddle Velocity
-                VelocityMagnitude = (UserObj.Mass * UserObj.Velocity.Length()) / Mass + Velocity.Length();
-            }
-            else
-            {
-                //Get Velocity magnitude of Puck Velocity
-                VelocityMagnitude = Velocity.Length();
-            }
+            //Get new velocity magnitude of Puck Velocity according to Momentum Conservation Law
+            VelocityMagnitude = (UserObj.Mass * UserObj.Velocity.Length()) / Mass + Velocity.Length();
 
             //Velocity resolution
             this.Velocity = new Vector2((float)(VelocityMagnitude * Math.Cos(Angle)), (float)(VelocityMagnitude * Math.Sin(Angle)));

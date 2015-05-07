@@ -3,6 +3,6 @@ Content\Table.xnb
 Content\Scoreboard.xnb
 Content\GOAL.xnb
 Content\MenuBackGround.xnb
-Content\micross.xnb
 Content\Paddle.xnb
 Content\Puck.xnb
+Content\micross.xnb
