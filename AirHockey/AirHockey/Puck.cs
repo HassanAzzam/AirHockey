@@ -14,11 +14,11 @@ namespace AirHockey
 {
     public class Puck : GameElement
     {
-        private float FrictionCoefficient = 0.3f;//Alaa: Friction Coefficient is 0.12 :D
-        private int MAX_SPEED=200;//Alaa: Puck's MaxSpeed, Modified from here ONLY! 
+        private float FrictionCoefficient = 1.5f;//Alaa: Friction Coefficient is 0.12 :D
+        private int MAX_SPEED = 150;//Alaa: Puck's MaxSpeed, Modified from here ONLY! 
         private Vector2 Acceleration;
         private Vector2 PreviousPosition;
-        bool CornerCollision=false;
+        bool CornerCollision = false;
         Vector2 ObjVelocity;
 
         public Puck(NewGame game)
@@ -54,22 +54,24 @@ namespace AirHockey
         public override void Move(GameTime Time)
         {
 
-            //#region Goal Checking
+            #region Goal Checking
 
-            //if (game.GameTable.CheckGoal(game.NewCPU, Position))
-            //{
-            //    ++game.NewCPU.Points;
-            //    game.GoalScored();
-            //    return;
-            //}
-            //else if (game.GameTable.CheckGoal(game.NewPlayer, Position))
-            //{
-            //    ++game.NewPlayer.Points;
-            //    game.GoalScored();
-            //    return;
-            //}
+            if (game.GameTable.CheckGoal(game.NewCPU, Position))
+            {
+                game.PuckHitGoal.Play();
+                ++game.NewCPU.Points;
+                game.GoalScored();
+                return;
+            }
+            else if (game.GameTable.CheckGoal(game.NewPlayer, Position))
+            {
+                game.PuckHitGoal.Play();
+                ++game.NewPlayer.Points;
+                game.GoalScored();
+                return;
+            }
 
-            //#endregion
+            #endregion
             
             #region Hitting
 
