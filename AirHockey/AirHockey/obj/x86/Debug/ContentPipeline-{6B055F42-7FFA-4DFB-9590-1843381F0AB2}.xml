@@ -8,7 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ayman\Desktop\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\GameThumbnail.xnb</Output>
-      <Time>2015-05-05T00:33:19.8975899+02:00</Time>
+      <Time>2015-05-07T01:43:44.9705269+02:00</Time>
     </Item>
     <Item>
       <Source>Table.png</Source>
@@ -17,25 +17,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ayman\Desktop\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Table.xnb</Output>
-      <Time>2015-05-05T00:33:19.9005927+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Disc.png</Source>
-      <Name>Disc</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Ayman\Desktop\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Disc.xnb</Output>
-      <Time>2015-05-05T00:33:19.89659+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Stick.png</Source>
-      <Name>Stick</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Ayman\Desktop\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Stick.xnb</Output>
-      <Time>2015-05-05T00:33:19.8985902+02:00</Time>
+      <Time>2015-05-07T01:47:25.4423131+02:00</Time>
     </Item>
     <Item>
       <Source>Scoreboard.png</Source>
@@ -44,7 +26,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ayman\Desktop\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Scoreboard.xnb</Output>
-      <Time>2015-05-05T00:33:19.8985902+02:00</Time>
+      <Time>2015-05-07T01:43:44.9755322+02:00</Time>
     </Item>
     <Item>
       <Source>GOAL.png</Source>
@@ -53,7 +35,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ayman\Desktop\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\GOAL.xnb</Output>
-      <Time>2015-05-05T00:33:19.8975899+02:00</Time>
+      <Time>2015-05-07T01:43:44.9695274+02:00</Time>
     </Item>
     <Item>
       <Source>MenuBackGround.jpg</Source>
@@ -62,7 +44,25 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ayman\Desktop\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\MenuBackGround.xnb</Output>
-      <Time>2015-05-04T22:58:13.8974096+02:00</Time>
+      <Time>2015-05-04T23:46:13.0074878+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Paddle.png</Source>
+      <Name>Paddle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ayman\Desktop\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Paddle.xnb</Output>
+      <Time>2015-05-07T01:47:25.4383136+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Puck.png</Source>
+      <Name>Puck</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ayman\Desktop\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\Puck.xnb</Output>
+      <Time>2015-05-07T01:47:25.4393111+02:00</Time>
     </Item>
     <Item>
       <Source>micross.spritefont</Source>
@@ -71,7 +71,16 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ayman\Desktop\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\micross.xnb</Output>
-      <Time>2015-05-05T00:33:19.9015925+02:00</Time>
+      <Time>2015-05-07T01:43:44.9805343+02:00</Time>
+    </Item>
+    <Item>
+      <Source>puck_hit_goal.wav</Source>
+      <Name>puck_hit_goal</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ayman\Desktop\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\puck_hit_goal.xnb</Output>
+      <Time>2015-05-05T02:25:23.5919225+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
