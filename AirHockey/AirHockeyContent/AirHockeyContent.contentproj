@@ -66,13 +66,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MenuBackGround.jpg">
-      <Name>MenuBackGround</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Paddle.png">
       <Name>Paddle</Name>
       <Importer>TextureImporter</Importer>
@@ -80,6 +73,30 @@
     </Compile>
     <Compile Include="Puck.png">
       <Name>Puck</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Mute.png">
+      <Name>Mute</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="puck_hit_goal.wav">
+      <Name>puck_hit_goal</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="UnMute.png">
+      <Name>UnMute</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MenuBackGround.png">
+      <Name>MenuBackGround</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
