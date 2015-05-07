@@ -40,8 +40,8 @@ namespace AirHockey
 
         protected void BoundPositionInTable(GameElement Element, Vector2 _Velocity)
         {
-            Element.Position.X = Math.Max(Math.Min(Element.Position.X + _Velocity.X, game.GameTable.TableTopLeft.X + Table.WIDTH - 20 - Element.RADIUS), game.GameTable.TableTopLeft.X + 20 + Element.RADIUS);
-            Element.Position.Y = Math.Max(Math.Min(Element.Position.Y + _Velocity.Y, game.GameTable.TableTopLeft.Y + Table.HEIGHT - 20 - Element.RADIUS), game.GameTable.TableTopLeft.Y + 20 + Element.RADIUS);
+            Element.Position.X = Math.Max(Math.Min(Element.Position.X + _Velocity.X, Table.WIDTH - Table.Thickness - Element.RADIUS), Table.Thickness + Element.RADIUS);
+            Element.Position.Y = Math.Max(Math.Min(Element.Position.Y + _Velocity.Y, Table.HEIGHT - Table.Thickness - Element.RADIUS),Table.Thickness + Element.RADIUS);
         }
     }
 }

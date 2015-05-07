@@ -7,7 +7,7 @@
       <FileName>GameElement.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AirHockey.Disc">
+  <Class Name="AirHockey.Puck">
     <Position X="4" Y="2.5" Width="1.5" />
     <InheritanceLine Type="AirHockey.GameElement" FixedFromPoint="true">
       <Path>
@@ -19,7 +19,7 @@
     </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgIABAAAAAAAAAAAAAEAAAAAAAAAAAQ=</HashCode>
-      <FileName>Disc.cs</FileName>
+      <FileName>Puck.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AirHockey.Table">
@@ -29,7 +29,7 @@
       <FileName>Table.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AirHockey.Stick">
+  <Class Name="AirHockey.Paddle">
     <Position X="8.75" Y="2.5" Width="1.5" />
     <InheritanceLine Type="AirHockey.GameElement" FixedFromPoint="true" FixedToPoint="true">
       <Path>
@@ -40,12 +40,12 @@
     </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
-      <FileName>Stick.cs</FileName>
+      <FileName>Paddle.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AirHockey.Player_Stick">
+  <Class Name="AirHockey.Player_Paddle">
     <Position X="6.75" Y="4" Width="1.5" />
-    <InheritanceLine Type="AirHockey.Stick" FixedFromPoint="true">
+    <InheritanceLine Type="AirHockey.Paddle" FixedFromPoint="true">
       <Path>
         <Point X="8.75" Y="3.188" />
         <Point X="7.5" Y="3.188" />
@@ -54,12 +54,12 @@
     </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
-      <FileName>Player_Stick.cs</FileName>
+      <FileName>Player_Paddle.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AirHockey.CPU_Stick">
+  <Class Name="AirHockey.CPU_Paddle">
     <Position X="10.5" Y="4" Width="1.5" />
-    <InheritanceLine Type="AirHockey.Stick" FixedFromPoint="true">
+    <InheritanceLine Type="AirHockey.Paddle" FixedFromPoint="true">
       <Path>
         <Point X="10.25" Y="3.188" />
         <Point X="11.25" Y="3.188" />
@@ -68,7 +68,7 @@
     </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
-      <FileName>CPU_Stick.cs</FileName>
+      <FileName>CPU_Paddle.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AirHockey.Score">

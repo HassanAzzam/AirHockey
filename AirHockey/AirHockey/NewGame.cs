@@ -22,7 +22,7 @@ namespace AirHockey
         public Table GameTable;
         public Player NewPlayer;
         public CPU NewCPU;
-        public Disc NewDisc;
+        public Puck NewPuck;
         private Menu NewMenu;
         public GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
@@ -36,13 +36,15 @@ namespace AirHockey
         public NewGame()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreferMultiSampling = true;
             Content.RootDirectory = "Content";
-            //graphics.PreferredBackBufferHeight = 768;
-            //graphics.PreferredBackBufferWidth = 1366;
-            graphics.IsFullScreen = true;
-            IsMouseVisible = false;
+            graphics.PreferredBackBufferHeight = 768;
+            graphics.PreferredBackBufferWidth = 1366;
+            graphics.IsFullScreen = false;
+            IsMouseVisible = true;
             IsFixedTimeStep = true;
-            //TargetElapsedTime = TimeSpan.FromMilliseconds(3);
+            graphics.ApplyChanges();
+            //TargetElapsedTime = TimeSpan.FromMilliseconds(5);
 
             #region Initialization
             Paused = false;
@@ -52,7 +54,7 @@ namespace AirHockey
             GameTable = new Table(this);
             NewCPU = new CPU(this);
             NewPlayer = new Player(this);
-            NewDisc = new Disc(this);
+            NewPuck = new Puck(this);
             this.NewMenu = new Menu();
             this.MenuTime = true;
             #endregion
@@ -70,7 +72,7 @@ namespace AirHockey
         {
             // TODO: Add your initialization logic here
             Components.Add(GameTable);
-            Components.Add(NewDisc);
+            Components.Add(NewPuck);
             Components.Add(NewPlayer);
             Components.Add(NewCPU);
             Components.Add(NewScoreboard);
@@ -113,7 +115,6 @@ namespace AirHockey
                 this.Exit();
             if (this.MenuTime)
             {
-                IsMouseVisible = true;
                 short UserChoise = this.NewMenu.GetState();
                 if (UserChoise == -1)
                 {
@@ -124,11 +125,11 @@ namespace AirHockey
                     IsMouseVisible = false;
                     //this.Background(Color.White);
                     this.MenuTime = false;
-                    Mouse.SetPosition((int)(GameTable.TableTopLeft.X + 70), (int)(GameTable.TableTopLeft.Y + Table.HEIGHT / 2));
+                    Mouse.SetPosition((int)NewPlayer.Position.X, (int)NewPlayer.Position.Y);
                 }
                 return;
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.Escape) && STOP.Elapsed.TotalSeconds >= 1)
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape) && STOP.Elapsed.TotalSeconds >= 1 && !Goal)
             {
                 Paused = !Paused;
                 if (!Paused)
@@ -137,19 +138,19 @@ namespace AirHockey
                 }
                 STOP.Restart();
             }
-            if (STOP.Elapsed.TotalSeconds >= 1)
+            if (STOP.Elapsed.TotalSeconds >= 1 && Goal)
             {
                 Goal = false;
+                initialize();
             }
 
             if (!Paused && !Goal)
             {
                 NewPlayer.Move(gameTime);
                 NewCPU.Move(gameTime);
-                NewDisc.Move(gameTime);
+                NewPuck.Move(gameTime);
             }
             base.Update(gameTime);
-            //base.Draw(gameTime);
         }
 
         /// <summary>
@@ -175,7 +176,7 @@ namespace AirHockey
                 return;
             }
             GameTable.Draw();
-            NewDisc.Draw();
+            NewPuck.Draw();
             NewPlayer.Draw();
             NewCPU.Draw();
             NewScoreboard.Draw();
@@ -207,15 +208,16 @@ namespace AirHockey
 
         public void initialize()
         {
-            NewDisc.Initialize();
+            NewPuck.Initialize();
             NewPlayer.Initialize();
             NewCPU.Initialize();
+            Mouse.SetPosition((int)NewPlayer.Position.X, (int)NewPlayer.Position.Y);
         }
 
         public void GoalScored()
         {
-            initialize();
             Goal = true;
+            
             STOP.Restart();
         }
     }

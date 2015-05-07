@@ -16,15 +16,15 @@ namespace AirHockey
         private Texture2D TEXTURE;
         public static int HEIGHT;
         public static int WIDTH;
-        public Vector2 TableTopLeft;
+        public static Vector2 TopLeft = new Vector2(35.506f, 11.7f);
         public const float FRICTION=0.1F;
+        public const float Thickness = 25f;
         NewGame game;
 
         public Table(NewGame game) : base(game)
         {
             this.game = game;
             game.Content.RootDirectory = "Content";
-            TableTopLeft = new Vector2(0, 0);
         }
 
         protected override void LoadContent()
@@ -36,23 +36,23 @@ namespace AirHockey
         }
 
         public void Draw(){
-            game.spriteBatch.Draw(this.TEXTURE, TableTopLeft, Color.White);
+            game.spriteBatch.Draw(this.TEXTURE, TopLeft, Color.White);
         }
 
         public bool CheckGoal(object PLAYERorCPU, Vector2 Position)
         {
-            float DiscRadius = game.NewDisc.RADIUS;
+            float PuckRadius = game.NewPuck.RADIUS;
             try
             {
                 CPU Cpu = (CPU)PLAYERorCPU;
-                if (Position.X - DiscRadius <= 20 && Position.Y >= 194 + DiscRadius && Position.Y <= 346 - DiscRadius)
+                if (Position.X - PuckRadius <= Thickness && Position.Y >= 241 + PuckRadius && Position.Y <= 431 - PuckRadius)
                 {
                     return true;
                 }
             }
             catch
             {
-                if (Position.X + DiscRadius >= WIDTH - 20 && Position.Y >= 194 + DiscRadius && Position.Y <= 346 - DiscRadius)
+                if (Position.X + PuckRadius >= WIDTH - Thickness && Position.Y >= 241 + PuckRadius && Position.Y <= 431 - PuckRadius)
                 {
                     return true;
                 }
