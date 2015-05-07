@@ -37,10 +37,11 @@ namespace AirHockey
         public bool Mute = false;
         private bool MenuTime;
         private bool GameOver = false;
+        private const int MAX_GOAL = 5;
 
         #region Sound Effect
         public SoundEffect PuckHitGoal;
-        //public SoundEffect PaddleHitPuck;
+        public SoundEffect PuckSound;
         #endregion
 
         public NewGame()
@@ -103,7 +104,7 @@ namespace AirHockey
             UnMuteTex = Content.Load<Texture2D>("UnMute");
             MuteTex = Content.Load<Texture2D>("Mute");
             PuckHitGoal = Content.Load<SoundEffect>("puck_hit_goal");
-            //PaddleHitPuck = Content.Load<SoundEffect>("Paddle_hit_Puck");
+            PuckSound = Content.Load<SoundEffect>("PuckSound");
             initialize();
             // TODO: use this.Content to load your game content here
         }
@@ -129,9 +130,10 @@ namespace AirHockey
                 this.Exit();
             if (this.MenuTime)
             {
+                IsMouseVisible = true;
                 GameOver = false;
                 short UserChoise = this.NewMenu.GetState();
-                if (UserChoise == -1)
+                if (UserChoise == -1 || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 {
                     this.Exit();
                 }
@@ -143,7 +145,7 @@ namespace AirHockey
                     initialize();
                     Mouse.SetPosition((int)NewPlayer.Position.X, (int)NewPlayer.Position.Y);
                     NewPlayer.Score = NewCPU.Score = 0;
-                    
+                    STOP.Restart();
                 }
                 return;
             }
@@ -229,6 +231,7 @@ namespace AirHockey
             if (GameOver)
             {
                 DrawEnd();
+                return;
             }
             if (!Mute)
             {
@@ -266,7 +269,7 @@ namespace AirHockey
 
         public void GoalScored()
         {
-            if (NewPlayer.Score == 10 || NewCPU.Score == 10)
+            if (NewPlayer.Score == MAX_GOAL || NewCPU.Score == MAX_GOAL)
             {
                 GameOver = true;
             }
@@ -279,7 +282,7 @@ namespace AirHockey
 
         private void DrawEnd()
         {
-            if (NewPlayer.Score == 10)
+            if (NewPlayer.Score == MAX_GOAL)
             {
                 DrawBackground(Color.White, 1f);
                 DrawBackground(Color.Green,0.8f);

@@ -38,7 +38,7 @@ namespace AirHockey
             MouseState State = Mouse.GetState();    //  Getting mouse position.
             Vector2 Position = new Vector2();
             Vector2 Origin = new Vector2();
-            Color Color = Color.Orange;
+            Color Color = Color.Red * 1.5f;
 
             //  Setting background.           
             Game.spriteBatch.Draw(Game.Content.Load<Texture2D>("MenuBackGround"), Game.graphics.GraphicsDevice.Viewport.Bounds, Color.White);
@@ -62,7 +62,7 @@ namespace AirHockey
             //  Drawing the start button.
             Game.spriteBatch.DrawString(Game.Font, "Start", Position, Color, 0, Origin, 0.5f, SpriteEffects.None, 0.5f);
 
-            Color = Color.Orange;
+            Color = Color.Red * 1.5f;
 
             //  The position where the exit button would be drawn.
             Position.Y += 200;
