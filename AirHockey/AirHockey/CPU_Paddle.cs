@@ -39,7 +39,9 @@ namespace AirHockey
             }
             else
             {
-                Velocity = (DefaultPosition - Position);
+                Velocity.Y = game.NewPuck.Position.Y - Position.Y;
+                Velocity.X += 20;
+                //Velocity = (DefaultPosition - Position);
             }
             Velocity *= 0.2f;
             BoundPositionInTable(this, Velocity * Time.ElapsedGameTime.Milliseconds / 60f);

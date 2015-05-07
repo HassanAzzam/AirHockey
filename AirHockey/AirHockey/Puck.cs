@@ -57,12 +57,14 @@ namespace AirHockey
 
             if (game.GameTable.CheckGoal(game.NewCPU, Position))
             {
+                game.PuckHitGoal.Play();
                 ++game.NewCPU.Points;
                 game.GoalScored();
                 return;
             }
             else if (game.GameTable.CheckGoal(game.NewPlayer, Position))
             {
+                game.PuckHitGoal.Play();
                 ++game.NewPlayer.Points;
                 game.GoalScored();
                 return;
