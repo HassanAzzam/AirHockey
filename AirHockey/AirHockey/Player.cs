@@ -15,11 +15,10 @@ namespace AirHockey
     {
 
         private Player_Paddle PLAYER_PADDLE;
-        private Score PLAYER_SCORE;
+        public int Score;
         public Player(NewGame game) : base(game)
         {
             PLAYER_PADDLE = new Player_Paddle(game);
-            PLAYER_SCORE = new Score(game);
         }
         protected override void LoadContent()
         {
@@ -43,7 +42,6 @@ namespace AirHockey
             PLAYER_PADDLE.Draw();
         }
 
-        public override int Points { get { return PLAYER_SCORE.Points; } set { PLAYER_SCORE.Points = value; } }
         public override Vector2 Position { get { return PLAYER_PADDLE.Position; } set { PLAYER_PADDLE.Position = value; } }
         public override Vector2 Velocity { get { return PLAYER_PADDLE.Velocity; } set { PLAYER_PADDLE.Velocity = value; } }
         public override float RADIUS { get { return PLAYER_PADDLE.RADIUS; } }

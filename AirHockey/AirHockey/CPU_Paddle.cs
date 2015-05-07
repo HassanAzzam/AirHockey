@@ -76,7 +76,7 @@ namespace AirHockey
             Velocity = (DefaultPosition - Position);
             if (game.NewPuck.Velocity.X > 0)
             {
-                Velocity.X = game.NewPuck.Velocity.X * 5;
+                Velocity.X = game.NewPuck.Velocity.X * 3.5f;
             }
             else
             {

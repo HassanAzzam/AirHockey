@@ -13,11 +13,10 @@ namespace AirHockey
     public class CPU : User
     {
         private CPU_Paddle CPU_PADDLE;
-        private Score CPU_SCORE;
+        public int Score;
         public CPU(NewGame game) : base(game)
         {
             CPU_PADDLE = new CPU_Paddle(game);
-            CPU_SCORE = new Score(game);
         }
 
         protected override void LoadContent()
@@ -42,7 +41,6 @@ namespace AirHockey
             CPU_PADDLE.Draw();
         }
 
-        public override int Points { get { return CPU_SCORE.Points; } set { CPU_SCORE.Points = value; } }
         public override Vector2 Position { get { return CPU_PADDLE.Position; } set { CPU_PADDLE.Position = value; } }
         public override Vector2 Velocity { get { return CPU_PADDLE.Velocity; } set { CPU_PADDLE.Velocity = value; } }
         public override float RADIUS { get { return CPU_PADDLE.RADIUS; } }

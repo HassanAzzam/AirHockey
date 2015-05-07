@@ -82,7 +82,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="NewGame.cs" />
-    <Compile Include="Score.cs" />
     <Compile Include="Scoreboard.cs" />
     <Compile Include="Paddle.cs" />
     <Compile Include="Table.cs" />

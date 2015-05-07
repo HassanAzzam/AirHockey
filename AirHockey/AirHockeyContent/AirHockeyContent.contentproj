@@ -66,6 +66,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MenuBackGround.jpg">
+      <Name>MenuBackGround</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Paddle.png">
       <Name>Paddle</Name>
       <Importer>TextureImporter</Importer>
@@ -75,20 +82,6 @@
       <Name>Puck</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="BackGround.png">
-      <Name>BackGround</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="puck_hit_goal.wav">
-      <Name>puck_hit_goal</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

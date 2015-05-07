@@ -33,10 +33,7 @@ namespace AirHockey
         public Texture2D GoalTex;
         public bool Goal = false;
         private bool MenuTime;
-
-        #region Sound Effect
-        public SoundEffect PuckHitGoal;
-        #endregion
+        private bool GameOver = false;
 
         public NewGame()
         {
@@ -45,7 +42,7 @@ namespace AirHockey
             Content.RootDirectory = "Content";
             graphics.PreferredBackBufferHeight = 768;
             graphics.PreferredBackBufferWidth = 1366;
-            graphics.IsFullScreen = true;
+            graphics.IsFullScreen = false;
             IsMouseVisible = true;
             IsFixedTimeStep = true;
             graphics.ApplyChanges();
@@ -95,7 +92,6 @@ namespace AirHockey
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Font = Content.Load<SpriteFont>("micross");
             GoalTex = Content.Load<Texture2D>("Goal");
-            PuckHitGoal = Content.Load<SoundEffect>("puck_hit_goal");
             initialize();
             // TODO: use this.Content to load your game content here
         }
@@ -121,6 +117,7 @@ namespace AirHockey
                 this.Exit();
             if (this.MenuTime)
             {
+                GameOver = false;
                 short UserChoise = this.NewMenu.GetState();
                 if (UserChoise == -1)
                 {
@@ -131,7 +128,10 @@ namespace AirHockey
                     IsMouseVisible = false;
                     //this.Background(Color.White);
                     this.MenuTime = false;
+                    initialize();
                     Mouse.SetPosition((int)NewPlayer.Position.X, (int)NewPlayer.Position.Y);
+                    NewPlayer.Score = NewCPU.Score = 0;
+                    
                 }
                 return;
             }
@@ -144,13 +144,21 @@ namespace AirHockey
                 }
                 STOP.Restart();
             }
+            
+                if (STOP.Elapsed.TotalSeconds >= 3 &&GameOver)
+                {
+                    MenuTime = true;
+                    STOP.Restart();
+                }
+            
+
             if (STOP.Elapsed.TotalSeconds >= 1 && Goal)
             {
                 Goal = false;
                 initialize();
             }
-
-            if (!Paused && !Goal)
+            
+            if (!Paused && !Goal && !GameOver)
             {
                 NewPlayer.Move(gameTime);
                 NewCPU.Move(gameTime);
@@ -194,6 +202,10 @@ namespace AirHockey
             {
                 spriteBatch.Draw(GoalTex, new Vector2(Table.WIDTH / 2 - GoalTex.Width / 2, Table.HEIGHT / 2 - GoalTex.Height / 2), Color.White);
             }
+            if (GameOver)
+            {
+                DrawEnd();
+            }
         }
 
         private void DrawPause()
@@ -222,9 +234,45 @@ namespace AirHockey
 
         public void GoalScored()
         {
-            Goal = true;
-            
+            if (NewPlayer.Score == 10 || NewCPU.Score == 10)
+            {
+                GameOver = true;
+            }
+            else
+            {
+                Goal = true;
+            }
             STOP.Restart();
+        }
+
+        private void DrawEnd()
+        {
+            if (NewPlayer.Score == 10)
+            {
+                DrawBackground(Color.White, 1f);
+                DrawBackground(Color.Green,0.8f);
+                DrawText("YOU WIN!", Color.White);
+            }
+            else
+            {
+                DrawBackground(Color.White, 1f);
+                DrawBackground(Color.Red,0.8f);
+                DrawText("YOU LOSE!", Color.White);
+            }
+        }
+
+        private void DrawText(string Text, Color COLOR)
+        {
+            Vector2 PausePos = new Vector2(graphics.GraphicsDevice.Viewport.Width / 2, graphics.GraphicsDevice.Viewport.Height / 2);
+            Vector2 FontOrigin = Font.MeasureString(Text) / 2;
+            spriteBatch.DrawString(Font, Text, PausePos, COLOR, 0, FontOrigin, 1.0f, SpriteEffects.None, 0.5f);
+        }
+
+        private void DrawBackground(Color COLOR, float Alpha)
+        {
+            Texture2D rec = new Texture2D(graphics.GraphicsDevice, 1, 1, true, SurfaceFormat.Color);
+            rec.SetData<Color>(new[] { COLOR * Alpha });
+            spriteBatch.Draw(rec, new Rectangle(0, 0, graphics.GraphicsDevice.Viewport.Width, graphics.GraphicsDevice.Viewport.Height), Color.White);
         }
     }
 }
