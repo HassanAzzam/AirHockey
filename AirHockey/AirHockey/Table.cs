@@ -44,42 +44,24 @@ namespace AirHockey
 
         public bool CheckGoal(object PlayerOrCPU, Vector2 Position)
         {
-            float Radius = this.Game.NewPuck.Radius;
+            float PuckRadius = this.Game.NewPuck.Radius;
             try
             {
                 CPU Cpu = (CPU)PlayerOrCPU;
-                if (Position.X == Table.Thickness && Position.Y >= GoalY_Start && Position.Y <= GoalY_End)
+                if (Position.X - PuckRadius <= Thickness && Position.Y >= 241 + PuckRadius && Position.Y <= 431 - PuckRadius)
                 {
-                    Position.X = Table.Thickness;
                     return true;
                 }
             }
             catch
             {
-                if (Position.X == Width - Table.Thickness && Position.Y >= GoalY_Start && Position.Y <= GoalY_End)
+                if (Position.X + PuckRadius >= Width - Thickness && Position.Y >= 241 + PuckRadius && Position.Y <= 431 - PuckRadius)
                 {
-                    Position.X = Width - Table.Thickness;
                     return true;
                 }
             }
 
             return false;
-        }
-
-        public float GoalY_Start
-        {
-            get
-            {
-                return 241 + this.Game.NewPuck.Radius;
-            }
-        }
-
-        public float GoalY_End
-        {
-            get
-            {
-                return 431 - this.Game.NewPuck.Radius;
-            }
         }
     }
 }

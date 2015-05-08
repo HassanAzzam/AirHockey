@@ -101,9 +101,8 @@ namespace AirHockey
             #endregion
 
 
-
             double time = Time.ElapsedGameTime.TotalSeconds;
-            double Angle = Math.Atan2(Math.Abs(Velocity.Y), Math.Abs(Velocity.X));
+            double Angle = Math.Atan2(Velocity.Y, Velocity.X);
             this.Acceleration = new Vector2(this.FrictionCoefficient * 9.8f, this.FrictionCoefficient * 9.8f);
             this.Acceleration *= (float)time;
             this.Acceleration.X *= (float)Math.Cos(Angle);

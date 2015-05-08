@@ -30,7 +30,6 @@ namespace AirHockey
         #region XNA objects
         public GraphicsDeviceManager Graphics;
         public Texture2D GoalTex;
-        public Texture2D GoalGrey;
         public Texture2D UnMuteTex;
         public Texture2D MuteTex;
         public SpriteBatch SpriteBatch;
@@ -87,7 +86,6 @@ namespace AirHockey
             this.SpriteBatch = new SpriteBatch(GraphicsDevice);
             this.Font = Content.Load<SpriteFont>("micross");
             this.GoalTex = Content.Load<Texture2D>("Goal");
-            this.GoalGrey = Content.Load<Texture2D>("GoalGrey");
             this.UnMuteTex = Content.Load<Texture2D>("UnMute");
             this.MuteTex = Content.Load<Texture2D>("Mute");
             this.PuckHitGoal = Content.Load<SoundEffect>("puck_hit_goal");

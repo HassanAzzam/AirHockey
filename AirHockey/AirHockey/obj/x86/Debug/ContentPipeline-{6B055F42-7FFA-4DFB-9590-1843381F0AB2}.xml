@@ -109,15 +109,6 @@
       <Output>\\Vboxsvr\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\PuckSound.xnb</Output>
       <Time>2015-05-08T01:55:28.0887018+02:00</Time>
     </Item>
-    <Item>
-      <Source>GoalGrey.png</Source>
-      <Name>GoalGrey</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\GoalGrey.xnb</Output>
-      <Time>2015-05-08T18:17:58.4106336+02:00</Time>
-    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{6B055F42-7FFA-4DFB-9590-1843381F0AB2}</ContentProjectGUID>
@@ -125,10 +116,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockeyContent\</RootDirectory>
-      <LoggerRootDirectory>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\</LoggerRootDirectory>
-      <IntermediateDirectory>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>\\Vboxsvr\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockeyContent\</RootDirectory>
+      <LoggerRootDirectory>\\Vboxsvr\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\</LoggerRootDirectory>
+      <IntermediateDirectory>\\Vboxsvr\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>\\Vboxsvr\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
