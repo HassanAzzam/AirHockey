@@ -21,8 +21,8 @@ namespace AirHockey
         private float FrictionCoefficient;
         bool CornerCollision;
 
-        public Puck(NewGame Game)
-            : base(Game)
+        public Puck(GameApplication App, NewGame game)
+            : base(App, game)
         {
             this.Velocity = Vector2.Zero;
             this.PreviousPosition = Vector2.Zero;
@@ -31,12 +31,12 @@ namespace AirHockey
             this.MaximumSpeed = 125;
             this.Mass = 0.05f;
             this.CornerCollision = false;
-            this.Game.Content.RootDirectory = "Content";
+            this.App.Content.RootDirectory = "Content";
         }
 
         protected override void LoadContent()
         {
-            this.Texture = Game.Content.Load<Texture2D>("Puck");
+            this.Texture = App.Content.Load<Texture2D>("Puck");
             this.Radius = this.Texture.Width / 2;
             this.Initialize();
             base.LoadContent();
@@ -44,7 +44,7 @@ namespace AirHockey
 
         public void Draw()
         {
-            Game.SpriteBatch.Draw(this.Texture, Table.TopLeft - new Vector2(this.Radius, this.Radius) + this.Position, Color.White);
+            App.SpriteBatch.Draw(this.Texture, Table.TopLeft - new Vector2(this.Radius, this.Radius) + this.Position, Color.White);
         }
 
         public override void Initialize()
@@ -58,24 +58,24 @@ namespace AirHockey
         {
 
             #region Goal Checking
-            if (Game.GameTable.CheckGoal(Game.NewCPU, this.Position))
+            if (App.Game.GameTable.CheckGoal(App.Game.NewCPU, this.Position))
             {
-                if (!Game.Mute)
+                if (!App.Mute)
                 {
-                    Game.PuckHitGoal.Play();
+                    App.PuckHitGoal.Play();
                 }
-                ++Game.NewCPU.Score;
-                Game.GoalScored();
+                ++App.Game.NewCPU.Score;
+                App.Game.GoalScored();
                 return;
             }
-            if (Game.GameTable.CheckGoal(Game.NewPlayer, this.Position))
+            if (App.Game.GameTable.CheckGoal(App.Game.NewPlayer, this.Position))
             {
-                if (!Game.Mute)
+                if (!App.Mute)
                 {
-                    Game.PuckHitGoal.Play();
+                    App.PuckHitGoal.Play();
                 }
-                ++Game.NewPlayer.Score;
-                Game.GoalScored();
+                ++App.Game.NewPlayer.Score;
+                App.Game.GoalScored();
                 return;
             }
             #endregion
@@ -129,33 +129,33 @@ namespace AirHockey
 
             if (this.Position.X == Table.Width - this.Radius - Table.Thickness)
             {
-                if (!Game.Mute)
+                if (!App.Mute)
                 {
-                    Game.PuckSound.Play();
+                    App.PuckSound.Play();
                 }
                 this.Velocity.X *= -1;
             }
             if (this.Position.X == this.Radius + Table.Thickness)
             {
-                if (!Game.Mute)
+                if (!App.Mute)
                 {
-                    Game.PuckSound.Play();
+                    App.PuckSound.Play();
                 }
                 this.Velocity.X *= -1;
             }
             if (this.Position.Y == Table.Height - this.Radius - Table.Thickness)
             {
-                if (!Game.Mute)
+                if (!App.Mute)
                 {
-                    Game.PuckSound.Play();
+                    App.PuckSound.Play();
                 }
                 this.Velocity.Y *= -1;
             }
             if (this.Position.Y == this.Radius + Table.Thickness)
             {
-                if (!Game.Mute)
+                if (!App.Mute)
                 {
-                    Game.PuckSound.Play();
+                    App.PuckSound.Play();
                 }
                 this.Velocity.Y *= -1;
             }
@@ -174,9 +174,9 @@ namespace AirHockey
 
         public void Hit(User UserObj)
         {
-            if (!Game.Mute)
+            if (!App.Mute)
             {
-                Game.PuckSound.Play();
+                App.PuckSound.Play();
             }
             double Distance = this.Radius + UserObj.Radius - (UserObj.Position - this.Position).Length();
 

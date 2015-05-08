@@ -13,6 +13,7 @@ namespace AirHockey
 {
     public abstract class GameElement : DrawableGameComponent
     {
+        protected GameApplication App;
         protected NewGame Game;
         public Vector2 Velocity; //Speed has been changed to Velocity by Alaa
         public Vector2 Position;
@@ -20,10 +21,11 @@ namespace AirHockey
         public float Radius;
         public float Mass; //Mass to calculate Forces
 
-        public GameElement(NewGame Game)
-            : base(Game)
+        public GameElement(GameApplication App,NewGame game)
+            : base(App)
         {
-            this.Game = Game;
+            this.App = App;
+            this.Game = game;
             this.Position = new Vector2(0, 0);
         }
 

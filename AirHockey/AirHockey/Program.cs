@@ -10,7 +10,7 @@ namespace AirHockey
         /// </summary>
         static void Main(string[] args)
         {
-            using (NewGame Game = new NewGame())
+            using (GameApplication Game = new GameApplication())
             {
                 Game.Run();
             }

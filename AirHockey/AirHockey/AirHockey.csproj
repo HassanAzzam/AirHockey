@@ -74,6 +74,8 @@
   <ItemGroup>
     <Compile Include="CPU.cs" />
     <Compile Include="CPUPaddle.cs" />
+    <Compile Include="GameOver.cs" />
+    <Compile Include="NewGame.cs" />
     <Compile Include="Puck.cs" />
     <Compile Include="GameElement.cs" />
     <Compile Include="MainMenu.cs" />
@@ -81,10 +83,11 @@
     <Compile Include="PlayerPaddle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="NewGame.cs" />
+    <Compile Include="GameApplication.cs" />
     <Compile Include="Scoreboard.cs" />
     <Compile Include="Paddle.cs" />
     <Compile Include="Table.cs" />
+    <Compile Include="UI.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>

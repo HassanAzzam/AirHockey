@@ -13,6 +13,7 @@ namespace AirHockey
 {
     public class Table : DrawableGameComponent
     {
+        GameApplication App;
         NewGame Game;
         public static Vector2 TopLeft = new Vector2(35.506f, 11.7f);
         private Texture2D Texture;
@@ -21,16 +22,17 @@ namespace AirHockey
         public const float Friction = 0.1F;
         public const float Thickness = 25f;
 
-        public Table(NewGame Game)
-            : base(Game)
+        public Table(GameApplication App, NewGame game)
+            : base(App)
         {
-            this.Game = Game;
-            this.Game.Content.RootDirectory = "Content";
+            this.Game = game;
+            this.App = App;
+            this.App.Content.RootDirectory = "Content";
         }
 
         protected override void LoadContent()
         {
-            this.Texture = Game.Content.Load<Texture2D>("Table");
+            this.Texture = App.Content.Load<Texture2D>("Table");
             Height = Texture.Height;
             Width = Texture.Width;
             base.LoadContent();
@@ -38,7 +40,7 @@ namespace AirHockey
 
         public void Draw()
         {
-            this.Game.SpriteBatch.Draw(this.Texture, TopLeft, Color.White);
+            this.App.SpriteBatch.Draw(this.Texture, TopLeft, Color.White);
         }
 
         public bool CheckGoal(object PlayerOrCPU, Vector2 Position)

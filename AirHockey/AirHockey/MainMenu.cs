@@ -35,16 +35,16 @@ namespace AirHockey
         /// <summary>
         /// Drawing the main menu buttons.
         /// </summary>
-        /// <param name="Game"> The game where the main menu would be drawn. </param>
+        /// <param name="App"> The game where the main menu would be drawn. </param>
         ///
-        public void Draw(ref NewGame Game)
+        public void Draw(ref GameApplication App)
         {
             MouseState State = Mouse.GetState();    //  Getting mouse position.
             Vector2 Position = new Vector2();   //  The position where the button would be drawn.
             Color Color = Color.Red * 1.5f; //  The text color.
 
             //  Setting background.           
-            Game.SpriteBatch.Draw(Game.Content.Load<Texture2D>("MenuBackGround"), Game.Graphics.GraphicsDevice.Viewport.Bounds, Color.White);
+            App.SpriteBatch.Draw(App.Content.Load<Texture2D>("MenuBackGround"), App.Graphics.GraphicsDevice.Viewport.Bounds, Color.White);
 
             //  Setting start button position.
             Position.X = 675;
@@ -60,7 +60,7 @@ namespace AirHockey
             }
 
             //  Drawing the start button.
-            Game.DrawText("Start", Color, Position, 0.5f);
+            App.UIDesigner.DrawText("Start", Color, Position, 0.5f);
 
             //  Setting instructions button color.
             Color = Color.Red * 1.5f;
@@ -79,7 +79,7 @@ namespace AirHockey
             }
 
             //  Drawing the instructions button.
-            Game.DrawText("Instructions", Color, Position, 0.5f);
+            App.UIDesigner.DrawText("Instructions", Color, Position, 0.5f);
 
             //  Setting end button color.
             Color = Color.Red * 1.5f;
@@ -88,7 +88,7 @@ namespace AirHockey
             Position.X = 675;
             Position.Y = 600;
 
-            //  Incase the mouse position is inside the exit button.
+            //  In case the mouse position is inside the exit button.
             if (State.X >= ExitButtonBeginX &&
                 State.X <= ExitButtonEndX &&
                 State.Y >= ExitButtonBeginY &&
@@ -98,7 +98,7 @@ namespace AirHockey
             }
 
             //  Drawing the exit button.
-            Game.DrawText("Exit", Color, Position, 0.5f);
+            App.UIDesigner.DrawText("Exit", Color, Position, 0.5f);
         }
 
         /// <summary>

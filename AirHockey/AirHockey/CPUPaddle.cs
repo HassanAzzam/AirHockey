@@ -10,8 +10,8 @@ namespace AirHockey
     public class CPUPaddle : Paddle
     {
         private Vector2 DefaultPosition;
-        public CPUPaddle(NewGame Game)
-            : base(Game)
+        public CPUPaddle(GameApplication App,NewGame Game)
+            : base(App,Game)
         {
             this.Velocity = Vector2.Zero;
         }
@@ -28,7 +28,7 @@ namespace AirHockey
             {
                 this.Defense();
             }
-            else if (this.Game.NewPuck.Position.X >= Table.Width / 2 + this.Game.NewPuck.Radius)
+            else if (this.Game.NewPuck.Position.X >= Table.Width / 2 + this.App.Game.NewPuck.Radius)
             {
                 this.Offense();
             }

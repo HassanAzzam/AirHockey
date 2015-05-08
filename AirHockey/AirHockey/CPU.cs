@@ -14,10 +14,10 @@ namespace AirHockey
     {
         private CPUPaddle CPUPADDLE;
         public int Score;
-        public CPU(NewGame Game)
-            : base(Game)
+        public CPU(GameApplication App,NewGame Game)
+            : base(App,Game)
         {
-            this.CPUPADDLE = new CPUPaddle(Game);
+            this.CPUPADDLE = new CPUPaddle(App,Game);
         }
 
         protected override void LoadContent()
