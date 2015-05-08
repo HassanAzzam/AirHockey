@@ -41,8 +41,34 @@ namespace AirHockey
 
         protected void BoundPositionInTable(GameElement Element, Vector2 Velocity)
         {
-            Element.Position.X = Math.Max(Math.Min(Element.Position.X + Velocity.X, Table.Width - Table.Thickness - Element.Radius), Table.Thickness + Element.Radius);
-            Element.Position.Y = Math.Max(Math.Min(Element.Position.Y + Velocity.Y, Table.Height - Table.Thickness - Element.Radius), Table.Thickness + Element.Radius);
+            Element.Position += Velocity;
+            if(PuckInGoal(Element)){
+                return;
+            }
+            Element.Position.X = Math.Max(Math.Min(Element.Position.X, Table.Width - Table.Thickness - Element.Radius), Table.Thickness + Element.Radius);
+            Element.Position.Y = Math.Max(Math.Min(Element.Position.Y, Table.Height - Table.Thickness - Element.Radius), Table.Thickness + Element.Radius);
+        }
+
+        private bool PuckInGoal(GameElement Element){
+            try{
+                Puck tmp = Element as Puck;
+                if (tmp.Position.Y >= Game.GameTable.GoalY_Start && tmp.Position.Y <= Game.GameTable.GoalY_End && (tmp.Position.X <= Table.Thickness || tmp.Position.X >= Table.Width - Table.Thickness))
+                {
+                    if (Element.Position.X < Table.Width / 2) Element.Position.X = Table.Thickness;
+                    else Element.Position.X = Table.Width - Table.Thickness;
+                    return true;
+                }
+                if (tmp.Position.Y >= Game.GameTable.GoalY_Start && tmp.Position.Y <= Game.GameTable.GoalY_End && (tmp.Position.X <= Table.Thickness + Element.Radius || tmp.Position.X >= Table.Width - Table.Thickness - Element.Radius))
+                {
+                    return true;
+                }
+                
+            }
+            catch
+            {
+                return false;
+            }
+            return false;
         }
     }
 }

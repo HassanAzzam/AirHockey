@@ -111,3 +111,4 @@ D:\FCIS\GitHub\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\PuckSound.xnb
 \\Vboxsvr\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\UnMute.xnb
 \\Vboxsvr\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\puck_hit_goal.xnb
 \\Vboxsvr\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\PuckSound.xnb
+\\VBOXSVR\vm\Visual Studio\Projects\AirHockey\AirHockey\AirHockey\bin\x86\Debug\Content\GoalGrey.xnb

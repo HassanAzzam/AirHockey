@@ -126,6 +126,7 @@ namespace AirHockey
             this.NewPlayer.Draw();
             this.NewCPU.Draw();
             this.NewScoreboard.Draw();
+            this.App.SpriteBatch.Draw(this.App.GoalGrey, new Vector2(Table.TopLeft.X, Table.TopLeft.Y + Table.Height / 2 - App.GoalGrey.Height/2),Color.White);
 
             if (this.State == GameState.Paused)
             {
