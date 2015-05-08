@@ -26,6 +26,12 @@ namespace AirHockey
             this.PositionCPU = new Vector2(687.110f, 690);
         }
 
+
+        public void Load()
+        {
+            this.LoadContent();
+        }
+
         protected override void LoadContent()
         {
             this.Texture = App.Content.Load<Texture2D>("Scoreboard");

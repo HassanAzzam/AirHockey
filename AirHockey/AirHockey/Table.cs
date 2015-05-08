@@ -27,7 +27,6 @@ namespace AirHockey
         {
             this.Game = game;
             this.App = App;
-            this.App.Content.RootDirectory = "Content";
         }
 
         protected override void LoadContent()

@@ -39,7 +39,7 @@ namespace AirHockey
 
         #endregion
 
-        private const short MAX_GOAL = 2;
+        private const short MAX_GOAL = 7;
 
         public NewGame(GameApplication App)
         {
@@ -52,7 +52,6 @@ namespace AirHockey
             this.NewPuck = new Puck(App,this);
             this.NewScoreboard = new Scoreboard(App);
             this.StopWatch = new Stopwatch();
-            State = GameState.Running;
             //pause menu
             #endregion
 
@@ -69,12 +68,15 @@ namespace AirHockey
 
         public void Start()
         {
-            Mouse.SetPosition((int)NewPlayer.Position.X, (int)NewPlayer.Position.Y);
-            this.Initialize();
+
+            this.Initialize();   
+            Mouse.SetPosition((int)this.NewPlayer.Position.X, (int)this.NewPlayer.Position.Y);
             App.IsMouseVisible = false;
+            this.StopWatch.Start();
             this.NewPlayer.Score = 0;
             this.NewCPU.Score = 0;
-            this.StopWatch.Start();
+
+            State = GameState.Running;
         }
 
         private void Initialize()
@@ -82,7 +84,6 @@ namespace AirHockey
             this.NewPuck.Initialize();
             this.NewPlayer.Initialize();
             this.NewCPU.Initialize();
-            Mouse.SetPosition((int)this.NewPlayer.Position.X, (int)this.NewPlayer.Position.Y);
         }
 
         public void Update(GameTime gameTime)
@@ -107,6 +108,7 @@ namespace AirHockey
                     App.State = AppState.GameOver;
                 }
                 State = GameState.Running;
+                Mouse.SetPosition((int)this.NewPlayer.Position.X, (int)this.NewPlayer.Position.Y);
             }
 
             if (State == GameState.Running)

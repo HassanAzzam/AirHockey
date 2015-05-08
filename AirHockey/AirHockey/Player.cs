@@ -21,6 +21,7 @@ namespace AirHockey
         {
             this.PlayerPaddle = new PlayerPaddle(App,Game);
         }
+
         protected override void LoadContent()
         {
             this.PlayerPaddle.LoadContent();

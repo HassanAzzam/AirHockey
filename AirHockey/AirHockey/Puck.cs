@@ -31,7 +31,6 @@ namespace AirHockey
             this.MaximumSpeed = 125;
             this.Mass = 0.05f;
             this.CornerCollision = false;
-            this.App.Content.RootDirectory = "Content";
         }
 
         protected override void LoadContent()
@@ -101,12 +100,13 @@ namespace AirHockey
             }
             #endregion
 
+
             double time = Time.ElapsedGameTime.TotalSeconds;
             double Angle = Math.Atan2(Velocity.Y, Velocity.X);
             this.Acceleration = new Vector2(this.FrictionCoefficient * 9.8f, this.FrictionCoefficient * 9.8f);
             this.Acceleration *= (float)time;
-            this.Acceleration.X *= (float)Math.Cos(Math.Abs(Angle));
-            this.Acceleration.Y *= (float)Math.Sin(Math.Abs(Angle));
+            this.Acceleration.X *= (float)Math.Cos(Angle);
+            this.Acceleration.Y *= (float)Math.Sin(Angle);
 
             if (this.Velocity.X > 0)
             {

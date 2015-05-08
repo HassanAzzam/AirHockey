@@ -18,8 +18,8 @@ namespace AirHockey
         {
             this.Mass = 0.135f;
             this.Position = new Vector2(0, 0);
-            this.App.Content.RootDirectory = "Content";
         }
+
 
         protected override void LoadContent()
         {

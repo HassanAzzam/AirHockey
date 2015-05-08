@@ -90,6 +90,8 @@ namespace AirHockey
             this.MuteTex = Content.Load<Texture2D>("Mute");
             this.PuckHitGoal = Content.Load<SoundEffect>("puck_hit_goal");
             this.PuckSound = Content.Load<SoundEffect>("PuckSound");
+
+            base.LoadContent();
         }
 
         protected override void UnloadContent()
