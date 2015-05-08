@@ -14,70 +14,37 @@ namespace AirHockey
     public class Player : User
     {
 
-        private PlayerPaddle PlayerPaddle;
+        private Player_Paddle PLAYER_PADDLE;
         public int Score;
-        public Player(NewGame Game)
-            : base(Game)
+        public Player(NewGame game) : base(game)
         {
-            this.PlayerPaddle = new PlayerPaddle(Game);
+            PLAYER_PADDLE = new Player_Paddle(game);
         }
         protected override void LoadContent()
         {
-            this.PlayerPaddle.LoadContent();
+            PLAYER_PADDLE.LoadContent();
         }
 
         public override void Initialize()
         {
-            this.LoadContent();
-            this.PlayerPaddle.Velocity = Vector2.Zero;
-            this.PlayerPaddle.Position = new Vector2(70, Table.Height / 2);
+            LoadContent();
+            PLAYER_PADDLE.Velocity = Vector2.Zero;
+            PLAYER_PADDLE.Position = new Vector2(70, Table.HEIGHT / 2);
         }
 
         public override void Move(GameTime Time)
         {
-            this.PlayerPaddle.Move(Time);
+            PLAYER_PADDLE.Move(Time);
         }
 
         public override void Draw()
         {
-            this.PlayerPaddle.Draw();
+            PLAYER_PADDLE.Draw();
         }
 
-        public override Vector2 Position
-        {
-            get
-            {
-                return this.PlayerPaddle.Position;
-            }
-            set
-            {
-                this.PlayerPaddle.Position = value;
-            }
-        }
-        public override Vector2 Velocity
-        {
-            get
-            {
-                return this.PlayerPaddle.Velocity;
-            }
-            set
-            {
-                this.PlayerPaddle.Velocity = value;
-            }
-        }
-        public override float Radius
-        {
-            get
-            {
-                return this.PlayerPaddle.Radius;
-            }
-        }
-        public override float Mass
-        {
-            get
-            {
-                return this.PlayerPaddle.Mass;
-            }
-        }
+        public override Vector2 Position { get { return PLAYER_PADDLE.Position; } set { PLAYER_PADDLE.Position = value; } }
+        public override Vector2 Velocity { get { return PLAYER_PADDLE.Velocity; } set { PLAYER_PADDLE.Velocity = value; } }
+        public override float RADIUS { get { return PLAYER_PADDLE.RADIUS; } }
+        public override float Mass { get { return PLAYER_PADDLE.Mass; } }
     }
 }

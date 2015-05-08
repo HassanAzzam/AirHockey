@@ -12,71 +12,38 @@ namespace AirHockey
 {
     public class CPU : User
     {
-        private CPUPaddle CPUPADDLE;
+        private CPU_Paddle CPU_PADDLE;
         public int Score;
-        public CPU(NewGame Game)
-            : base(Game)
+        public CPU(NewGame game) : base(game)
         {
-            this.CPUPADDLE = new CPUPaddle(Game);
+            CPU_PADDLE = new CPU_Paddle(game);
         }
 
         protected override void LoadContent()
         {
-            this.CPUPADDLE.LoadContent();
+            CPU_PADDLE.LoadContent();
         }
 
         public override void Initialize()
         {
-            this.LoadContent();
-            this.CPUPADDLE.Velocity = Vector2.Zero;
-            this.CPUPADDLE.Position = new Vector2(Table.Width - 70, Table.Height / 2);
+            LoadContent();
+            CPU_PADDLE.Velocity = Vector2.Zero;
+            CPU_PADDLE.Position = new Vector2(Table.WIDTH - 70, Table.HEIGHT / 2);
         }
 
         public override void Move(GameTime Time)
         {
-            this.CPUPADDLE.Move(Time);
+            CPU_PADDLE.Move(Time);
         }
 
         public override void Draw()
         {
-            this.CPUPADDLE.Draw();
+            CPU_PADDLE.Draw();
         }
 
-        public override Vector2 Position
-        {
-            get
-            {
-                return this.CPUPADDLE.Position;
-            }
-            set
-            {
-                this.CPUPADDLE.Position = value;
-            }
-        }
-        public override Vector2 Velocity
-        {
-            get
-            {
-                return this.CPUPADDLE.Velocity;
-            }
-            set
-            {
-                this.CPUPADDLE.Velocity = value;
-            }
-        }
-        public override float Radius
-        {
-            get
-            {
-                return this.CPUPADDLE.Radius;
-            }
-        }
-        public override float Mass
-        {
-            get
-            {
-                return this.CPUPADDLE.Mass;
-            }
-        }
+        public override Vector2 Position { get { return CPU_PADDLE.Position; } set { CPU_PADDLE.Position = value; } }
+        public override Vector2 Velocity { get { return CPU_PADDLE.Velocity; } set { CPU_PADDLE.Velocity = value; } }
+        public override float RADIUS { get { return CPU_PADDLE.RADIUS; } }
+        public override float Mass { get { return CPU_PADDLE.Mass; } }
     }
 }

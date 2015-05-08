@@ -13,32 +13,32 @@ namespace AirHockey
 {
     public class Scoreboard : DrawableGameComponent
     {
-        private Vector2 PositionPlayer;
-        private Vector2 PositionCPU;
-        private Texture2D Texture;
-        NewGame Game;
+        private Vector2 PositionPlayer,PositionCPU;
+        private Texture2D TEXTURE;
+        NewGame game;
 
-        public Scoreboard(NewGame Game)
-            : base(Game)
+        public Scoreboard(NewGame game) : base(game)
         {
-            this.Game = Game;
-            this.PositionPlayer = new Vector2(609.035f, 690);
-            this.PositionCPU = new Vector2(687.110f, 690);
+            this.game = game;
+            PositionPlayer = new Vector2(609.035f,690);
+            PositionCPU = new Vector2(687.110f, 690);
         }
 
         protected override void LoadContent()
         {
-            this.Texture = Game.Content.Load<Texture2D>("Scoreboard");
+            TEXTURE = game.Content.Load<Texture2D>("Scoreboard");
             base.LoadContent();
         }
         public void Draw()
         {
-            Vector2 FontOrigin = Game.Font.MeasureString(Game.NewPlayer.Score.ToString()) / 2;
-            Game.SpriteBatch.Draw(this.Texture, this.PositionPlayer, Color.White);
-            Game.SpriteBatch.DrawString(Game.Font, Game.NewPlayer.Score.ToString(), new Vector2(this.PositionPlayer.X + this.Texture.Width / 2, this.PositionPlayer.Y + this.Texture.Height / 2), Color.White, 0, FontOrigin, 0.2f, SpriteEffects.None, 0.5f);
-            Game.SpriteBatch.Draw(this.Texture, this.PositionCPU, Color.White);
-            FontOrigin = Game.Font.MeasureString(Game.NewCPU.Score.ToString()) / 2;
-            Game.SpriteBatch.DrawString(Game.Font, Game.NewCPU.Score.ToString(), new Vector2(this.PositionCPU.X + this.Texture.Width / 2, this.PositionCPU.Y + this.Texture.Height / 2), Color.White, 0, FontOrigin, 0.2f, SpriteEffects.None, 0.5f);
+            game.spriteBatch.Draw(TEXTURE,PositionPlayer,Color.White);
+            Vector2 FontOrigin = game.Font.MeasureString(game.NewPlayer.Score.ToString()) / 2;
+            game.spriteBatch.DrawString(game.Font, game.NewPlayer.Score.ToString(), new Vector2(PositionPlayer.X + TEXTURE.Width / 2, PositionPlayer.Y + TEXTURE.Height / 2), Color.White, 0, FontOrigin, 0.2f, SpriteEffects.None, 0.5f);
+
+            game.spriteBatch.Draw(TEXTURE, PositionCPU, Color.White);
+            FontOrigin = game.Font.MeasureString(game.NewCPU.Score.ToString()) / 2;
+            game.spriteBatch.DrawString(game.Font, game.NewCPU.Score.ToString(), new Vector2(PositionCPU.X + TEXTURE.Width / 2, PositionCPU.Y + TEXTURE.Height / 2), Color.White, 0, FontOrigin, 0.2f, SpriteEffects.None, 0.5f);
+       
         }
     }
 }

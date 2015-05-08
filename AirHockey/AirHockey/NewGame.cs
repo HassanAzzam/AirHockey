@@ -19,65 +19,59 @@ namespace AirHockey
     /// 
     public class NewGame : Microsoft.Xna.Framework.Game
     {
-        #region XNA objects
-        public GraphicsDeviceManager Graphics;
-        private Texture2D GoalTex;
-        private Texture2D UnMuteTex;
-        private Texture2D MuteTex;
-        public SpriteBatch SpriteBatch;
-        public SpriteFont Font;
-        private Stopwatch StopWatch;
-        public SoundEffect PuckHitGoal;
-        public SoundEffect PuckSound;
-        #endregion
-
-        #region Game objects
-        private MainMenu NewMenu;
         public Table GameTable;
         public Player NewPlayer;
         public CPU NewCPU;
         public Puck NewPuck;
+        private Menu NewMenu;
+        public GraphicsDeviceManager graphics;
+        public SpriteBatch spriteBatch;
+        public SpriteFont Font;
+        bool Paused;
+        private Stopwatch STOP;
         private Scoreboard NewScoreboard;
-        #endregion
-
-        #region Flags
+        public Texture2D GoalTex;
+        private Texture2D UnMuteTex;
+        private Texture2D MuteTex;
+        public bool Goal = false;
+        public bool Mute = false;
         private bool MenuTime;
-        private bool Paused;
-        private bool Goal;
-        public bool Mute;
-        private bool GameOver;
-        #endregion
+        private bool GameOver = false;
+        private const int MAX_GOAL = 5;
 
-        private const short MAX_GOAL = 7;
+        #region Sound Effect
+        public SoundEffect PuckHitGoal;
+        public SoundEffect PuckSound;
+        #endregion
 
         public NewGame()
         {
-            this.Graphics = new GraphicsDeviceManager(this);
-            this.Graphics.PreferMultiSampling = true;
-            this.Graphics.PreferredBackBufferHeight = 768;
-            this.Graphics.PreferredBackBufferWidth = 1366;
-            this.Graphics.IsFullScreen = true;
-            this.IsMouseVisible = true;
-            this.IsFixedTimeStep = true;
-            this.Graphics.ApplyChanges();
-            this.Content.RootDirectory = "Content";
+            graphics = new GraphicsDeviceManager(this);
+            graphics.PreferMultiSampling = true;
+            Content.RootDirectory = "Content";
+            graphics.PreferredBackBufferHeight = 768;
+            graphics.PreferredBackBufferWidth = 1366;
+            graphics.IsFullScreen = true;
+            IsMouseVisible = true;
+            IsFixedTimeStep = true;
+            graphics.ApplyChanges();
+            //TargetElapsedTime = TimeSpan.FromMilliseconds(5);
 
             #region Initialization
-            this.StopWatch = new Stopwatch();
-            this.StopWatch.Start();
-            this.NewMenu = new MainMenu();
-            this.GameTable = new Table(this);
-            this.NewPlayer = new Player(this);
-            this.NewCPU = new CPU(this);
-            this.NewPuck = new Puck(this);
-            this.NewScoreboard = new Scoreboard(this);
+            Paused = false;
+            STOP = new Stopwatch();
+            STOP.Start();
+            NewScoreboard = new Scoreboard(this);
+            GameTable = new Table(this);
+            NewCPU = new CPU(this);
+            NewPlayer = new Player(this);
+            NewPuck = new Puck(this);
+            this.NewMenu = new Menu();
             this.MenuTime = true;
-            this.Paused = false;
-            this.Goal = false;
-            this.Mute = false;
-            this.GameOver = false;
             #endregion
+
         }
+
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
@@ -88,11 +82,11 @@ namespace AirHockey
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            this.Components.Add(GameTable);
-            this.Components.Add(NewPuck);
-            this.Components.Add(NewPlayer);
-            this.Components.Add(NewCPU);
-            this.Components.Add(NewScoreboard);
+            Components.Add(GameTable);
+            Components.Add(NewPuck);
+            Components.Add(NewPlayer);
+            Components.Add(NewCPU);
+            Components.Add(NewScoreboard);
 
             base.Initialize();
         }
@@ -103,16 +97,16 @@ namespace AirHockey
         /// </summary>
         protected override void LoadContent()
         {
-            // TODO: use this.Content to load your game content here
             // Create a new SpriteBatch, which can be used to draw textures.
-            this.SpriteBatch = new SpriteBatch(GraphicsDevice);
-            this.Font = Content.Load<SpriteFont>("micross");
-            this.GoalTex = Content.Load<Texture2D>("Goal");
-            this.UnMuteTex = Content.Load<Texture2D>("UnMute");
-            this.MuteTex = Content.Load<Texture2D>("Mute");
-            this.PuckHitGoal = Content.Load<SoundEffect>("puck_hit_goal");
-            this.PuckSound = Content.Load<SoundEffect>("PuckSound");
-            this.StartNewGame();
+            spriteBatch = new SpriteBatch(GraphicsDevice);
+            Font = Content.Load<SpriteFont>("micross");
+            GoalTex = Content.Load<Texture2D>("Goal");
+            UnMuteTex = Content.Load<Texture2D>("UnMute");
+            MuteTex = Content.Load<Texture2D>("Mute");
+            PuckHitGoal = Content.Load<SoundEffect>("puck_hit_goal");
+            PuckSound = Content.Load<SoundEffect>("PuckSound");
+            initialize();
+            // TODO: use this.Content to load your game content here
         }
 
         /// <summary>
@@ -128,83 +122,89 @@ namespace AirHockey
         /// Allows the game to run logic such as updating the world,
         /// checking for collisions, gathering input, and playing audio.
         /// </summary>
-        /// <param name="GameTime">Provides a snapshot of timing values.</param>
-        protected override void Update(GameTime GameTime)
+        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        protected override void Update(GameTime gameTime)
         {
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-            {
                 this.Exit();
-            }
             if (this.MenuTime)
             {
-                short UserChoise = this.NewMenu.GetState();
                 IsMouseVisible = true;
+                GameOver = false;
+                short UserChoise = this.NewMenu.GetState();
                 if (UserChoise == -1 || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 {
                     this.Exit();
                 }
                 else if (UserChoise == 1)
                 {
-                    Mouse.SetPosition((int)NewPlayer.Position.X, (int)NewPlayer.Position.Y);
-                    this.StartNewGame();
-                    this.IsMouseVisible = false;
+                    IsMouseVisible = false;
+                    //this.Background(Color.White);
                     this.MenuTime = false;
-                    this.GameOver = false;
-                    this.NewPlayer.Score = 0;
-                    this.NewCPU.Score = 0;
+                    initialize();
+                    Mouse.SetPosition((int)NewPlayer.Position.X, (int)NewPlayer.Position.Y);
+                    NewPlayer.Score = NewCPU.Score = 0;
+                    STOP.Restart();
                 }
                 return;
             }
 
+            #region Mute & Unmute
             if (Keyboard.GetState().IsKeyDown(Keys.M))
             {
-                this.Mute = !this.Mute;
+                Mute = true;
             }
-
-            if (Keyboard.GetState().IsKeyDown(Keys.Escape) && this.StopWatch.Elapsed.TotalSeconds >= 1 && !this.Goal)
+            if (Keyboard.GetState().IsKeyDown(Keys.U))
             {
-                this.Paused = !Paused;
+                Mute = false;
+            }
+            #endregion
+
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape) && STOP.Elapsed.TotalSeconds >= 1 && !Goal)
+            {
+                Paused = !Paused;
                 if (!Paused)
                 {
                     Mouse.SetPosition((int)NewPlayer.Position.X, (int)NewPlayer.Position.Y);
                 }
-                this.StopWatch.Restart();
+                STOP.Restart();
             }
+            
+                if (STOP.Elapsed.TotalSeconds >= 3 &&GameOver)
+                {
+                    MenuTime = true;
+                    STOP.Restart();
+                }
+            
 
-            if (this.StopWatch.Elapsed.TotalSeconds >= 3 && this.GameOver)
+            if (STOP.Elapsed.TotalSeconds >= 1 && Goal)
             {
-                this.MenuTime = true;
-                this.StopWatch.Restart();
+                Goal = false;
+                initialize();
             }
-
-            if (this.StopWatch.Elapsed.TotalSeconds >= 1 && this.Goal)
+            
+            if (!Paused && !Goal && !GameOver)
             {
-                this.Goal = false;
-                this.StartNewGame();
+                NewPlayer.Move(gameTime);
+                NewCPU.Move(gameTime);
+                NewPuck.Move(gameTime);
             }
-
-            if (!this.Paused && !this.Goal && !this.GameOver)
-            {
-                this.NewPlayer.Move(GameTime);
-                this.NewCPU.Move(GameTime);
-                this.NewPuck.Move(GameTime);
-            }
-            base.Update(GameTime);
+            base.Update(gameTime);
         }
 
         /// <summary>
         /// This is called when the game should draw itself.
         /// </summary>
-        /// <param name="GameTime">Provides a snapshot of timing values.</param>
+        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         /// 
-        protected override void Draw(GameTime GameTime)
+        protected override void Draw(GameTime gameTime)
         {
-            this.GraphicsDevice.Clear(Color.White);
-            this.SpriteBatch.Begin();
-            this.DrawElements();
-            this.SpriteBatch.End();
-            base.Draw(GameTime);
+            GraphicsDevice.Clear(Color.White);
+            spriteBatch.Begin();
+            DrawElements();
+            spriteBatch.End();
+            base.Draw(gameTime);
         }
 
         private void DrawElements()
@@ -215,84 +215,99 @@ namespace AirHockey
                 this.NewMenu.Draw(ref Game);
                 return;
             }
-            this.GameTable.Draw();
-            this.NewPuck.Draw();
-            this.NewPlayer.Draw();
-            this.NewCPU.Draw();
-            this.NewScoreboard.Draw();
-            if (this.Paused)
+            GameTable.Draw();
+            NewPuck.Draw();
+            NewPlayer.Draw();
+            NewCPU.Draw();
+            NewScoreboard.Draw();
+            if (Paused)
             {
-                //this.DrawPause();
+                DrawPause();
             }
-            if (this.Goal)
+            if (Goal == true)
             {
-                this.SpriteBatch.Draw(this.GoalTex, new Vector2(Table.Width / 2 - this.GoalTex.Width / 2, Table.Height / 2 - this.GoalTex.Height / 2), Color.White);
+                spriteBatch.Draw(GoalTex, new Vector2(Table.WIDTH / 2 - GoalTex.Width / 2, Table.HEIGHT / 2 - GoalTex.Height / 2), Color.White);
             }
-            if (this.GameOver)
+            if (GameOver)
             {
-                this.EndGame();
+                DrawEnd();
                 return;
             }
-            if (!this.Mute)
+            if (!Mute)
             {
-                this.SpriteBatch.Draw(this.UnMuteTex, new Vector2(Table.Thickness + 15, Table.Height + 15), Color.White);
+                spriteBatch.Draw(UnMuteTex, new Vector2(Table.Thickness + 15, Table.HEIGHT + 15), Color.White);
             }
-            if (this.Mute)
+            if (Mute)
             {
-                this.SpriteBatch.Draw(this.MuteTex, new Vector2(Table.Thickness + 15, Table.Height + 15), Color.White);
+                spriteBatch.Draw(MuteTex, new Vector2(Table.Thickness + 15, Table.HEIGHT + 15), Color.White);
             }
         }
 
-        public void StartNewGame()
+        private void DrawPause()
         {
-            Mouse.SetPosition((int)this.NewPlayer.Position.X, (int)this.NewPlayer.Position.Y);
-            this.NewPuck.Initialize();
-            this.NewPlayer.Initialize();
-            this.NewCPU.Initialize();
+            //Drawing Rectangle
+            Texture2D rec = new Texture2D(graphics.GraphicsDevice, 1, 1, true, SurfaceFormat.Color);
+            rec.SetData<Color>(new[] { Color.Black * 0.5f });
+            spriteBatch.Draw(rec, new Rectangle(0, 0, graphics.GraphicsDevice.Viewport.Width, graphics.GraphicsDevice.Viewport.Height), Color.White);
+
+            //Drawing Text
+            Vector2 PausePos = new Vector2(graphics.GraphicsDevice.Viewport.Width / 2, graphics.GraphicsDevice.Viewport.Height / 2);
+            Vector2 FontOrigin = Font.MeasureString("PAUSED") / 2;
+            spriteBatch.DrawString(Font, "PAUSED", PausePos, Color.White, 0, FontOrigin, 1.0f, SpriteEffects.None, 0.5f);
+            PausePos.Y = graphics.GraphicsDevice.Viewport.Height - 50;
+            FontOrigin = Font.MeasureString("Press ESC to Resume") / 2;
+            spriteBatch.DrawString(Font, "Press ESC to Resume", PausePos, Color.Black, 0, FontOrigin, 0.2f, SpriteEffects.None, 0.5f);
+        }
+
+        public void initialize()
+        {
+            NewPuck.Initialize();
+            NewPlayer.Initialize();
+            NewCPU.Initialize();
+            Mouse.SetPosition((int)NewPlayer.Position.X, (int)NewPlayer.Position.Y);
         }
 
         public void GoalScored()
         {
-            if (this.NewPlayer.Score == MAX_GOAL || this.NewCPU.Score == MAX_GOAL)
+            if (NewPlayer.Score == MAX_GOAL || NewCPU.Score == MAX_GOAL)
             {
-                this.GameOver = true;
+                GameOver = true;
             }
             else
             {
-                this.Goal = true;
+                Goal = true;
             }
-            this.StopWatch.Restart();
+            STOP.Restart();
         }
 
-        private void EndGame()
+        private void DrawEnd()
         {
-            if (this.NewPlayer.Score == MAX_GOAL)
+            if (NewPlayer.Score == MAX_GOAL)
             {
-                Vector2 Position = new Vector2(this.Graphics.GraphicsDevice.Viewport.Width / 2, this.Graphics.GraphicsDevice.Viewport.Height / 2);
-                this.DrawBackground(Color.White, 1f);
-                this.DrawBackground(Color.Green, 0.8f);
-                this.DrawText("YOU WIN!", Color.White, Position, 1f);
+                DrawBackground(Color.White, 1f);
+                DrawBackground(Color.Green,0.8f);
+                DrawText("YOU WIN!", Color.White);
             }
             else
             {
-                Vector2 Position = new Vector2(this.Graphics.GraphicsDevice.Viewport.Width / 2, this.Graphics.GraphicsDevice.Viewport.Height / 2);
-                this.DrawBackground(Color.White, 1f);
-                this.DrawBackground(Color.Red, 0.8f);
-                this.DrawText("GAME OVER", Color.White, Position, 1f);
+                DrawBackground(Color.White, 1f);
+                DrawBackground(Color.Red,0.8f);
+                DrawText("YOU LOSE!", Color.White);
             }
         }
 
-        public void DrawText(string Text, Color Color, Vector2 Position, float Scale)
+        private void DrawText(string Text, Color COLOR)
         {
-            Vector2 Origin = this.Font.MeasureString(Text) / 2;
-            this.SpriteBatch.DrawString(this.Font, Text, Position, Color, 0, Origin, Scale, SpriteEffects.None, 0.5f);
+            Vector2 PausePos = new Vector2(graphics.GraphicsDevice.Viewport.Width / 2, graphics.GraphicsDevice.Viewport.Height / 2);
+            Vector2 FontOrigin = Font.MeasureString(Text) / 2;
+            spriteBatch.DrawString(Font, Text, PausePos, COLOR, 0, FontOrigin, 1.0f, SpriteEffects.None, 0.5f);
         }
 
-        private void DrawBackground(Color Color, float Alpha)
+        private void DrawBackground(Color COLOR, float Alpha)
         {
-            Texture2D Rectangle = new Texture2D(this.Graphics.GraphicsDevice, 1, 1, true, SurfaceFormat.Color);
-            Rectangle.SetData<Color>(new[] { Color * Alpha });
-            this.SpriteBatch.Draw(Rectangle, new Rectangle(0, 0, this.Graphics.GraphicsDevice.Viewport.Width, this.Graphics.GraphicsDevice.Viewport.Height), Color.White);
+            Texture2D rec = new Texture2D(graphics.GraphicsDevice, 1, 1, true, SurfaceFormat.Color);
+            rec.SetData<Color>(new[] { COLOR * Alpha });
+            spriteBatch.Draw(rec, new Rectangle(0, 0, graphics.GraphicsDevice.Viewport.Width, graphics.GraphicsDevice.Viewport.Height), Color.White);
         }
     }
 }

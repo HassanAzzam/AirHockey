@@ -14,204 +14,209 @@ namespace AirHockey
 {
     public class Puck : GameElement
     {
+        private float FrictionCoefficient = 0.9f;//Alaa: Friction Coefficient is 0.12 :D
+        private int MAX_SPEED = 125;//Alaa: Puck's MaxSpeed, Modified from here ONLY! 
         private Vector2 Acceleration;
         private Vector2 PreviousPosition;
-        private Vector2 ObjVelocity;
-        private int MaximumSpeed;
-        private float FrictionCoefficient;
-        bool CornerCollision;
+        bool CornerCollision=false;
+        Vector2 ObjVelocity;
 
-        public Puck(NewGame Game)
-            : base(Game)
+        public Puck(NewGame game)
+            : base(game)
         {
-            this.Velocity = Vector2.Zero;
-            this.PreviousPosition = Vector2.Zero;
-            this.FrictionCoefficient = 0.9f;
-            this.Acceleration = new Vector2(this.FrictionCoefficient * 9.8f, this.FrictionCoefficient * 9.8f);
-            this.MaximumSpeed = 125;
-            this.Mass = 0.05f;
-            this.CornerCollision = false;
-            this.Game.Content.RootDirectory = "Content";
+            Mass = 0.05F; //Alaa: Puck mass is around 50 grams
+            game.Content.RootDirectory = "Content";
+            Velocity = Vector2.Zero;
+            PreviousPosition = Vector2.Zero;
+            Acceleration = new Vector2(FrictionCoefficient * 9.8f, FrictionCoefficient * 9.8f);
         }
 
         protected override void LoadContent()
         {
-            this.Texture = Game.Content.Load<Texture2D>("Puck");
-            this.Radius = this.Texture.Width / 2;
-            this.Initialize();
+            TEXTURE = game.Content.Load<Texture2D>("Puck");
+            RADIUS = TEXTURE.Width / 2;
+            Initialize();
             base.LoadContent();
         }
 
         public void Draw()
         {
-            Game.SpriteBatch.Draw(this.Texture, Table.TopLeft - new Vector2(this.Radius, this.Radius) + this.Position, Color.White);
+            game.spriteBatch.Draw(this.TEXTURE, Table.TopLeft - new Vector2(RADIUS, RADIUS) + Position, Color.White);
         }
 
         public override void Initialize()
         {
-            this.Velocity = Vector2.Zero;
-            this.Acceleration = Vector2.Zero;
-            this.Position = new Vector2(Table.Width / 2, Table.Height / 2);
+            Velocity = Vector2.Zero;
+            Acceleration = Vector2.Zero;
+            Position = new Vector2(Table.WIDTH/2, Table.HEIGHT / 2);
         }
-
+        
         public override void Move(GameTime Time)
         {
 
             #region Goal Checking
-            if (Game.GameTable.CheckGoal(Game.NewCPU, this.Position))
-            {
-                if (!Game.Mute)
-                {
-                    Game.PuckHitGoal.Play();
-                }
-                ++Game.NewCPU.Score;
-                Game.GoalScored();
-                return;
-            }
-            if (Game.GameTable.CheckGoal(Game.NewPlayer, this.Position))
-            {
-                if (!Game.Mute)
-                {
-                    Game.PuckHitGoal.Play();
-                }
-                ++Game.NewPlayer.Score;
-                Game.GoalScored();
-                return;
-            }
-            #endregion
 
+            if (game.GameTable.CheckGoal(game.NewCPU, Position))
+            {
+                if (!game.Mute)
+                {
+                    game.PuckHitGoal.Play();
+                }
+                ++game.NewCPU.Score;
+                game.GoalScored();
+                return;
+            }
+            else if (game.GameTable.CheckGoal(game.NewPlayer, Position))
+            {
+                if (!game.Mute)
+                {
+                    game.PuckHitGoal.Play();
+                }
+                ++game.NewPlayer.Score;
+                game.GoalScored();
+                return;
+            }
+
+            #endregion
+            
             #region Hitting
 
-            if (this.Intersects(Game.NewPlayer))
+            if (this.Intersects(game.NewPlayer))
             {
-                this.Hit(Game.NewPlayer);
+                Hit(game.NewPlayer);
             }
-            else if (this.Intersects(Game.NewCPU))
+            else if (this.Intersects(game.NewCPU))
             {
-                this.Hit(Game.NewCPU);
+                Hit(game.NewCPU);
             }
             else
             {
-                if (this.CornerCollision)
+                if (CornerCollision)
                 {
-                    this.Velocity = this.ObjVelocity * 7f;
-                    this.CornerCollision = false;
+                    Velocity = ObjVelocity * 7f;
+                    CornerCollision = false;
                 }
-                this.PreviousPosition = Vector2.Zero;
+                PreviousPosition = Vector2.Zero;
             }
             #endregion
 
+            Acceleration = new Vector2(FrictionCoefficient * 9.8f, FrictionCoefficient * 9.8f);
             double time = Time.ElapsedGameTime.TotalSeconds;
-            double Angle = Math.Atan2(Velocity.Y, Velocity.X);
-            this.Acceleration = new Vector2(this.FrictionCoefficient * 9.8f, this.FrictionCoefficient * 9.8f);
-            this.Acceleration *= (float)time;
-            this.Acceleration.X *= (float)Math.Cos(Math.Abs(Angle));
-            this.Acceleration.Y *= (float)Math.Sin(Math.Abs(Angle));
+            Acceleration *= (float)time;
+            double Angle = Math.Atan2(Velocity.Y , Velocity.X);
+            Acceleration.X *= (float)Math.Cos(Math.Abs(Angle));
+            Acceleration.Y *= (float)Math.Sin(Math.Abs(Angle));
+            
+            if (Velocity.X > 0)
+            {
+                Velocity.X -= Acceleration.X;
+            }
+            else if (Velocity.X < 0)
+            {
 
-            if (this.Velocity.X > 0)
-            {
-                this.Velocity.X -= this.Acceleration.X;
+                Velocity.X += Acceleration.X;
             }
-            else if (this.Velocity.X < 0)
+            if (Velocity.Y > 0)
             {
-                this.Velocity.X += this.Acceleration.X;
-            }
-            if (this.Velocity.Y > 0)
-            {
-                this.Velocity.Y -= this.Acceleration.Y;
-            }
-            else if (this.Velocity.Y < 0)
-            {
-                this.Velocity.Y += this.Acceleration.Y;
-            }
 
-            this.BoundPositionInTable(this, this.Velocity * Time.ElapsedGameTime.Milliseconds / 60f);
+                Velocity.Y -= Acceleration.Y;
+            }
+            else if (Velocity.Y < 0)
+            {
 
-            if (this.Position.X == Table.Width - this.Radius - Table.Thickness)
-            {
-                if (!Game.Mute)
-                {
-                    Game.PuckSound.Play();
-                }
-                this.Velocity.X *= -1;
+                Velocity.Y += Acceleration.Y;
             }
-            if (this.Position.X == this.Radius + Table.Thickness)
+            
+            BoundPositionInTable(this, Velocity * Time.ElapsedGameTime.Milliseconds / 60f);
+
+            if (Position.X == Table.WIDTH - RADIUS - Table.Thickness)
             {
-                if (!Game.Mute)
+                if (!game.Mute)
                 {
-                    Game.PuckSound.Play();
+                    game.PuckSound.Play();
                 }
-                this.Velocity.X *= -1;
+                Velocity.X *= -1;
             }
-            if (this.Position.Y == Table.Height - this.Radius - Table.Thickness)
+            if (Position.X == RADIUS + Table.Thickness)
             {
-                if (!Game.Mute)
+                if (!game.Mute)
                 {
-                    Game.PuckSound.Play();
+                    game.PuckSound.Play();
                 }
-                this.Velocity.Y *= -1;
+                Velocity.X *= -1;
             }
-            if (this.Position.Y == this.Radius + Table.Thickness)
+            if (Position.Y == Table.HEIGHT - RADIUS - Table.Thickness)
             {
-                if (!Game.Mute)
+                if (!game.Mute)
                 {
-                    Game.PuckSound.Play();
+                    game.PuckSound.Play();
                 }
-                this.Velocity.Y *= -1;
+                Velocity.Y *= -1;
             }
-            if (this.Velocity.Length() > this.MaximumSpeed)
+            if (Position.Y == RADIUS + Table.Thickness)
             {
-                this.Velocity = new Vector2((this.Velocity.X / this.Velocity.Length()) * this.MaximumSpeed, (this.Velocity.Y / this.Velocity.Length()) * this.MaximumSpeed);
+                if (!game.Mute)
+                {
+                    game.PuckSound.Play();
+                }
+                Velocity.Y *= -1;
+            }
+            //Alaa: Restricts the Velocity in this range, Permanent solution /O/ ~O~ ~O~ \O\
+            if (Velocity.Length() > MAX_SPEED)
+            {
+                Velocity = new Vector2((Velocity.X / Velocity.Length()) * MAX_SPEED, (Velocity.Y / Velocity.Length()) * MAX_SPEED);
             }
         }
 
         private bool Intersects(User obj)
         {
             double Distance;
-            Distance = (obj.Radius + this.Radius) - (obj.Position - this.Position).Length();
+            Distance = (obj.RADIUS + RADIUS) - (obj.Position - Position).Length();
             return Distance >= 0;
         }
 
         public void Hit(User UserObj)
         {
-            if (!Game.Mute)
+            if (!game.Mute)
             {
-                Game.PuckSound.Play();
+                game.PuckSound.Play();
             }
-            double Distance = this.Radius + UserObj.Radius - (UserObj.Position - this.Position).Length();
+            double Distance = RADIUS + UserObj.RADIUS - (UserObj.Position - Position).Length();
 
-            if (this.InCorner() && Distance >= 0)
+            if (this.InCorner()&&Distance>=0)
             {
-                this.CornerCollision = true;
-                this.MintainCollision(UserObj);
-                this.Velocity = Vector2.Zero;
-                this.ObjVelocity = UserObj.Velocity;
+                CornerCollision = true;
+                MintainCollision(UserObj);
+                Velocity = Vector2.Zero;
+                ObjVelocity = UserObj.Velocity;
+                
             }
-            else if (this.OnSide() && Distance >= 0)
+            else if(this.OnSide()&&Distance>=0)
             {
-                this.MintainCollision(UserObj);
-                this.ChangePuckVelocity(UserObj);
+                MintainCollision(UserObj);
+                ChangePuckVelocity(UserObj);
             }
             else
             {
-                this.ChangePuckVelocity(UserObj);
+                ChangePuckVelocity(UserObj);
             }
-            this.PreviousPosition = this.Position;
+            PreviousPosition = Position;
         }
 
         bool OnSide()
         {
-            return (this.Position.X == Table.Thickness + this.Radius) || ((this.Position.X == Table.Width - Table.Thickness - this.Radius) || (this.Position.Y == Table.Thickness + this.Radius) || (this.Position.Y == Table.Height - Table.Thickness - this.Radius));
+            return (Position.X==Table.Thickness+RADIUS)||((Position.X == Table.WIDTH - Table.Thickness - RADIUS)||(Position.Y == Table.Thickness + RADIUS)||(Position.Y == Table.HEIGHT - Table.Thickness - RADIUS));
         }
 
         bool InCorner()
         {
-            return (this.Position.X == Table.Thickness + this.Radius && this.Position.Y == Table.Thickness + this.Radius) || (this.Position.X == Table.Thickness + this.Radius && this.Position.Y == Table.Height - Table.Thickness - Radius) || (this.Position.X == Table.Width - Table.Thickness - this.Radius && this.Position.Y == Table.Thickness + this.Radius) || (this.Position.X == Table.Width - Table.Thickness - this.Radius && this.Position.Y == Table.Height - Table.Thickness - this.Radius);
+            return (Position.X == Table.Thickness + RADIUS && Position.Y == Table.Thickness + RADIUS) || (Position.X == Table.Thickness + RADIUS && Position.Y == Table.HEIGHT - Table.Thickness - RADIUS) || (Position.X == Table.WIDTH - Table.Thickness - RADIUS && Position.Y == Table.Thickness + RADIUS) || (Position.X == Table.WIDTH - Table.Thickness - RADIUS && Position.Y == Table.HEIGHT - Table.Thickness - RADIUS);
         }
 
         private void MintainCollision(User UserObj)
         {
-            double Distance = this.Radius + UserObj.Radius - (UserObj.Position - this.Position).Length();
+            //Velocity = Vector2.Zero;
+            double Distance = RADIUS + UserObj.RADIUS - (UserObj.Position - Position).Length();
 
             if (Distance >= 0)
             {
@@ -220,21 +225,23 @@ namespace AirHockey
                 UserObj.Position = new Vector2((float)(UserObj.Position.X + Distance * Math.Cos(Angle)), (float)(UserObj.Position.Y + Distance * Math.Sin(Angle)));
             }
 
-            Mouse.SetPosition((int)(Game.NewPlayer.Position.X), (int)(Game.NewPlayer.Position.Y));
+            Mouse.SetPosition((int)(game.NewPlayer.Position.X), (int)(game.NewPlayer.Position.Y));
         }
 
         private void ChangePuckVelocity(User UserObj)
         {
+
             //Get angle of Puck Velocity reflection vector caused by the hit
             double Angle = Math.Atan2((this.Position.Y - UserObj.Position.Y), (this.Position.X - UserObj.Position.X));
 
             double VelocityMagnitude;
 
             //Get new velocity magnitude of Puck Velocity according to Momentum Conservation Law
-            VelocityMagnitude = (UserObj.Mass * UserObj.Velocity.Length()) / this.Mass + this.Velocity.Length();
+            VelocityMagnitude = (UserObj.Mass * UserObj.Velocity.Length()) / Mass + Velocity.Length();
 
             //Velocity resolution
             this.Velocity = new Vector2((float)(VelocityMagnitude * Math.Cos(Angle)), (float)(VelocityMagnitude * Math.Sin(Angle)));
+
         }
     }
 }

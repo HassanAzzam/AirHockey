@@ -10,11 +10,12 @@ namespace AirHockey
         /// </summary>
         static void Main(string[] args)
         {
-            using (NewGame Game = new NewGame())
+            using (NewGame game = new NewGame())
             {
-                Game.Run();
+                game.Run();
             }
         }
     }
 #endif
 }
+
