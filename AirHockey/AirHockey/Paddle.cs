@@ -13,25 +13,24 @@ namespace AirHockey
 {
     public abstract class Paddle : GameElement
     {
-        public Paddle(NewGame game)
-            : base(game)
+        public Paddle(NewGame Game)
+            : base(Game)
         {
-            Mass = 0.135f;
-            Position = new Vector2(0, 0);
-            game.Content.RootDirectory = "Content";
+            this.Mass = 0.135f;
+            this.Position = new Vector2(0, 0);
+            this.Game.Content.RootDirectory = "Content";
         }
 
         protected override void LoadContent()
         {
-            TEXTURE = game.Content.Load<Texture2D>("Paddle");
-            RADIUS = TEXTURE.Width / 2;
+            this.Texture = Game.Content.Load<Texture2D>("Paddle");
+            this.Radius = this.Texture.Width / 2;
             base.LoadContent();
         }
 
         public void Draw()
         {
-            game.spriteBatch.Draw(this.TEXTURE, Table.TopLeft + this.Position - new Vector2(RADIUS, RADIUS), Color.White);
+            Game.SpriteBatch.Draw(this.Texture, Table.TopLeft + this.Position - new Vector2(this.Radius, this.Radius), Color.White);
         }
-
     }
 }

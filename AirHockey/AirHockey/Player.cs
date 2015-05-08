@@ -14,37 +14,70 @@ namespace AirHockey
     public class Player : User
     {
 
-        private Player_Paddle PLAYER_PADDLE;
+        private PlayerPaddle PlayerPaddle;
         public int Score;
-        public Player(NewGame game) : base(game)
+        public Player(NewGame Game)
+            : base(Game)
         {
-            PLAYER_PADDLE = new Player_Paddle(game);
+            this.PlayerPaddle = new PlayerPaddle(Game);
         }
         protected override void LoadContent()
         {
-            PLAYER_PADDLE.LoadContent();
+            this.PlayerPaddle.LoadContent();
         }
 
         public override void Initialize()
         {
-            LoadContent();
-            PLAYER_PADDLE.Velocity = Vector2.Zero;
-            PLAYER_PADDLE.Position = new Vector2(70, Table.HEIGHT / 2);
+            this.LoadContent();
+            this.PlayerPaddle.Velocity = Vector2.Zero;
+            this.PlayerPaddle.Position = new Vector2(70, Table.Height / 2);
         }
 
         public override void Move(GameTime Time)
         {
-            PLAYER_PADDLE.Move(Time);
+            this.PlayerPaddle.Move(Time);
         }
 
         public override void Draw()
         {
-            PLAYER_PADDLE.Draw();
+            this.PlayerPaddle.Draw();
         }
 
-        public override Vector2 Position { get { return PLAYER_PADDLE.Position; } set { PLAYER_PADDLE.Position = value; } }
-        public override Vector2 Velocity { get { return PLAYER_PADDLE.Velocity; } set { PLAYER_PADDLE.Velocity = value; } }
-        public override float RADIUS { get { return PLAYER_PADDLE.RADIUS; } }
-        public override float Mass { get { return PLAYER_PADDLE.Mass; } }
+        public override Vector2 Position
+        {
+            get
+            {
+                return this.PlayerPaddle.Position;
+            }
+            set
+            {
+                this.PlayerPaddle.Position = value;
+            }
+        }
+        public override Vector2 Velocity
+        {
+            get
+            {
+                return this.PlayerPaddle.Velocity;
+            }
+            set
+            {
+                this.PlayerPaddle.Velocity = value;
+            }
+        }
+        public override float Radius
+        {
+            get
+            {
+                return this.PlayerPaddle.Radius;
+            }
+        }
+        public override float Mass
+        {
+            get
+            {
+                return this.PlayerPaddle.Mass;
+            }
+        }
     }
 }

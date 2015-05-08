@@ -8,7 +8,8 @@ namespace AirHockey
 {
     public class User : DrawableGameComponent
     {
-        public User(NewGame game) : base(game)
+        public User(NewGame Game)
+            : base(Game)
         {
 
         }
@@ -18,13 +19,39 @@ namespace AirHockey
             base.LoadContent();
         }
 
-        public virtual void Move(GameTime Time){   }
+        public virtual void Move(GameTime Time)
+        {
 
-        public virtual void Draw(){   }
+        }
 
-        public virtual Vector2 Position { get; set; }
-        public virtual Vector2 Velocity { get; set; }
-        public virtual float RADIUS { get { throw new NotImplementedException(); } }
-        public virtual float Mass { get { throw new NotImplementedException(); } }
+        public virtual void Draw()
+        {
+
+        }
+
+        public virtual Vector2 Position
+        {
+            get;
+            set;
+        }
+        public virtual Vector2 Velocity
+        {
+            get;
+            set;
+        }
+        public virtual float Radius
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+        public virtual float Mass
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
     }
 }

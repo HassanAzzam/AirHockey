@@ -13,13 +13,18 @@ namespace AirHockey
 {
     public abstract class GameElement : DrawableGameComponent
     {
-        protected Texture2D TEXTURE;
-        protected NewGame game;
+        protected NewGame Game;
+        public Vector2 Velocity; //Speed has been changed to Velocity by Alaa
+        public Vector2 Position;
+        protected Texture2D Texture;
+        public float Radius;
+        public float Mass; //Mass to calculate Forces
 
-        public GameElement(NewGame game) : base(game)
+        public GameElement(NewGame Game)
+            : base(Game)
         {
-            this.game = game;
-            Position = new Vector2(0, 0);
+            this.Game = Game;
+            this.Position = new Vector2(0, 0);
         }
 
         public virtual void Initialize()
@@ -27,21 +32,15 @@ namespace AirHockey
 
         }
 
-        public Vector2 Velocity; //Speed has been changed to Velocity by Alaa
-
-        public Vector2 Position;
-
-        public float RADIUS,Mass; //Mass to calculate Forces
-
         public virtual void Move(GameTime Time)
         {
-          
+
         }
 
-        protected void BoundPositionInTable(GameElement Element, Vector2 _Velocity)
+        protected void BoundPositionInTable(GameElement Element, Vector2 Velocity)
         {
-            Element.Position.X = Math.Max(Math.Min(Element.Position.X + _Velocity.X, Table.WIDTH - Table.Thickness - Element.RADIUS), Table.Thickness + Element.RADIUS);
-            Element.Position.Y = Math.Max(Math.Min(Element.Position.Y + _Velocity.Y, Table.HEIGHT - Table.Thickness - Element.RADIUS),Table.Thickness + Element.RADIUS);
+            Element.Position.X = Math.Max(Math.Min(Element.Position.X + Velocity.X, Table.Width - Table.Thickness - Element.Radius), Table.Thickness + Element.Radius);
+            Element.Position.Y = Math.Max(Math.Min(Element.Position.Y + Velocity.Y, Table.Height - Table.Thickness - Element.Radius), Table.Thickness + Element.Radius);
         }
     }
 }
