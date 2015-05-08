@@ -13,38 +13,40 @@ namespace AirHockey
 {
     public class Table : DrawableGameComponent
     {
-        private Texture2D TEXTURE;
-        public static int HEIGHT;
-        public static int WIDTH;
+        NewGame Game;
         public static Vector2 TopLeft = new Vector2(35.506f, 11.7f);
-        public const float FRICTION=0.1F;
+        private Texture2D Texture;
+        public static int Height;
+        public static int Width;
+        public const float Friction = 0.1F;
         public const float Thickness = 25f;
-        NewGame game;
 
-        public Table(NewGame game) : base(game)
+        public Table(NewGame Game)
+            : base(Game)
         {
-            this.game = game;
-            game.Content.RootDirectory = "Content";
+            this.Game = Game;
+            this.Game.Content.RootDirectory = "Content";
         }
 
         protected override void LoadContent()
         {
-            TEXTURE = game.Content.Load<Texture2D>("Table");
-            HEIGHT=TEXTURE.Height;
-            WIDTH=TEXTURE.Width;
+            this.Texture = Game.Content.Load<Texture2D>("Table");
+            Height = Texture.Height;
+            Width = Texture.Width;
             base.LoadContent();
         }
 
-        public void Draw(){
-            game.spriteBatch.Draw(this.TEXTURE, TopLeft, Color.White);
+        public void Draw()
+        {
+            this.Game.SpriteBatch.Draw(this.Texture, TopLeft, Color.White);
         }
 
-        public bool CheckGoal(object PLAYERorCPU, Vector2 Position)
+        public bool CheckGoal(object PlayerOrCPU, Vector2 Position)
         {
-            float PuckRadius = game.NewPuck.RADIUS;
+            float PuckRadius = this.Game.NewPuck.Radius;
             try
             {
-                CPU Cpu = (CPU)PLAYERorCPU;
+                CPU Cpu = (CPU)PlayerOrCPU;
                 if (Position.X - PuckRadius <= Thickness && Position.Y >= 241 + PuckRadius && Position.Y <= 431 - PuckRadius)
                 {
                     return true;
@@ -52,12 +54,12 @@ namespace AirHockey
             }
             catch
             {
-                if (Position.X + PuckRadius >= WIDTH - Thickness && Position.Y >= 241 + PuckRadius && Position.Y <= 431 - PuckRadius)
+                if (Position.X + PuckRadius >= Width - Thickness && Position.Y >= 241 + PuckRadius && Position.Y <= 431 - PuckRadius)
                 {
                     return true;
                 }
             }
-            
+
             return false;
         }
     }
