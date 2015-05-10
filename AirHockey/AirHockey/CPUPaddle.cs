@@ -10,8 +10,8 @@ namespace AirHockey
     public class CPUPaddle : Paddle
     {
         private Vector2 DefaultPosition;
-        public CPUPaddle(GameApplication App,NewGame Game)
-            : base(App,Game)
+        public CPUPaddle(ref GameApplication App, ref NewGame Game)
+            : base(ref App, ref Game)
         {
             this.Velocity = Vector2.Zero;
         }
@@ -24,11 +24,11 @@ namespace AirHockey
 
         public override void Move(GameTime Time)
         {
-            if (this.Position.X <= this.Game.NewPuck.Position.X)
+            if (this.Position.X <= this.Game.Puck.Position.X)
             {
                 this.Defense();
             }
-            else if (this.Game.NewPuck.Position.X >= Table.Width / 2 + this.App.Game.NewPuck.Radius)
+            else if (this.Game.Puck.Position.X >= Table.Width / 2 + this.App.Game.Puck.Radius)
             {
                 this.Offense();
             }
@@ -48,15 +48,15 @@ namespace AirHockey
 
         private void Offense()
         {
-            this.Velocity = this.Game.NewPuck.Position - this.Position;
+            this.Velocity = this.Game.Puck.Position - this.Position;
         }
 
         private void Defense()
         {
             this.Velocity = this.DefaultPosition - this.Position;
-            if (this.Game.NewPuck.Velocity.X > 0)
+            if (this.Game.Puck.Velocity.X > 0)
             {
-                this.Velocity.X = this.Game.NewPuck.Velocity.X * 3.5f;
+                this.Velocity.X = this.Game.Puck.Velocity.X * 3.5f;
             }
             else
             {

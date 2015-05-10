@@ -1,0 +1,311 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/PROGRAM FILES (X86)/MICROSOFT VISUAL STUDIO 11.0/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/ReverseEngineeringLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log" Label="Code Generation/Text Transformation Log">
+  <MessageClass Name="Message" Label="Message" Option="Show informational messages" />
+  <MessageClass Name="Warning" Label="Warning" Option="Show warnings" />
+  <MessageClass Name="Error" Label="Error" Option="Show errors" />
+  <MessageClass Name="Property" Label="Property" Option="Show metadata" />
+  <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
+  <Message Timestamp="2015-05-09T09:11:27" Importance="High" Text="Reverse Engineering Started." />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Boolean' -  (PrimitiveType)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Integer' -  (PrimitiveType)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey' -  (Package)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::AppState' -  (Enumeration)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Medium" Text="Element reverse engineered into the UML model: 'Project::AirHockey::CPU' -  (Class)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::CPU::CPU' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::CPU::CPU::App' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::CPU::CPU::Game' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::CPU::CPUPaddle' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::CPU::Draw' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::CPU::Initialize' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::CPU::LoadContent' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::CPU::Mass' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::CPU::Move' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::CPU::Move::Time' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::CPU::Position' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::CPU::Radius' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::CPU::Score' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::CPU::Velocity' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Medium" Text="Element reverse engineered into the UML model: 'Project::AirHockey::CPUPaddle' -  (Class)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::CPUPaddle::CPUPaddle' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::CPUPaddle::CPUPaddle::App' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::CPUPaddle::CPUPaddle::Game' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::CPUPaddle::DefaultPosition' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::CPUPaddle::Defense' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::CPUPaddle::LoadContent' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::CPUPaddle::Move' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::CPUPaddle::Move::Time' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::CPUPaddle::Offense' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::CPUPaddle::ReturnToDefaultPosition' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Medium" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameApplication' -  (Class)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameApplication::Application' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameApplication::AppState' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameApplication::Draw' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameApplication::Draw::GameTime' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameApplication::DrawElements' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameApplication::Game' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameApplication::GameApplication' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameApplication::GameEnd' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameApplication::GoalTexture' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameApplication::Graphics' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameApplication::Initialize' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameApplication::InstructionsWindow' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameApplication::LoadContent' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameApplication::MainMenu' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameApplication::Mute' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameApplication::MuteTexture' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameApplication::PauseMenu' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameApplication::PuckHitGoal' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameApplication::PuckSound' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameApplication::SpriteBatch' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameApplication::SpriteFont' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameApplication::StopWatch' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameApplication::UI' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameApplication::UnloadContent' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameApplication::UnMuteTexture' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameApplication::Update' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameApplication::Update::GameTime' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Medium" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameElement' -  (Class)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameElement::App' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameElement::BoundPositionInTable' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameElement::BoundPositionInTable::Element' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameElement::BoundPositionInTable::Velocity' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameElement::Game' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameElement::GameElement' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameElement::GameElement::App' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameElement::GameElement::Game' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameElement::Initialize' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameElement::Mass' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameElement::Move' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameElement::Move::Time' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameElement::Position' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameElement::Radius' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameElement::Texture' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameElement::Velocity' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Medium" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameOver' -  (Class)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameOver::GameOver' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameOver::Lose' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameOver::Lose::App' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameOver::Win' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameOver::Win::App' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::GameState' -  (Enumeration)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Medium" Text="Element reverse engineered into the UML model: 'Project::AirHockey::InstructionsWindow' -  (Class)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::InstructionsWindow::BackButtonBeginX' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::InstructionsWindow::BackButtonBeginY' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::InstructionsWindow::BackButtonEndX' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::InstructionsWindow::BackButtonEndY' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::InstructionsWindow::Draw' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::InstructionsWindow::Draw::Application' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::InstructionsWindow::GetState' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::InstructionsWindow::InstructionsWindow' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Medium" Text="Element reverse engineered into the UML model: 'Project::AirHockey::MainMenu' -  (Class)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::MainMenu::Draw' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::MainMenu::Draw::Application' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::MainMenu::ExitButtonBeginX' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::MainMenu::ExitButtonBeginY' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::MainMenu::ExitButtonEndX' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::MainMenu::ExitButtonEndY' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::MainMenu::GetState' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::MainMenu::InstructionsButtonBeginX' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::MainMenu::InstructionsButtonBeginY' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::MainMenu::InstructionsButtonEndX' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::MainMenu::InstructionsButtonEndY' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::MainMenu::MainMenu' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::MainMenu::StartButtonBeginX' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::MainMenu::StartButtonBeginY' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::MainMenu::StartButtonEndX' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::MainMenu::StartButtonEndY' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Medium" Text="Element reverse engineered into the UML model: 'Project::AirHockey::NewGame' -  (Class)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::NewGame::AddComponents' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::NewGame::Application' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::NewGame::CPU' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::NewGame::Draw' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::NewGame::Game' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::NewGame::GameState' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::NewGame::GetWinner' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::NewGame::GoalScored' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::NewGame::Initialize' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::NewGame::NewGame' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::NewGame::NewGame::Application' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::NewGame::Player' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::NewGame::Puck' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::NewGame::Scoreboard' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::NewGame::Start' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::NewGame::StopWatch' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::NewGame::Table' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::NewGame::Update' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::NewGame::Update::gameTime' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::NewGame::WinnerScore' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Medium" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Paddle' -  (Class)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Paddle::Draw' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Paddle::LoadContent' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Paddle::Paddle' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Paddle::Paddle::App' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Paddle::Paddle::Game' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Medium" Text="Element reverse engineered into the UML model: 'Project::AirHockey::PauseMenu' -  (Class)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::PauseMenu::Draw' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::PauseMenu::Draw::Application' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::PauseMenu::GetState' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::PauseMenu::MainMenuButtonBeginX' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::PauseMenu::MainMenuButtonBeginY' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::PauseMenu::MainMenuButtonEndX' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::PauseMenu::MainMenuButtonEndY' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::PauseMenu::PauseMenu' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::PauseMenu::ResumeButtonBeginX' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::PauseMenu::ResumeButtonBeginY' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::PauseMenu::ResumeButtonEndX' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::PauseMenu::ResumeButtonEndY' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Medium" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Player' -  (Class)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Player::Draw' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Player::Initialize' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Player::LoadContent' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Player::Mass' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Player::Move' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Player::Move::Time' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Player::Player' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Player::Player::App' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Player::Player::Game' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Player::PlayerPaddle' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Player::Position' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Player::Radius' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Player::Score' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Player::Velocity' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Medium" Text="Element reverse engineered into the UML model: 'Project::AirHockey::PlayerPaddle' -  (Class)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::PlayerPaddle::LoadContent' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::PlayerPaddle::MouseState' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::PlayerPaddle::Move' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::PlayerPaddle::Move::Time' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::PlayerPaddle::PlayerPaddle' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::PlayerPaddle::PlayerPaddle::App' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::PlayerPaddle::PlayerPaddle::Game' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Medium" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Program' -  (Class)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Program::Main' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Program::Main::args' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Medium" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Puck' -  (Class)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Puck::Acceleration' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Puck::ChangePuckVelocity' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Puck::ChangePuckVelocity::UserObj' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Puck::CornerCollision' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Puck::Draw' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Puck::FrictionCoefficient' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Puck::Hit' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Puck::Hit::UserObj' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Puck::InCorner' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Puck::Initialize' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Puck::Intersects' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Puck::Intersects::obj' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Puck::LoadContent' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Puck::MaximumSpeed' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Puck::MintainCollision' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Puck::MintainCollision::UserObj' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Puck::Move' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Puck::Move::Time' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Puck::ObjVelocity' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Puck::OnSide' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Puck::PreviousPosition' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Puck::Puck' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Puck::Puck::App' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Puck::Puck::Game' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Medium" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Scoreboard' -  (Class)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Scoreboard::App' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Scoreboard::Draw' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Scoreboard::Load' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Scoreboard::LoadContent' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Scoreboard::PositionCPU' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Scoreboard::PositionPlayer' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Scoreboard::Scoreboard' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Scoreboard::Scoreboard::App' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Scoreboard::Texture' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Medium" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Table' -  (Class)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Table::App' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Table::CheckGoal' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Table::CheckGoal::PlayerOrCPU' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Table::CheckGoal::Position' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Table::Draw' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Table::Friction' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Table::Game' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Table::Height' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Table::LoadContent' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Table::Table' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Table::Table::App' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Table::Table::Game' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Table::Texture' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Table::Thickness' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Table::TopLeft' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Table::Width' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Medium" Text="Element reverse engineered into the UML model: 'Project::AirHockey::UI' -  (Class)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::UI::App' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::UI::DrawBackground' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::UI::DrawBackground::Alpha' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::UI::DrawBackground::Color' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::UI::DrawText' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::UI::DrawText::Color' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::UI::DrawText::Position' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::UI::DrawText::Scale' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::UI::DrawText::Text' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::UI::UI' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::UI::UI::App' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Medium" Text="Element reverse engineered into the UML model: 'Project::AirHockey::User' -  (Class)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::User::Draw' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::User::LoadContent' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::User::Mass' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::User::Move' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::User::Move::Time' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::User::Position' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::User::Radius' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::User::User' -  (Operation)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::User::User::App' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::User::User::Game' -  (Parameter)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::User::Velocity' -  (Property)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::AirHockey::Winner' -  (Enumeration)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::Microsoft' -  (Package)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::Microsoft::Xna' -  (Package)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::Microsoft::Xna::Framework' -  (Package)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::Microsoft::Xna::Framework::Audio' -  (Package)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::Microsoft::Xna::Framework::Audio::SoundEffect' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::Microsoft::Xna::Framework::Color' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::Microsoft::Xna::Framework::DrawableGameComponent' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::Microsoft::Xna::Framework::Game' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::Microsoft::Xna::Framework::GameTime' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::Microsoft::Xna::Framework::Graphics' -  (Package)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::Microsoft::Xna::Framework::Graphics::SpriteBatch' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::Microsoft::Xna::Framework::Graphics::SpriteFont' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::Microsoft::Xna::Framework::Graphics::Texture2D' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::Microsoft::Xna::Framework::GraphicsDeviceManager' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::Microsoft::Xna::Framework::Input' -  (Package)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::Microsoft::Xna::Framework::Input::MouseState' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::Microsoft::Xna::Framework::Vector2' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::System' -  (Package)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::System::Diagnostics' -  (Package)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::System::Diagnostics::Stopwatch' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::System::Int16' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::System::Object' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Project::System::Single' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'String' -  (PrimitiveType)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Project::AirHockey::GameApplication to Project::Microsoft::Xna::Framework::Game (Generalization)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Project::AirHockey::GameElement to Project::Microsoft::Xna::Framework::DrawableGameComponent (Generalization)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Project::AirHockey::Paddle to Project::AirHockey::GameElement (Generalization)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Project::AirHockey::Player to Project::System::Single (Association)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Project::AirHockey::Player to Project::Microsoft::Xna::Framework::Vector2 (Association)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Project::AirHockey::Player to Project::System::Single (Association)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Project::AirHockey::Player to Project::Microsoft::Xna::Framework::Vector2 (Association)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Project::AirHockey::Player to Project::AirHockey::User (Generalization)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Project::AirHockey::PlayerPaddle to Project::AirHockey::Paddle (Generalization)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Project::AirHockey::Puck to Project::AirHockey::GameElement (Generalization)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Project::AirHockey::Scoreboard to Project::Microsoft::Xna::Framework::DrawableGameComponent (Generalization)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Project::AirHockey::Table to Project::Microsoft::Xna::Framework::DrawableGameComponent (Generalization)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Project::AirHockey::User to Project::System::Single (Association)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Project::AirHockey::User to Project::Microsoft::Xna::Framework::Vector2 (Association)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Project::AirHockey::User to Project::System::Single (Association)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Project::AirHockey::User to Project::Microsoft::Xna::Framework::Vector2 (Association)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Project::AirHockey::User to Project::Microsoft::Xna::Framework::DrawableGameComponent (Generalization)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Project::AirHockey::CPU to Project::System::Single (Association)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Project::AirHockey::CPU to Project::Microsoft::Xna::Framework::Vector2 (Association)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Project::AirHockey::CPU to Project::System::Single (Association)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Project::AirHockey::CPU to Project::Microsoft::Xna::Framework::Vector2 (Association)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Project::AirHockey::CPU to Project::AirHockey::User (Generalization)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Project::AirHockey::CPUPaddle to Project::AirHockey::Paddle (Generalization)" />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="High" Text="(18) type(s) fully reverse engineered." />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="High" Text="(18) type(s) partially reverse engineered.  These types were not included in the original selection so their full definitions are not reverse engineered.  Instead, this shallow operation has simply ensured these types exist in the UML model because they are needed in order to fully describe other elements." />
+  <Message Timestamp="2015-05-09T09:11:37" Importance="High" Text="The reverse engineering operation completed with (0) error(s), and (0) warning(s)." />
+</Log>

@@ -13,8 +13,8 @@ namespace AirHockey
 {
     public abstract class Paddle : GameElement
     {
-        public Paddle(GameApplication App, NewGame game)
-            : base(App,game)
+        public Paddle(ref GameApplication App, ref NewGame Game)
+            : base(ref App, ref Game)
         {
             this.Mass = 0.135f;
             this.Position = new Vector2(0, 0);
