@@ -19,8 +19,8 @@ namespace AirHockey
     public class PlayerPaddle : Paddle
     {
         private MouseState MouseState;
-        public PlayerPaddle(GameApplication App,NewGame  Game)
-            : base(App,Game)
+        public PlayerPaddle(ref GameApplication App, ref NewGame Game)
+            : base(ref App, ref Game)
         {
             this.Velocity = new Vector2(0, 0);
         }

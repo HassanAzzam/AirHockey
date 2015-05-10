@@ -16,10 +16,10 @@ namespace AirHockey
 
         private PlayerPaddle PlayerPaddle;
         public int Score;
-        public Player(GameApplication App,NewGame Game)
-            : base(App,Game)
+        public Player(ref GameApplication App, ref NewGame Game)
+            : base(ref App, ref Game)
         {
-            this.PlayerPaddle = new PlayerPaddle(App,Game);
+            this.PlayerPaddle = new PlayerPaddle(ref App, ref Game);
         }
 
         protected override void LoadContent()

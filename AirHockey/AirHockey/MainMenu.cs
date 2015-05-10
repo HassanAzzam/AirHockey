@@ -35,22 +35,28 @@ namespace AirHockey
         /// <summary>
         /// Drawing the main menu buttons.
         /// </summary>
-        /// <param name="App"> The game where the main menu would be drawn. </param>
+        /// <param name="Application"> The application where the main menu would be drawn. </param>
         ///
-        public void Draw(ref GameApplication App)
+        public void Draw(ref GameApplication Application)
         {
             MouseState State = Mouse.GetState();    //  Getting mouse position.
             Vector2 Position = new Vector2();   //  The position where the button would be drawn.
-            Color Color = Color.Red * 1.5f; //  The text color.
+            Color Color; //  The text color.
 
-            //  Setting background.           
-            App.SpriteBatch.Draw(App.Content.Load<Texture2D>("MenuBackGround"), App.Graphics.GraphicsDevice.Viewport.Bounds, Color.White);
+            #region Background.
+            Application.SpriteBatch.Draw(
+                Application.Content.Load<Texture2D>("MenuBackGround"),
+                Application.Graphics.GraphicsDevice.Viewport.Bounds,
+                Color.White);
+            #endregion
 
-            //  Setting start button position.
+            #region Start.
+            //  Setting color.
+            Color = Color.Red * 1.5f;
+            //  Setting position.
             Position.X = 675;
             Position.Y = 285;
-
-            //  Incase the mouse position is inside the start button.
+            //  Incase the mouse position is inside the button.
             if (State.X >= StartButtonBeginX &&
                 State.X <= StartButtonEndX &&
                 State.Y >= StartButtonBeginY &&
@@ -58,18 +64,17 @@ namespace AirHockey
             {
                 Color = Color.White;   //  Adding vitality by changing the used color.
             }
+            //  Drawing the button.
+            Application.UI.DrawText("Start", Color, Position, 0.5f);
+            #endregion
 
-            //  Drawing the start button.
-            App.UIDesigner.DrawText("Start", Color, Position, 0.5f);
-
-            //  Setting instructions button color.
+            #region Instructions.
+            //  Setting color.
             Color = Color.Red * 1.5f;
-
-            //  Setting instructions button position.
+            //  Setting position.
             Position.X = 675;
             Position.Y = 420;
-
-            //  Incase the mouse position is inside the instructions button.
+            //  Incase the mouse position is inside the button.
             if (State.X >= InstructionsButtonBeginX &&
                 State.X <= InstructionsButtonEndX &&
                 State.Y >= InstructionsButtonBeginY &&
@@ -77,18 +82,17 @@ namespace AirHockey
             {
                 Color = Color.White;    //  Adding vitality by changing the used color.
             }
-
             //  Drawing the instructions button.
-            App.UIDesigner.DrawText("Instructions", Color, Position, 0.5f);
+            Application.UI.DrawText("Instructions", Color, Position, 0.5f);
+            #endregion
 
-            //  Setting end button color.
+            #region Exit.
+            //  Setting color.
             Color = Color.Red * 1.5f;
-
-            //  Setting end button position.
+            //  Setting position.
             Position.X = 675;
             Position.Y = 600;
-
-            //  In case the mouse position is inside the exit button.
+            //  In case the mouse position is inside the button.
             if (State.X >= ExitButtonBeginX &&
                 State.X <= ExitButtonEndX &&
                 State.Y >= ExitButtonBeginY &&
@@ -96,15 +100,18 @@ namespace AirHockey
             {
                 Color = Color.White;   //  Adding vitality by changing the used color.
             }
-
-            //  Drawing the exit button.
-            App.UIDesigner.DrawText("Exit", Color, Position, 0.5f);
+            //  Drawing the button.
+            Application.UI.DrawText("Exit", Color, Position, 0.5f);
+            #endregion
         }
 
         /// <summary>
         /// The user choise.
         /// </summary>
-        /// <returns> 1 if the start button pressed, -1 if the exit button pressed or 0 otherwise. </returns>
+        /// <returns> 1 if the start button pressed,
+        /// 2 if the instructions button pressed,
+        /// 3 if the exit button pressed
+        /// or 0 otherwise. </returns>
         public short GetState()
         {
             MouseState State = Mouse.GetState();

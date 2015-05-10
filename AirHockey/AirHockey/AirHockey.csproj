@@ -75,7 +75,9 @@
     <Compile Include="CPU.cs" />
     <Compile Include="CPUPaddle.cs" />
     <Compile Include="GameOver.cs" />
+    <Compile Include="InstructionsWindow.cs" />
     <Compile Include="NewGame.cs" />
+    <Compile Include="PauseMenu.cs" />
     <Compile Include="Puck.cs" />
     <Compile Include="GameElement.cs" />
     <Compile Include="MainMenu.cs" />

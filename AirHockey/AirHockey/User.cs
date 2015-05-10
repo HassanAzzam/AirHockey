@@ -8,7 +8,7 @@ namespace AirHockey
 {
     public class User : DrawableGameComponent
     {
-        public User(GameApplication App,NewGame Game)
+        public User(ref GameApplication App, ref NewGame Game)
             : base(App)
         {
 

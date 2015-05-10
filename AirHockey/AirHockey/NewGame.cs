@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -11,9 +12,9 @@ namespace AirHockey
 {
     public enum GameState
     {
-        Running,
+        Goal,
         Paused,
-        Goal
+        Running
     }
 
     public enum Winner
@@ -24,129 +25,122 @@ namespace AirHockey
 
     public class NewGame
     {
-        GameApplication App;
-
-        #region Game objects
-
-        public Table GameTable;
-        public Player NewPlayer;
-        public CPU NewCPU;
-        public Puck NewPuck;
-        private Scoreboard NewScoreboard;
+        public CPU CPU;
+        private GameApplication Application;
+        public GameState GameState;
+        private NewGame Game;
+        public Player Player;
+        public Puck Puck;
+        private Scoreboard Scoreboard;
         private Stopwatch StopWatch;
-        private GameState State;
-        //pause menu
-
-        #endregion
-
-        private const short MAX_GOAL = 7;
-
-        public NewGame(GameApplication App)
+        public Table Table;
+        private const short WinnerScore = 7;
+        
+        public NewGame(ref GameApplication Application)
         {
-            this.App = App;
-
-            #region Initialization
-            this.GameTable = new Table(App,this);
-            this.NewPlayer = new Player(App,this);
-            this.NewCPU = new CPU(App,this);
-            this.NewPuck = new Puck(App,this);
-            this.NewScoreboard = new Scoreboard(App);
+            this.Application = Application;
+            this.Game = this;
+            this.CPU = new CPU(ref this.Application, ref this.Game);
+            this.GameState = GameState.Running;
+            this.Player = new Player(ref this.Application, ref this.Game);
+            this.Puck = new Puck(ref this.Application, ref this.Game);
+            this.Scoreboard = new Scoreboard(ref this.Application);
             this.StopWatch = new Stopwatch();
-            //pause menu
-            #endregion
-
+            this.Table = new Table(ref this.Application, ref this.Game);
         }
 
         public void AddComponents()
         {
-            App.Components.Add(GameTable);
-            App.Components.Add(NewPuck);
-            App.Components.Add(NewPlayer);
-            App.Components.Add(NewCPU);
-            App.Components.Add(NewScoreboard);
+            this.Application.Components.Add(this.CPU);
+            this.Application.Components.Add(this.Puck);
+            this.Application.Components.Add(this.Player);
+            this.Application.Components.Add(this.Scoreboard);
+            this.Application.Components.Add(this.Table);
         }
 
         public void Start()
         {
-
-            this.Initialize();   
-            Mouse.SetPosition((int)this.NewPlayer.Position.X, (int)this.NewPlayer.Position.Y);
-            App.IsMouseVisible = false;
+            this.Initialize();
+            Mouse.SetPosition((int)this.Player.Position.X, (int)this.Player.Position.Y);
+            this.CPU.Score = 0;
+            this.Application.IsMouseVisible = false;
+            this.GameState = GameState.Running;
+            this.Player.Score = 0;
             this.StopWatch.Start();
-            this.NewPlayer.Score = 0;
-            this.NewCPU.Score = 0;
-
-            State = GameState.Running;
         }
 
         private void Initialize()
         {
-            this.NewPuck.Initialize();
-            this.NewPlayer.Initialize();
-            this.NewCPU.Initialize();
+            this.CPU.Initialize();
+            this.Player.Initialize();
+            this.Puck.Initialize();
         }
 
         public void Update(GameTime gameTime)
         {
-            if (Keyboard.GetState().IsKeyDown(Keys.M))
+            if (this.GameState == GameState.Running)
             {
-                App.Mute = !App.Mute;
+                if (Keyboard.GetState().IsKeyDown(Keys.P))
+                {
+                    this.Application.AppState = AppState.PauseMenu;
+                    this.GameState = GameState.Paused;
+                }
+                else
+                {
+                    if (Keyboard.GetState().IsKeyDown(Keys.M))
+                    {
+                        this.Application.Mute = !this.Application.Mute;
+                    }
+                    this.CPU.Move(gameTime);
+                    this.Player.Move(gameTime);
+                    this.Puck.Move(gameTime);
+                }
+                return;
             }
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Escape) && this.StopWatch.Elapsed.TotalSeconds >= 1 && State==GameState.Running)
-            {
-                
-               // this.StopWatch.Restart();
-            }
-
-            if (State == GameState.Goal)
+            if (this.GameState == GameState.Goal)
             {
                 Thread.Sleep(1000);
                 this.Initialize();
-                if (this.NewPlayer.Score == MAX_GOAL || this.NewCPU.Score == MAX_GOAL)
+                if (this.Player.Score == WinnerScore || this.CPU.Score == WinnerScore)
                 {
-                    App.State = AppState.GameOver;
+                    this.Application.AppState = AppState.GameOver;
                 }
-                State = GameState.Running;
-                Mouse.SetPosition((int)this.NewPlayer.Position.X, (int)this.NewPlayer.Position.Y);
-            }
-
-            if (State == GameState.Running)
-            {
-                this.NewPlayer.Move(gameTime);
-                this.NewCPU.Move(gameTime);
-                this.NewPuck.Move(gameTime);
+                this.GameState = GameState.Running;
+                Mouse.SetPosition((int)this.Player.Position.X, (int)this.Player.Position.Y);
             }
         }
 
         public void Draw()
         {
-            this.GameTable.Draw();
-            this.NewPuck.Draw();
-            this.NewPlayer.Draw();
-            this.NewCPU.Draw();
-            this.NewScoreboard.Draw();
+            this.Table.Draw();
+            this.Puck.Draw();
+            this.Player.Draw();
+            this.CPU.Draw();
+            this.Scoreboard.Draw();
 
-            if (this.State == GameState.Paused)
+            if (this.GameState == GameState.Goal)
             {
-                //pause menu
-            }
-
-            if (this.State == GameState.Goal)
-            {
-                App.SpriteBatch.Draw(App.GoalTex, new Vector2(Table.Width / 2 - App.GoalTex.Width / 2, Table.Height / 2 - App.GoalTex.Height / 2), Color.White);
+                this.Application.SpriteBatch.Draw(
+                    this.Application.GoalTexture,
+                    new Vector2(
+                        Table.Width / 2 - this.Application.GoalTexture.Width / 2,
+                        Table.Height / 2 - this.Application.GoalTexture.Height / 2),
+                        Color.White);
             }
         }
 
         public void GoalScored()
         {
-            this.State = GameState.Goal;
-           
+            this.GameState = GameState.Goal;
         }
 
         public Winner GetWinner()
         {
-            if (this.NewPlayer.Score == MAX_GOAL) return Winner.Player;
+            if (this.Player.Score == WinnerScore)
+            {
+                return Winner.Player;
+            }
             return Winner.CPU;
         }
     }

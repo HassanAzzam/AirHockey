@@ -8,74 +8,74 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+
 namespace AirHockey
 {
     public class CPU : User
     {
-        private CPUPaddle CPUPADDLE;
+        private CPUPaddle CPUPaddle;
         public int Score;
-        public CPU(GameApplication App,NewGame Game)
-            : base(App,Game)
+        public CPU(ref GameApplication App, ref NewGame Game) : base(ref App, ref Game)
         {
-            this.CPUPADDLE = new CPUPaddle(App,Game);
+            this.CPUPaddle = new CPUPaddle(ref App, ref Game);
         }
 
         protected override void LoadContent()
         {
-            this.CPUPADDLE.LoadContent();
+            this.CPUPaddle.LoadContent();
         }
 
         public override void Initialize()
         {
             this.LoadContent();
-            this.CPUPADDLE.Velocity = Vector2.Zero;
-            this.CPUPADDLE.Position = new Vector2(Table.Width - 70, Table.Height / 2);
+            this.CPUPaddle.Velocity = Vector2.Zero;
+            this.CPUPaddle.Position = new Vector2(Table.Width - 70, Table.Height / 2);
         }
 
         public override void Move(GameTime Time)
         {
-            this.CPUPADDLE.Move(Time);
+            this.CPUPaddle.Move(Time);
         }
 
         public override void Draw()
         {
-            this.CPUPADDLE.Draw();
+            this.CPUPaddle.Draw();
         }
 
         public override Vector2 Position
         {
             get
             {
-                return this.CPUPADDLE.Position;
+                return this.CPUPaddle.Position;
             }
             set
             {
-                this.CPUPADDLE.Position = value;
+                this.CPUPaddle.Position = value;
             }
         }
         public override Vector2 Velocity
         {
             get
             {
-                return this.CPUPADDLE.Velocity;
+                return this.CPUPaddle.Velocity;
             }
             set
             {
-                this.CPUPADDLE.Velocity = value;
+                this.CPUPaddle.Velocity = value;
             }
         }
         public override float Radius
         {
             get
             {
-                return this.CPUPADDLE.Radius;
+                return this.CPUPaddle.Radius;
             }
         }
         public override float Mass
         {
             get
             {
-                return this.CPUPADDLE.Mass;
+                return this.CPUPaddle.Mass;
             }
         }
     }

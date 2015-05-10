@@ -21,12 +21,12 @@ namespace AirHockey
         private float FrictionCoefficient;
         bool CornerCollision;
 
-        public Puck(GameApplication App, NewGame game)
-            : base(App, game)
+        public Puck(ref GameApplication App, ref NewGame Game)
+            : base(ref App, ref Game)
         {
             this.Velocity = Vector2.Zero;
             this.PreviousPosition = Vector2.Zero;
-            this.FrictionCoefficient = 0.9f;
+            this.FrictionCoefficient = 0.5f;
             this.Acceleration = new Vector2(this.FrictionCoefficient * 9.8f, this.FrictionCoefficient * 9.8f);
             this.MaximumSpeed = 125;
             this.Mass = 0.05f;
@@ -55,25 +55,24 @@ namespace AirHockey
 
         public override void Move(GameTime Time)
         {
-
             #region Goal Checking
-            if (App.Game.GameTable.CheckGoal(App.Game.NewCPU, this.Position))
+            if (App.Game.Table.CheckGoal(App.Game.CPU, this.Position))
             {
                 if (!App.Mute)
                 {
                     App.PuckHitGoal.Play();
                 }
-                ++App.Game.NewCPU.Score;
+                ++App.Game.CPU.Score;
                 App.Game.GoalScored();
                 return;
             }
-            if (App.Game.GameTable.CheckGoal(App.Game.NewPlayer, this.Position))
+            if (App.Game.Table.CheckGoal(App.Game.Player, this.Position))
             {
                 if (!App.Mute)
                 {
                     App.PuckHitGoal.Play();
                 }
-                ++App.Game.NewPlayer.Score;
+                ++App.Game.Player.Score;
                 App.Game.GoalScored();
                 return;
             }
@@ -81,13 +80,13 @@ namespace AirHockey
 
             #region Hitting
 
-            if (this.Intersects(Game.NewPlayer))
+            if (this.Intersects(Game.Player))
             {
-                this.Hit(Game.NewPlayer);
+                this.Hit(Game.Player);
             }
-            else if (this.Intersects(Game.NewCPU))
+            else if (this.Intersects(Game.CPU))
             {
-                this.Hit(Game.NewCPU);
+                this.Hit(Game.CPU);
             }
             else
             {
@@ -100,9 +99,8 @@ namespace AirHockey
             }
             #endregion
 
-
             double time = Time.ElapsedGameTime.TotalSeconds;
-            double Angle = Math.Atan2(Velocity.Y, Velocity.X);
+            double Angle = Math.Atan2(Math.Abs(Velocity.Y), Math.Abs(Velocity.X));
             this.Acceleration = new Vector2(this.FrictionCoefficient * 9.8f, this.FrictionCoefficient * 9.8f);
             this.Acceleration *= (float)time;
             this.Acceleration.X *= (float)Math.Cos(Angle);
@@ -161,7 +159,9 @@ namespace AirHockey
             }
             if (this.Velocity.Length() > this.MaximumSpeed)
             {
-                this.Velocity = new Vector2((this.Velocity.X / this.Velocity.Length()) * this.MaximumSpeed, (this.Velocity.Y / this.Velocity.Length()) * this.MaximumSpeed);
+                this.Velocity = new Vector2(
+                    (this.Velocity.X / this.Velocity.Length()) * this.MaximumSpeed,
+                    (this.Velocity.Y / this.Velocity.Length()) * this.MaximumSpeed);
             }
         }
 
@@ -201,12 +201,22 @@ namespace AirHockey
 
         bool OnSide()
         {
-            return (this.Position.X == Table.Thickness + this.Radius) || ((this.Position.X == Table.Width - Table.Thickness - this.Radius) || (this.Position.Y == Table.Thickness + this.Radius) || (this.Position.Y == Table.Height - Table.Thickness - this.Radius));
+            return (this.Position.X == Table.Thickness + this.Radius) || 
+                ((this.Position.X == Table.Width - Table.Thickness - this.Radius) ||
+                (this.Position.Y == Table.Thickness + this.Radius) ||
+                (this.Position.Y == Table.Height - Table.Thickness - this.Radius));
         }
 
         bool InCorner()
         {
-            return (this.Position.X == Table.Thickness + this.Radius && this.Position.Y == Table.Thickness + this.Radius) || (this.Position.X == Table.Thickness + this.Radius && this.Position.Y == Table.Height - Table.Thickness - Radius) || (this.Position.X == Table.Width - Table.Thickness - this.Radius && this.Position.Y == Table.Thickness + this.Radius) || (this.Position.X == Table.Width - Table.Thickness - this.Radius && this.Position.Y == Table.Height - Table.Thickness - this.Radius);
+            return (this.Position.X == Table.Thickness + this.Radius &&
+                this.Position.Y == Table.Thickness + this.Radius) ||
+                (this.Position.X == Table.Thickness + this.Radius &&
+                this.Position.Y == Table.Height - Table.Thickness - Radius) ||
+                (this.Position.X == Table.Width - Table.Thickness - this.Radius &&
+                this.Position.Y == Table.Thickness + this.Radius) ||
+                (this.Position.X == Table.Width - Table.Thickness - this.Radius &&
+                this.Position.Y == Table.Height - Table.Thickness - this.Radius);
         }
 
         private void MintainCollision(User UserObj)
@@ -217,10 +227,12 @@ namespace AirHockey
             {
                 double Angle = Math.Atan2(-1 * UserObj.Velocity.Y, -1 * UserObj.Velocity.X);
 
-                UserObj.Position = new Vector2((float)(UserObj.Position.X + Distance * Math.Cos(Angle)), (float)(UserObj.Position.Y + Distance * Math.Sin(Angle)));
+                UserObj.Position = new Vector2(
+                    (float)(UserObj.Position.X + Distance * Math.Cos(Angle)),
+                    (float)(UserObj.Position.Y + Distance * Math.Sin(Angle)));
             }
 
-            Mouse.SetPosition((int)(Game.NewPlayer.Position.X), (int)(Game.NewPlayer.Position.Y));
+            Mouse.SetPosition((int)(Game.Player.Position.X), (int)(Game.Player.Position.Y));
         }
 
         private void ChangePuckVelocity(User UserObj)

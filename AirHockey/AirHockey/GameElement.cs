@@ -17,15 +17,16 @@ namespace AirHockey
         protected NewGame Game;
         public Vector2 Velocity; //Speed has been changed to Velocity by Alaa
         public Vector2 Position;
-        protected Texture2D Texture;
+        public Texture2D Texture;
+        
         public float Radius;
         public float Mass; //Mass to calculate Forces
 
-        public GameElement(GameApplication App,NewGame game)
+        public GameElement(ref GameApplication App, ref NewGame Game)
             : base(App)
         {
             this.App = App;
-            this.Game = game;
+            this.Game = Game;
             this.Position = new Vector2(0, 0);
         }
 
@@ -41,8 +42,16 @@ namespace AirHockey
 
         protected void BoundPositionInTable(GameElement Element, Vector2 Velocity)
         {
-            Element.Position.X = Math.Max(Math.Min(Element.Position.X + Velocity.X, Table.Width - Table.Thickness - Element.Radius), Table.Thickness + Element.Radius);
-            Element.Position.Y = Math.Max(Math.Min(Element.Position.Y + Velocity.Y, Table.Height - Table.Thickness - Element.Radius), Table.Thickness + Element.Radius);
+            Element.Position.X = Math.Max(
+                Math.Min(
+                Element.Position.X + Velocity.X,
+                Table.Width - Table.Thickness - Element.Radius),
+                Table.Thickness + Element.Radius);
+            Element.Position.Y = Math.Max(
+                Math.Min(
+                Element.Position.Y + Velocity.Y,
+                Table.Height - Table.Thickness - Element.Radius),
+                Table.Thickness + Element.Radius);
         }
     }
 }
